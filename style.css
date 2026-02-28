@@ -1019,3 +1019,57 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     display: block;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho video nổi bật */
 }
+/* ================================================= */
+/* --- GIAO DIỆN DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* 1. SỬA LỖI ĐÈ VẠCH: Bỏ chiều cao cố định để thanh Nav tự giãn nở */
+    nav {
+        height: auto !important; 
+    }
+
+    /* Đổi bố cục thanh Nav thành cột (Logo ở trên, Nút ở dưới) */
+    .nav-content {
+        flex-direction: column;
+        align-items: flex-start; 
+        position: relative; 
+        /* Tăng padding dưới lên 15px để các nút cách xa đường kẻ một chút */
+        padding: 12px 15px 15px 15px; 
+    }
+
+    .logo-link {
+        margin-bottom: 15px; 
+    }
+
+    /* Căn giữa các nút chức năng */
+    .nav-actions {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        gap: 8px; 
+    }
+
+    /* Bắt nút Sáng/Tối tách đội hình và ghim lên góc phải */
+    .theme-switch {
+        position: absolute;
+        top: 15px; 
+        right: 15px; 
+        margin: 0 !important;
+    }
+
+    /* Thu nhỏ kích thước mọi thứ một chút */
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    .btn-action {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+}
