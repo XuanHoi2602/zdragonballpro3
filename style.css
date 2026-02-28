@@ -1011,13 +1011,15 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     }
 }
 /* --- CSS CHO VIDEO GOOGLE DRIVE --- */
+
 .img-wrapper iframe {
-    width: 100%;             /* Giãn đầy chiều ngang */
-    aspect-ratio: 16 / 9;    /* Tự động tính chiều cao theo chuẩn video Youtube/Drive */
-    border: none;            /* Xóa viền đen mặc định của iframe */
-    border-radius: 6px;      /* Bo góc cho mềm mại */
+    width: 100%;             
+    aspect-ratio: 16 / 9;    /* Giữ tỷ lệ vàng, không bị đen 2 đầu */
+    border: none;            
+    border-radius: 12px;     /* Bo góc đồng bộ với Card */
     display: block;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Đổ bóng nhẹ cho video nổi bật */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
+    background-color: #000;  /* Nền đen trong lúc chờ load video */
 }
 /* ================================================= */
 /* --- GIAO DIỆN DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) --- */
@@ -1071,5 +1073,25 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     .btn-action {
         font-size: 0.75rem;
         padding: 6px 12px;
+    }
+}
+/* ================================================= */
+/* --- FIX VIDEO & LAYOUT CHO MOBILE (DÁN DƯỚI CÙNG) --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    .content-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .img-wrapper {
+        order: -1 !important; 
+    }
+    .img-wrapper iframe {
+        aspect-ratio: 16 / 9 !important;
+        height: auto !important;
+    }
+    .video-link-btn {
+        width: 100%; /* Nút xem video to ra cho dễ bấm trên điện thoại */
+        justify-content: center;
     }
 }
