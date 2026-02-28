@@ -477,7 +477,7 @@ footer {
 }
 
 /* --- HIỆU ỨNG HOA MAI RƠI --- */
-.mai-petal {
+/* .mai-petal {
     position: fixed;
     top: -20px;
     z-index: 99999;
@@ -497,7 +497,7 @@ footer {
         transform: translateY(110vh) translateX(50px) rotate(720deg); 
         opacity: 0.2;
     }
-}
+} */
 
 /* --- NÚT CHUYỂN ĐỔI SÁNG/TỐI --- */
 .theme-switch {
