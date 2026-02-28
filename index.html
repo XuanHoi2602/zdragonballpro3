@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZDragonBallPro3 - ToolZangVPS</title>
+    <link rel="icon" href="zalo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <body class="dark-theme"></body>
+
+    <nav>
+        <div class="nav-content">
+            <a href="#" class="logo-link">
+                <img src="vps.png" alt="Trang chủ ZDragonBallPro3" class="logo-icon">
+                <span class="logo-text">portal.vpsgame.net</span>
+            </a>
+            <div class="nav-actions">
+                <a href="#" onclick="openVpsModal(event)" class="btn-action">Donate</a>
+                <a href="https://zalo.me/g/hahaae860" target="_blank" class="btn-action">Box Zalo</a>
+                <a href="https://www.youtube.com/@ZangVPS" target="_blank" class="btn-action">YouTube</a>
+                <a href="https://www.facebook.com/nguyenxuanhoidz/" target="_blank" class="btn-action">Facebook</a>
+
+                <label class="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" onchange="toggleTheme()" checked>
+                    <div class="slider round">
+                        <i class="fa-solid fa-moon"></i>
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                </label>
+
+            </div>
+        </div>
+    </nav>
+
+    <div id="vpsModal" class="vps-modal">
+        <div class="vps-modal-content" style="text-align: center;">
+            <span class="vps-close-btn" onclick="closeVpsModal()">&times;</span>
+            <p style="font-size: 0.95rem; margin-bottom: 15px;"> Ủng hộ cốc cafe sáng cho mình nhé.</p>
+            <img src="qr.jpg" alt="Donate"
+                style="width: 100%; max-width: 200px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin: 0 auto; display: block; border: 2px solid var(--border);">
+
+
+        </div>
+    </div>
+    <div id="welcomeModal" class="vps-modal">
+        <div class="vps-modal-content welcome-modal-content">
+            <span class="vps-close-btn" onclick="closeWelcomeModal()">&times;</span>
+            <h2 style="color: var(--primary); margin-bottom: 15px; margin-top: 0; text-align: center;">
+                <i class="fa-solid fa-bullhorn"></i> Thông Báo Mới
+            </h2>
+
+            <div style="text-align: left; line-height: 1.6; font-size: 1.05rem;">
+
+                <p style="margin-top: 10px;">🔥 <strong>Ấn Cập nhật để sử dụng các chức năng mới nhất:</strong></p>
+                <ul style="padding-left: 20px; margin-top: 5px; margin-bottom: 15px;">
+                    <li>Bổ sung Chức năng úp đệ train giáp luyện tập.</li>
+                    <li>Fix lỗi tele săn boss.</li>
+                    <li>Fix lỗi lag cờ đen.</li>
+                    <li>Fix lỗi đổi khu đánh quái khi làm nv bò mộng.</li>
+
+                </ul>
+                <p style="color: var(--danger); font-weight: bold; text-align: center; font-size: 0.95rem;">
+                    Chúc các bạn chơi game vui vẻ ❤️❤️❤️
+                </p>
+            </div>
+
+            <button onclick="closeWelcomeModal()" class="btn-action"
+                style="margin-top: 20px; width: 100%; border: none; cursor: pointer; font-size: 1.1rem; text-align: center;">Đã
+                Hiểu</button>
+        </div>
+    </div>
+
+    <header class="page-header">
+        <h1> Hướng Dẫn Sử Dụng Tool</h1>
+        <p>Chi tiết toàn bộ tính năng của tool ZDragonBallPro3 </p>
+    </header>
+
+    <div class="sticky-menu-wrapper">
+        <div class="in-page-nav">
+            <a href="#tab-giaodien">Giao Diện</a>
+            <a href="#tab-train">Đánh Quái</a>
+            <a href="#tab-upde">Úp Đệ</a>
+            <a href="#tab-boss">Săn Boss</a>
+            <a href="#tab-bomong">Bò Mộng</a>
+            <a href="#tab-phutro">Buff & CSKB</a>
+            <a href="#tab-item">Quản Lý Item</a>
+            <a href="#tab-dau">Auto Đậu</a>
+            <a href="#tab-tudong">Tự Động & Tiện Ích</a>
+            <a href="#tab-caidat">Cài Đặt Chung</a>
+            <a href="#tab-config">Quản Lý Config</a>
+            <a href="#tab-setting">Setting</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div id="tab-giaodien" class="card">
+            <h2 class="section-title">Giao Diện Quản Lý Tài Khoản</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Bảng Điều Khiển & Theo Dõi Hệ Thống</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Giao diện tool</p>
+                        <ul>
+                            <li><strong>Quản lý Tài Khoản:</strong> Các nút Mở Game, Tắt Tất Cả, Sắp xếp tab, Ẩn tất cả
+                                giúp thao tác dễ dàng.</li>
+                            <li><strong>Thông tin acc:</strong> Trực tiếp theo dõi số Tab đang mở, số luồng (Threads),
+                                số acc Online/Login và thông số RAM - CPU để đảm bảo VPS không bị quá tải.(nên reset vps
+                                nếu ram hoặc cpu quá cao)</li>
+                            <li><strong>Tối ưu hiệu suất:</strong> Nên sử dụng x10 để sử dụng một cách mượt mà nhất có
+                                thể.</li>
+                        </ul>
+                        <div class="highlight-red">
+                            Lưu ý : Mọi chức năng mới hãy ấn vào nút cập nhật để update chức năng.
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/0.png" alt="Giao diện tổng quan">
+                        <div class="img-caption">Giao diện Điều khiển</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Quản Lý ACC và Data ACC</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Bảng trạng thái:</strong> Hiển thị thông tin từng acc bao gồm: Tên, DataInGame ,
+                                Trạng thái (ONLINE/OFFLINE), Server đang chơi và Tên tài khoản.</li>
+                            <li><strong>Điều khiển Auto:</strong> Ô bên trái ở dưới là toàn bộ chức năng của tool. Sử
+                                dụng [Chọn] để tích các acc cần thao tác. Nút [Bật Auto Tất Cả(Chọn)] và [Tắt Auto Tất
+                                Cả(Chọn)] ở góc phải dưới giúp bật/tắt hàng loạt acc cực kỳ nhanh chóng.</li>
+                            <li><strong>Thông tin acc:</strong> Gồm có thông tin của đệ tử, thông tin hành trang/rương
+                                đồ và thông tin của acc.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/0.5.png" alt="Giao diện chức năng">
+                        <div class="img-caption">Giao diện Chức Năng</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-train" class="card">
+            <h2 class="section-title">Auto Train</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Cài đặt Đánh Quái Cơ Bản</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Tự động đánh quái theo cài đặt tuỳ biến bao gồm:</p>
+                        <ul>
+                            <li><strong>Đánh quái (ID Map):</strong> Nhập ID map muốn treo hoặc bấm (GET) để lấy id map
+                                đang đứng.</li>
+                            <li><strong>Khu vực & Tọa độ:</strong> Nhân vật sẽ đứng cố định tại Khu và toạ độ X/Y đó nếu
+                                tích.</li>
+                            <li>Chỉ sử dụng chiêu đấm: Trái đất,Xayda dùng đấm thường, Namec nếu có liên hoàn sẽ ưu tiên
+                                sử dụng.</li>
+                            <li><strong>Di chuyển:</strong> Nên sử dụng Kiểu vượt địa hình thường tránh ăn ban.</li>
+                            <li><strong>Chỉ đánh quái:</strong> Có 4 loại đánh quái theo ý muốn tuỳ nhu cầu sử dụng.
+                            </li>
+                            <li><strong>Đánh loại quái:</strong> 2 loại quái thường và siêu quái.</li>
+                            <li><strong>Đánh quái kiểu:</strong> 2 loại theo danh sách và kiểu bình thường (nếu cài theo
+                                danh sách phải set danh sách quái đang đứng ví dụ quái đứng toạ độ 0-1-2 thì điền
+                                0-1-2).</li>
+                            <li><strong>Các nút còn lại:</strong> Nên tích Dùng TĐLT và có thể tích đổi khu nếu khu đông
+                                người(Nếu úp skh map riêng tư liên tục có thể tích vào tự mua vé).</li>
+                            <li><strong>Có thể úp set kích hoạt theo chức năng này</strong></li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/1.png" alt="Tab Đánh quái cơ bản">
+                        <div class="img-caption">Giao diện tab Đánh quái cơ bản</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-1')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Úp Mảnh Vỡ / Mảnh Hồn Bông Tai</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>
+                            Chức năng úp này đại khái là giống nhau.
+                        </p>
+                        <ul>
+                            <li><strong>Cài đặt thời gian:</strong> Khung giờ chạy auto.</li>
+                            <li><strong>Úp bao nhiêu mảnh:</strong> Cài đặt giới hạn số lượng mảnh cần úp.</li>
+                            <li><strong>Cài đặt thời gian:</strong> Khung giờ chạy auto (Chỉ có thể auto khi giờ on bé
+                                hơn giờ off).</li>
+                            <li><strong>Tháo giáp luyện tập:</strong> Tự tháo GLT để tối ưu sát thương khi đánh quái,
+                                xong tự mặc lại.</li>
+                            <li><strong>Tự mua vé riêng tư:</strong> Nếu úp mảnh vỡ.</li>
+                            <li><strong>Tự mặc cải trang chống lạnh:</strong> Nếu úp mảnh hồn.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/2.png" alt="Tab Úp Mảnh Hồn">
+                        <div class="img-caption">Cấu hình tự động úp mảnh hồn/mảnh vỡ</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-3')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">3. Úp Kilis & Nâng cao & TĐLT</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Úp Kilis:</strong> Hẹn giờ, ID map, tự mua bùa Kilis 10 phút khi hết hạn.</li>
+                            <li><strong>TĐLT:</strong> Tự động mua và dùng Tự động luyện tập nếu hết thời gian(Nên tích
+                                thêm Không thu đậu nếu không cần và tối ưu tđlt để đánh quái nhanh hơn).</li>
+                            <li><strong>Thỏi vàng:</strong> Auto mua thỏi vàng nếu úp quá nhiều vàng.</li>
+                            <li><strong>Nâng cao:</strong> Đánh quái chung dành cho anh em thích úp vàng sợ bị người
+                                khác ks vàng.</li>
+                            <li><strong>Chỉ đánh theo HP:</strong> Nếu quái có HP:500 thì hãy cài là 500, Hp quái dưới
+                                500 thì sẽ nhảy qua quái tiếp theo.Tương tự như đánh quái set hp thấp.</li>
+                            <li><strong>Có chức năng auto dùng cỏ theo thời gian:</strong> dành cho ae úp sét kích hoạt.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/4.png" alt="Tab Úp Kilis">
+                        <div class="img-caption">Thiết lập úp Kilis và các chức năng phụ trợ</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-2')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-upde" class="card">
+            <h2 class="section-title">Úp Đệ Tử</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Cài đặt Cơ Bản</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Vị trí:</strong> Đặt ID Map / Khu / Tọa độ để sư phụ đứng treo máy.</li>
+                            <li><strong>Trạng thái đệ:</strong> Chọn hành động cho đệ (Cho đệ tử tấn công, bảo vệ...).
+                            </li>
+                            <li><strong>Trạng thái úp:</strong> Có thể AutoFly ôm nhiều quái và Úp đệ KOK.</li>
+                            <li><strong>Khi đệ kêu:</strong> Đánh quái xa nhất, Trói quái... Tùy kịch bản bạn muốn.</li>
+                            <li><strong>Auto Train Giáp Luyện tập:</strong> Set số giây spam chiêu thay vì đệ kêu mới
+                                spam</li>
+
+                        </ul>
+                        <div class="highlight-red">
+                            Lưu ý Né siêu quái: Chỉ hoạt động khi KHÔNG khóa tọa độ. Bắt buộc đệ tử phải ở trạng thái
+                            "Bảo vệ" nếu muốn ôm quái.
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/8.png" alt="Úp đệ cơ bản">
+                        <div class="img-caption">Thiết lập úp đệ tử cơ bản</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-5')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Nâng Cao (Quản lý Đậu & Thoát Game)</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Bùa x2 đệ tử:</strong> Tự động dùng/mua bùa cho đệ khi hết.</li>
+                            <li><strong>Buff Đậu:</strong> Tự động cho đệ tử ăn đậu khi HP, KI hoặc Thể lực tụt dưới
+                                phần trăm (%) chỉ định.</li>
+                            <li><strong>Thoát game an toàn:</strong> Tự động thoát game khi sức mạnh đệ đạt mốc.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/9.png" alt="Úp đệ nâng cao">
+                        <div class="img-caption">Cài đặt buff đậu và bùa đệ tử</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-boss" class="card">
+            <h2 class="section-title">Auto Dò Boss / Tự Đánh</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Focus Boss & Tìm Khu</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Khóa mục tiêu:</strong> Nhập tên boss/người chơi để tool ưu tiên focus(Nên tích
+                                chỉ một cái này nếu săn boss chỉ định). Tự động bắt mục tiêu chữ đỏ.</li>
+                            <li><strong>Tự động đổi khu tìm boss:</strong> Tích để auto dò boss.</li>
+                            <li><strong>Các nút nên tích khi săn boss:</strong> Dừng lại khi gặp mục tiêu,Dùng TĐLT khi
+                                săn boss,.</li>
+                            <li><strong>Tự động tìm:</strong> Quét tự động qua các khu theo danh sách bạn nhập (VD:
+                                22|0-1-2 quét map 22 khu 0,1,2). Dừng lại ngay khi phát hiện mục tiêu.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/10.png" alt="Tìm Boss">
+                        <div class="img-caption">Cài đặt map tìm boss</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-6')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Tự Đánh & Săn nhiều acc</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Tự đánh mục tiêu:</strong> Nên tích tự đánh,cài đặt và di chuyển theo mục tiêu
+                                (tối ưu thời gian)</li>
+                            <li><strong>Săn boss chung:</strong> 1 acc gặp boss sẽ bắn tọa độ cho toàn bộ các acc chạy
+                                chung tool kéo sang đánh.</li>
+                            <li><strong>Lọc HP:</strong> Chỉ đánh boss có mức HP đã cài đặt.</li>
+                            <li><strong>Hẹn giờ:</strong> Giống như chức năng hẹn giờ úp mảnh vỡ bt.</li>
+
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/13.png" alt="Săn boss nâng cao">
+                        <div class="img-caption">Chức năng săn chung và tự đánh boss</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-bomong" class="card">
+            <h2 class="section-title">Auto Bò Mộng</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Cơ bản và Nâng Cao</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Auto Bò Mông:</strong> Tích để auto</li>
+                            <li><strong>Hẹn giờ:</strong> Tích để hẹn giờ, đến đúng thời gian thì bắt đầu chạy</li>
+                            <li><strong>Nhận nhiệm vụ:</strong> Chọn loại nhiệm vụ. Mặc định tự động đi làm lại vào
+                                00:00 mỗi ngày.</li>
+                            <li><strong>Hủy NV:</strong> Chọn tự hủy các nhiệm vụ mất thời gian như: Đánh người, Nhặt
+                                vàng, Đánh quái.</li>
+                            <li><strong>Tiện ích:</strong> Tự relogin chống kẹt, mặc cải trang, hợp thể/tháo giáp linh
+                                hoạt trong quá trình làm(Nên tích hết phần cài đặt tđlt tránh ăn ban ngoài ý muốn).</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/14.png" alt="Cơ bản bò mộng">
+                        <div class="img-caption">Hẹn giờ và hủy nhiệm vụ tự động</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-7')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. NV Đánh Người & NV Úp Vàng </div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Đánh Người:</strong> Set map,tọa độ kẹp acc bot. Đánh all cờ đen hoặc chỉ đánh
+                                người trong danh sách cấu hình.</li>
+                            <li><strong>Úp Vàng:</strong> Cài đặt ID map, ZoneID (VD: map 107 khu 5). Có 2 kiểu úp quái
+                                hoặc tự sát rồi nhặt vàng (Tự vả bản thân ad đã fix nên chỉ còn có cách kẹp acc vip hơn
+                                pem acc làm nv nhặt vàng).</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/17.png" alt="Úp vàng bò mộng">
+                        <div class="img-caption">Thiết lập Nhiệm vụ </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-phutro" class="card">
+            <h2 class="section-title">Buff Namec & Auto Capsule Kỳ Bí</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Kẹp Acc Namec Buff</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Vị trí đứng:</strong> Cài map/tọa độ cố định.</li>
+                            <li><strong>Buff:</strong> Có thể buff bản thân hoặc buff cho người khác.</li>
+                            <li><strong>Chỉ định mục tiêu:</strong> Buff máu/KI liên tục hoặc khi tụt %. Hỗ trợ buff
+                                đích danh InGame, buff từ xa cực tiện lợi cho team.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/18.png" alt="Tab Buff Namec">
+                        <div class="img-caption">Giao diện cài đặt Auto Buff Namec</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-9')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Auto Mở CSKB (Capsule Kỳ Bí)</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Mở x99:</strong> Tự động dùng CSKB khi tích đủ x99 cái, cấu hình dừng lại khi
+                                đầy rương đồ hoặc khi còn lại X cái.</li>
+                            <li><strong>Mua máy dò:</strong> Cấu hình mua bổ tự động khi hết (Yêu cầu bật tính năng Tự
+                                dùng máy dò ở tab Quản lý Item).</li>
+                            <li><strong>Úp cskb số lượng lớn:</strong> Cài auto bán id cskb vào shop nếu úp sll và mở cs
+                                trong ngày(Lưu ý:để qua 1 ngày shop thì mất.)</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/19.png" alt="Tab Auto CSKB">
+                        <div class="img-caption">Thiết lập tự động mở CSKB</div>
+
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-item" class="card">
+            <h2 class="section-title">Quản Lý Hành Trang (Item)</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Tự Động Dùng & Mua Vật Phẩm</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Dùng Item:</strong> Tự cắn đậu/nho theo %. Tự xài Cuồng nộ, Bổ huyết, Thức Ăn,
+                                Cỏ 4 lá ... Hỗ trợ dùng Item tự do theo ID và Delay.</li>
+                            <li><strong>Tự Động Mua:</strong> Thiết lập mua bổ sung Khẩu trang, Cỏ 4 lá, Cục xương trực
+                                tiếp từ shop khi hết.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/20.png" alt="Tab Dùng Item">
+                        <div class="img-caption">Cấu hình dùng và mua item tự động</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Dọn Rương (Vứt / Cất / Bán)</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Vứt & Cất:</strong> Tự động vứt đồ rác(có thể thêm id đồ cần vứt). Tự động bay
+                                về nhà cất đồ (theo ID) khi rương bị đầy.</li>
+                            <li><strong>Bán đồ :</strong> Tích 3 ô đầu để auto bán khi hàng trang đầy, tích 3 ô đầu và ô
+                                vứt đồ để auto vứt đồ rác không cần phải chạy về bán.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/23.png" alt="Tab Bán Item">
+                        <div class="img-caption">Tự động thanh lý đồ rác chống đầy rương</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">3. Bộ Lọc Nhặt Đồ & Dùng Bông Tai</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Tự động nhặt vp:</strong> Tích để auto và có nhiều tuỳ chỉnh khác nhau.</li>
+                            <li><strong>Khoảng cách:</strong> Set up khoảng cách nhặt phù hợp (recomend úp đệ rất ngon).
+                            </li>
+                            <li><strong>Chọn kiểu nhặt:</strong> Có 3 kiểu tuỳ chỉnh.</li>
+                            <li><strong>Tích lọc đồ:</strong> Chức năng hoạt động khi không sử dụng TĐLT.</li>
+                            <li><strong>Auto Bông Tai:</strong> Cài đặt tự dùng Bông tai Porata khi máu/ki chạm ngưỡng.
+                                Set hành động cho đệ sau khi tách hợp thể.</li>
+                            <li><strong>Auto Cờ đen:</strong> Tích để auto cờ hoặc tắt cờ khi có người khác trong map.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/25.png" alt="Tab Nhặt Item">
+                        <div class="img-caption">Bộ lọc thông minh giúp chỉ nhặt đồ có giá trị</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-dau" class="card">
+            <h2 class="section-title">Cho / Thu / Xin Đậu</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Quản Lý Đậu</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Cho Đậu:</strong> Tự phát đậu cho thành viên trong bang, hỗ trợ chỉ định ig. Tự
+                                thu đậu cất rương trong lúc chạy auto.</li>
+                            <li><strong>Thu Đậu:</strong> Tự canh thời gian thu hoạch đậu tại nhà (delay 5 phút khi hết
+                                đậu).</li>
+                            <li><strong>Xin Đậu:</strong> Auto xin đậu sau 310s hoặc xin ngay khi đậu trong rương cạn
+                                kiệt.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/27.png" alt="Tab Auto Đậu">
+                        <div class="img-caption">Tự động thu/xin/cho đậu</div>
+                        <a href="#" onclick="xemVideoChiTiet(event, 'vid-8')" class="video-link-btn">
+                            <i class="fa-regular fa-circle-play"></i> Xem Video Hướng Dẫn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-tudong" class="card">
+            <h2 class="section-title">Tự Động & Tiện Ích Khác</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Tự Động Giải Captcha & Chuyển Khu</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+
+                            <li><strong>Giải Captcha (Miễn Phí):</strong> Tự động giải capcha (Vì giờ ad ra cái kiểu
+                                giải quái nhiều có khả năng ăn ban nên ae xem sét sử dụng nhé).</li>
+                            <li><strong>Đổi khu ít người:</strong> Quét và đổi khu vắng liên tục theo mili-giây.</li>
+                            <li><strong>Tự cộng tiềm năng:</strong> Tự động dồn tiềm năng thu được vào HP/KI/SĐ theo ý
+                                muốn.</li>
+                            <li><strong>DCTT:</strong> Tự động DCTT ig mà bạn muốn (Lưu ý người đó phải trong danh sách
+                                bạn bè).</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/30.png" alt="Tab Giải Captcha">
+                        <div class="img-caption">Vượt Captcha </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Dùng Chiêu, Gắn Chiêu & Chat Auto</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Auto trị thương(Namec):</strong> Trị thương lên bản thân khi tích các mốc hp ki
+                                tuỳ chỉnh.</li>
+                            <li><strong>Gắn chiêu:</strong> Nên gắn chiêu hay dùng khi đi úp(ví dụ id đấm galick là 4
+                                thì thứ tự sẽ bắt đầu từ 0, bạn sẽ điền là 0-4).</li>
+                            <li><strong>Auto Chat:</strong> Tự động Auto Chat Kênh Thường và Kênh Thế Giới theo chu kỳ
+                                thời gian.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/28.png" alt="Tab Dùng Chiêu">
+                        <div class="img-caption">Spam chiêu và Chat Auto </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">3. Auto Ghép Ngọc Rồng & Mua Bùa</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Ghép Ngọc Rồng:</strong> Tự động đi ghép ngọc rồng nâng sao (từ 5->4, 4->3,
+                                3->2, 2->1 sao) khi tích đủ x99 viên.</li>
+                            <li><strong>Tự Mua Bùa Hỗ Trợ:</strong> Nhận biết bùa sắp hết hạn và tự động bay đi mua các
+                                loại bùa (Trí Tuệ, Da Trâu, Bất Tử, Thu Hút, Đệ tử...). Mặc định mua gói 1 tháng.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/32.png" alt="Tab Mua Bùa">
+                        <div class="img-caption">Mua bùa và ghép ngọc rồng</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-caidat" class="card">
+            <h2 class="section-title">Cài Đặt Hệ Thống & Tối Ưu Lag</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Tối Ưu Đồ Họa & Cơ Bản</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Delay:</strong> Nên để khoảng 1000-2000 tránh goback quá nhanh dẫn đến việc acc
+                                của ae bị ban.</li>
+                            <li><strong>Giảm Cấu Hình:</strong> Chế độ làm nhẹ game giúp cắm nhiều Tab trên VPS (Ẩn
+                                quái, Ẩn người chơi, Đóng băng map, Ẩn hiệu ứng chiêu...).</li>
+                            <li><strong>Xử lý lỗi:</strong> Tự động Relogin khi kẹt Nextmap quá 10 lần. Tự chọn kiểu di
+                                chuyển (vượt địa hình/bay) để tránh kẹt vách núi. Tự ăn đùi gà khi đứng nhà.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/33.png" alt="Tab Cài Đặt Cơ Bản">
+                        <div class="img-caption">Các chức năng chống Lag, tối ưu CPU/RAM VPS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Proxy & Hẹn Giờ (Login/Logout)</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <ul>
+                            <li><strong>Cài Đặt Proxy:</strong> Tránh bị Blacklist khi cắm nhiều acc trên cùng VPS. Chỉ
+                                cần dán list Proxy vào, tool sẽ tự kết nối(có thể sài nhiều acc trên 1 proxy). Delay
+                                login để chống spam request máy chủ.</li>
+                            <li><strong>Hẹn Giờ Thông Minh:</strong> Cài đặt lịch trình (On/Off theo giờ cố định), tự
+                                động out game nghỉ ngơi trước thời gian Server bảo trì.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/34.png" alt="Tab Proxy">
+                        <div class="img-caption">Proxy và Hẹn giờ </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-config" class="card">
+            <h2 class="section-title">Quản Lý Đồng Bộ Config</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Sao Chép Cấu Hình Hàng Loạt</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Tiết kiệm hàng giờ setup bằng cách đồng bộ thiết lập giữa các Tab (Tài khoản) với nhau.</p>
+                        <ul>
+                            <li><strong>Copy Config:</strong> Lấy toàn bộ cài đặt của tài khoản hiện tại lưu vào bộ nhớ
+                                tạm.</li>
+                            <li><strong>Dán Config:</strong> Cho phép dán chép đè cấu hình vừa copy sang 1 tab khác,
+                                toàn bộ tab đang tích chọn, hoặc dán vào TypeAccount cụ thể để đồng bộ dây chuyền.</li>
+                        </ul>
+                    </div>
+                    <div class="img-wrapper">
+                        <img src="images/36.png" alt="Tab Quản lý Config">
+                        <div class="img-caption">Đồng bộ mọi thông số chỉ với 1 click</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-setting" class="card">
+            <h2 class="section-title">Setting Tối Ưu Có Thể Tham Khảo</h2>
+
+            <div class="feature-block" id="vid-1">
+                <div class="feature-header">1. Train quái</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Video hướng dẫn chi tiết cách setup các thông số tối ưu nhất để Train quái hiệu quả.</p>
+                        <p>Toàn bộ setting úp là tối ưu nhất recommend ae nên sử dụng.</p>
+                        <p>Tất cả các setting này mình đã test và cảm thấy khá hiệu quả, ae còn những cách nào khác có
+                            thể ib qua zalo của mình nhé.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/16hMf8wRQLBMVWdstzdO1CeQYRwyNoS1_/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Train quái</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-2">
+                <div class="feature-header">2. Úp Kilis</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn cài đặt úp chức năng kilis(đệ tử mới).</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1VfDYkyYuvSUsPB2U9g6jAf1RpRY-OuMm/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Úp Kilis</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-3">
+                <div class="feature-header">3. Train quái + Úp MVBT, MHBT</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn setting combo train quái + úp mvbt,mhbt:</p>
+                        <p>Thứ tự thực hiện:</p>
+                        <p>Train quái -> Úp mvbt -> Úp mhbh, khi úp hết mvbt và mhbt thì sẽ quay về train quái.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1uRSZTpGTXbtKDiyHU7Fjx2byQED1BcL_/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Train quái + úp mvbt, mhbt</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-4">
+                <div class="feature-header">4. Úp Kilis + Úp MVBT, MHBT</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn setting combo úp kilis + úp mvbt,mhbt:</p>
+                        <p>Thứ tự thực hiện(Hãy cài úp kilis bằng mục đánh quái):</p>
+                        <p>Úp kilis -> úp mvbt -> úp mhbt, sau khi úp hết mvbt,mhbt sẽ quay lại úp kilis.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1rz2iuU8QhkIsV4-FtbIewg-tS-pY93aW/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Úp Kilis + úp mvbt, mhbt</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-5">
+                <div class="feature-header">5. Úp Đệ</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn setting chức năng úp đệ:</p>
+                        <p>Cài map úp đệ, toạ độ úp, trạng thái đệ khi úp.</p>
+                        <p>Có auto fly cho ae úp nhiều quái, auto úp đệ kok.</p>
+                        <p>Thêm chức năng spam chiêu train giáp luyện tập(Mỗi X giây tự chạy[khi đệ kêu]). Tuỳ hành tinh
+                            sẽ set chiêu thức khác nhau(Phải cài Khi đệ kêu thì train giáp mới có tác dụng).</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1IBK3D3Z4bVkOO_bWQCIhH9v2IjjvmOh4/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Úp đệ</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-6">
+                <div class="feature-header">6. Dò Boss</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hỗ trợ tính năng dò boss.</p>
+                        <p>Ấn auto tự động đổi khu tìm boss để auto.</p>
+                        <p>Danh sách farm boss fide all map.Có thể dò các boss như ăn trộm, viruss, ở dơ, sói Hẹcquyn
+                            (có auto mua xương ở mục Mua)...</p>
+                        <div class="config-wrapper">
+                            <div class="config-header">
+                                <span>Setup</span>
+                                <button class="copy-btn" onclick="copyConfig(this)">
+                                    <i class="fa-regular fa-copy"></i> Sao chép
+                                </button>
+                            </div>
+                            <pre id="bossConfig" class="config-content">Name Boss: Dán ở phần Focus Boss
+Kuku
+Mập đầu đinh
+Rambo
+Map + Khu: Dán ở phần Tìm Boss
+68|2-3-4-5-6-7-8-9-10-11-12-13-14
+69|2-3-4-5-6-7-8-9-10-11-12-13-14
+70|2-3-4-5-6-7-8-9-10-11-12-13-14
+71|2-3-4-5-6-7-8-9-10-11-12-13-14
+72|2-3-4-5-6-7-8-9-10-11-12-13-14
+64|2-3-4-5-6-7-8-9-10-11-12-13-14
+65|2-3-4-5-6-7-8-9-10-11-12-13-14
+63|2-3-4-5-6-7-8-9-10-11-12-13-14
+66|2-3-4-5-6-7-8-9-10-11-12-13-14
+67|2-3-4-5-6-7-8-9-10-11-12-13-14
+73|2-3-4-5-6-7-8-9-10-11-12-13-14
+74|2-3-4-5-6-7-8-9-10-11-12-13-14
+75|2-3-4-5-6-7-8-9-10-11-12-13-14
+76|2-3-4-5-6-7-8-9-10-11-12-13-14
+77|2-3-4-5-6-7-8-9-10-11-12-13-14</pre>
+                        </div>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/124MtNuXVxr58dxYjbHSmdOIvVUqCJmzc/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Dò boss</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-7">
+                <div class="feature-header">7. Bò Mộng</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn setting Bò mộng</p>
+                        <p>Ấn Auto Bò mộng để auto</p>
+                        <p>NV Pem người:</p>
+                        <p>
+                            <trong>Có 2 auto:</trong> 1 là đánh những ai bật cờ trong khu, 2 là đứng yên để acc khác
+                            đánh bản thân.(hỗ trợ đánh theo danh sách chỉ cần nhập tên thứ tự từ trên xuống).
+                        </p>
+                        <p>Cài map đánh người nếu ae không muốn ai biết mình auto.</p>
+                        <p>NV Úp vàng:</p>
+                        <p>
+                            <trong>Có 2 auto:</trong> 1 là auto đi đánh quái nhặt vàng, 2 là tự sát rồi lụm vàng của bản
+                            thân.
+                        </p>
+                        <p>Set map đánh quái và map tự sát.</p>
+                        <p>Hẹn giờ relogin để reset nv bò mộng(từ 0h sáng trở đi), Hẹn giờ đi làm nv.</p>
+                        <p>Hỗ trợ chạy chạy và chạy sài tđlt.</p>
+                        <p>Hỗ trợ huỷ nhiệm vụ(Huỷ mặc định nv đánh ăn trộm).</p>
+                        <p>Hỗ trợ chọn các level nv.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1FBhxFScv8uq1K4GNkxDq1V_PjkMy66_L/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Bò mộng</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block" id="vid-8">
+                <div class="feature-header">8. Cho Xin Đậu</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Hướng dẫn auto cho đậu:</p>
+                        <p>Chỉ cần ấn tự động cho đậu là có thể auto cho đậu</p>
+                        <p>Auto cho đậu kèm thu đậu:</p>
+                        <p>Bỏ hết các tích ngoài auto, set thu đậu khi hết thành không thu đậu.</p>
+                        <p>Auto Xin đậu:</p>
+                        <p>Tích 2 ô cuối cùng và vẫn set thu đậu khi hết thành không thu đậu.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/17Zql1JAuz0vYWldphnkBrZuYcNhohLXS/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Xin đậu</div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-block" id="vid-9">
+                <div class="feature-header">9. Buff Namec</div>
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Cài map , khu , toạ độ cần buff.</p>
+                        <p>Có 3 trạng thái buff cho ae tuỳ chọn.Có buff theo % HP</p>
+                        <p>Có 3 loại Buff cho ae tuỳ biến.</p>
+                    </div>
+                    <div class="img-wrapper">
+                        <iframe src="https://drive.google.com/file/d/1FHV2YlBPQiJX1TQVN94X6NX8HNuLcfj7/preview"
+                            allow="autoplay" allowfullscreen></iframe>
+                        <div class="img-caption">Video: Setting Buff Namec</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>GIỚI THIỆU</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 15px;">
+                    ZDragonBallPro3 là 1 trong số mod được sử dụng độc quyền trên VPSZang, giúp bạn giảm bớt thời gian
+                    khi chơi game với rất nhiều tính năng hỗ trợ.
+                </p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/nguyenxuanhoidz/" target="_blank"><i
+                            class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/@ZangVPS" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://zalo.me/g/hahaae860" target="_blank"><i class="fa-solid fa-comment-dots"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col quick-links">
+                <h3>SUPORT</h3>
+                <ul>
+                    <li><a href="https://portal.vpsgame.net" target="_blank"><i class="fa-solid fa-angle-right"></i> Mua
+                            VPS Game</a></li>
+                    <li><a href="#" onclick="xemVideoChiTiet(event, 'vid-1')"><i class="fa-solid fa-angle-right"></i>
+                            Xem Video Hướng Dẫn</a></li>
+                    <li><a href="https://zalo.me/g/hahaae860" target="_blank"><i class="fa-solid fa-angle-right"></i>
+                            Group Hỗ Trợ Zalo</a></li>
+                    <li><a href="https://www.facebook.com/ngocrongofficial" target="_blank"><i
+                                class="fa-solid fa-angle-right"></i> FanPage Ngọc Rồng TeaMobi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Liên Hệ</h3>
+                <ul class="contact-info">
+                    <li><i class="fa-solid fa-location-dot"></i> Hà Nội</li>
+                    <li><i class="fa-solid fa-phone"></i> 0867496730</li>
+                    <li><i class="fa-solid fa-envelope"></i> nxhoi2602@gmail.com</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Developed by <strong>Xuân Hội</strong>
+        </div>
+    </footer>
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImg">
+        <div id="modalCaption"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
