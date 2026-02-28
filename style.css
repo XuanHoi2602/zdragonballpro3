@@ -1,27 +1,38 @@
 :root {
-    --primary: #f97316;
-    --secondary: #ea580c;
+    --primary: #33cefd;
+    --secondary: #4fa6d8;
     --dark: #1e293b;
     --light: #f8fafc;
     --border: #e2e8f0;
     --danger: #dc2626;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #f1f5f9;
     color: #334155;
     line-height: 1.6;
+
+    /* --- THÊM 3 DÒNG NÀY VÀO --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Navbar Chính */
 nav {
     background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -36,31 +47,31 @@ nav {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
 }
 
 /* Làm mờ nền khi popup hiện lên */
 .vps-modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
+    display: none;
+    position: fixed;
+    z-index: 9999;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0, 0, 0, 0.6); 
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* Khung nội dung màu trắng */
 .vps-modal-content {
     background-color: #f9f9f9;
-    margin: 15% auto; 
+    margin: 15% auto;
     padding: 25px;
     border-radius: 10px;
     width: 320px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Nút X để đóng */
@@ -79,25 +90,26 @@ nav {
 
 /* --- CSS CHO LOGO HÌNH TRÒN --- */
 .logo-icon {
-    height: 50px;        
-    width: 50px;         
-    border-radius: 50%;  
-    object-fit: cover;   
-    border: 2px solid var(--primary); 
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
     cursor: pointer;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 /* Hiệu ứng khi di chuột vào logo */
 .logo-icon:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
 
 .logo-link {
     display: flex;
-    align-items: center; 
+    align-items: center;
     text-decoration: none;
 }
+
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -107,16 +119,16 @@ nav {
 
 .nav-actions {
     display: flex;
-    gap: 10px; 
+    gap: 10px;
     align-items: center;
-    justify-content: flex-end; 
-    flex-wrap: wrap; 
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .btn-action {
     background-color: var(--primary);
     color: white !important;
-    padding: 8px 18px; 
+    padding: 8px 18px;
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.95rem;
@@ -126,7 +138,7 @@ nav {
     white-space: nowrap;
 }
 
-.btn-action:hover { 
+.btn-action:hover {
     opacity: 0.9;
     transform: translateY(-1px);
 }
@@ -180,7 +192,7 @@ nav {
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.85rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border);
     transition: all 0.2s;
     white-space: nowrap;
@@ -205,30 +217,41 @@ nav {
 .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 20px 40px 20px;
+    padding: 0 20px 20px 20px;
+    flex: 1;
+    /* Tự động giãn phần thân ra chiếm hết khoảng trống, đẩy footer xuống đáy */
 }
 
 /* --- SỬA LẠI CLASS .card (TÁCH PAGE) --- */
 .card {
-    display: none; /* Ẩn mặc định tất cả các bảng nội dung */
+    display: none;
+    /* Ẩn mặc định tất cả các bảng nội dung */
     background: white;
     border-radius: 10px;
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     border: 1px solid var(--border);
-    animation: fadeIn 0.4s ease; /* Hiệu ứng mượt mà khi đổi tab */
+    animation: fadeIn 0.4s ease;
+    /* Hiệu ứng mượt mà khi đổi tab */
 }
 
 /* Thêm class .active để hiển thị tab đang chọn */
 .card.active {
-    display: block; 
+    display: block;
 }
 
 /* Hiệu ứng mờ ảo khi chuyển tab */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-title {
@@ -241,8 +264,13 @@ nav {
     text-transform: uppercase;
 }
 
-.feature-block { margin-bottom: 40px; }
-.feature-block:last-child { margin-bottom: 0; }
+.feature-block {
+    margin-bottom: 40px;
+}
+
+.feature-block:last-child {
+    margin-bottom: 0;
+}
 
 .feature-header {
     background-color: var(--light);
@@ -267,7 +295,9 @@ nav {
     margin-bottom: 15px;
 }
 
-.text-content li { margin-bottom: 8px; }
+.text-content li {
+    margin-bottom: 8px;
+}
 
 .highlight-red {
     color: white;
@@ -288,18 +318,20 @@ nav {
     text-align: center;
 }
 
-.img-wrapper img, .img-wrapper video {
+.img-wrapper img,
+.img-wrapper video {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
     transition: 0.3s;
 }
+
 .img-wrapper img {
-    cursor: zoom-in; 
+    cursor: zoom-in;
 }
 
 .img-wrapper img:hover {
-    opacity: 0.85; 
+    opacity: 0.85;
 }
 
 .img-caption {
@@ -312,17 +344,17 @@ nav {
 
 /* KHUNG ĐEN (MODAL) PHÓNG TO ẢNH */
 .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 9999; 
-    padding-top: 60px; 
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 60px;
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.85); 
-    backdrop-filter: blur(5px); 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
 }
 
 .modal-content {
@@ -331,7 +363,7 @@ nav {
     max-width: 90%;
     max-height: 80vh;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     animation: zoomModal 0.3s ease;
 }
 
@@ -348,8 +380,15 @@ nav {
 }
 
 @keyframes zoomModal {
-    from {transform: scale(0.9); opacity: 0} 
-    to {transform: scale(1); opacity: 1}
+    from {
+        transform: scale(0.9);
+        opacity: 0
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1
+    }
 }
 
 .close-modal {
@@ -372,11 +411,15 @@ nav {
 
 /* --- CSS MỚI CHO FOOTER CHIA 2 CỘT --- */
 footer {
-    background-color: var(--dark); 
+    background-color: var(--dark);
     color: #e2e8f0;
     padding: 40px 20px;
-    margin-top: 20px;
+
+    /* --- SỬA DÒNG NÀY --- */
+    margin-top: auto !important;
+
     border-top: 4px solid var(--primary);
+    width: 100%;
 }
 
 .footer-container {
@@ -411,8 +454,8 @@ footer {
 }
 
 .footer-left li i {
-    color: var(--primary); 
-    width: 25px; 
+    color: var(--primary);
+    width: 25px;
     font-size: 1rem;
 }
 
@@ -455,22 +498,44 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .content-grid { grid-template-columns: 1fr; }
-    .in-page-nav a { padding: 6px 12px; font-size: 0.8rem; }
-    .nav-actions { gap: 6px; }
-    .btn-action { padding: 6px 10px; font-size: 0.8rem; }
-    .logo { font-size: 1.2rem; }
-    .modal-content { width: 95%; max-height: 70vh; }
-    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .in-page-nav a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .nav-actions {
+        gap: 6px;
+    }
+
+    .btn-action {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-height: 70vh;
+    }
+
     /* Căn giữa Footer trên Mobile */
     .footer-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
+
     .footer-right {
         align-items: center;
     }
+
     .footer-left li {
         justify-content: center;
     }
@@ -507,48 +572,77 @@ footer {
     width: 60px;
     margin-left: 10px;
 }
-.theme-switch input { display: none; }
+
+.theme-switch input {
+    display: none;
+}
 
 .slider {
     background-color: #ccc;
-    bottom: 0; cursor: pointer;
-    left: 0; position: absolute;
-    right: 0; top: 0;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
     transition: .4s;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 6px;
 }
-.slider .fa-sun { color: #f39c12; font-size: 14px; z-index: 1; }
-.slider .fa-moon { color: #f1c40f; font-size: 14px; z-index: 1; }
+
+.slider .fa-sun {
+    color: #f39c12;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.slider .fa-moon {
+    color: #f1c40f;
+    font-size: 14px;
+    z-index: 1;
+}
 
 .slider:before {
     background-color: #fff;
-    bottom: 3px; content: "";
-    height: 26px; left: 4px;
+    bottom: 3px;
+    content: "";
+    height: 26px;
+    left: 4px;
     position: absolute;
     transition: .4s;
-    width: 26px; z-index: 2;
+    width: 26px;
+    z-index: 2;
 }
 
-input:checked + .slider { background-color: #1e293b; }
-input:checked + .slider:before { transform: translateX(26px); }
+input:checked+.slider {
+    background-color: #1e293b;
+}
 
-.slider.round { border-radius: 34px; }
-.slider.round:before { border-radius: 50%; }
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
 
 /* --- MÀU SẮC KHI Ở CHẾ ĐỘ TỐI (DARK MODE) --- */
 body.dark-theme {
-    background-color: #19243d; 
+    background-color: #19243d;
     color: #cbd5e1;
 }
 
-body.dark-theme nav, 
-body.dark-theme .card, 
+body.dark-theme nav,
+body.dark-theme .card,
 body.dark-theme .sticky-menu-wrapper,
 body.dark-theme .vps-modal-content {
-    background-color: #303947; 
+    background-color: #303947;
     border-color: #334155;
     color: #f1f5f9;
 }
@@ -587,6 +681,7 @@ body.dark-theme .img-wrapper {
     background-color: #0f172a;
     border-color: #334155;
 }
+
 /* --- NÚT XEM VIDEO DƯỚI ẢNH --- */
 .video-link-btn {
     display: inline-flex;
@@ -602,7 +697,7 @@ body.dark-theme .img-wrapper {
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .video-link-btn i {
@@ -621,10 +716,12 @@ body.dark-theme .video-link-btn {
     background-color: transparent;
     color: var(--primary);
 }
+
 body.dark-theme .video-link-btn:hover {
     background-color: var(--primary);
     color: white;
 }
+
 /* --- TÙY CHỈNH POPUP THÔNG BÁO ĐẦU TRANG --- */
 .welcome-modal-content {
     width: 450px;
@@ -636,66 +733,74 @@ body.dark-theme .welcome-modal-content p,
 body.dark-theme .welcome-modal-content ul {
     color: #e2e8f0;
 }
+
 /* ================================================= */
 /* --- HIỆU ỨNG BÓNG LOÁNG LƯỚT QUA CHO CÁC NÚT --- */
 /* ================================================= */
 
 /* 1. Đặt thuộc tính để vệt sáng không bị lòi ra ngoài nút */
-.btn-action, .video-link-btn {
+.btn-action,
+.video-link-btn {
     position: relative;
     overflow: hidden;
 }
 
 /* 2. Tạo vệt sáng nghiêng bằng Pseudo-element */
-.btn-action::before, .video-link-btn::before {
+.btn-action::before,
+.video-link-btn::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%; 
-    width: 50%;  
+    left: -100%;
+    width: 50%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-    transform: skewX(-25deg); 
-    z-index: 1; 
-    
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    z-index: 1;
+
     /* ĐÃ SỬA: Tăng chu kỳ lặp lại từ 3 giây lên 5 giây */
-    animation: shine-effect 5s infinite; 
+    animation: shine-effect 5s infinite;
 }
 
 /* Đảm bảo chữ bên trong nút luôn nằm trên vệt sáng */
 .btn-action {
-    z-index: 2; 
+    z-index: 2;
 }
 
 /* 3. Chuyển động lướt qua của vệt sáng */
 @keyframes shine-effect {
-    0% { 
-        left: -100%; /* Bắt đầu ngoài cùng bên trái */
+    0% {
+        left: -100%;
+        /* Bắt đầu ngoài cùng bên trái */
     }
-    
+
     /* ĐÃ SỬA: Tăng từ 20% lên 40% để vệt sáng trượt chậm, từ từ và mượt hơn */
-    40% { 
-        left: 200%;  
+    40% {
+        left: 200%;
     }
-    
-    100% { 
-        left: 200%;  /* Thời gian còn lại nút sẽ đứng im chờ chu kỳ tiếp theo */
+
+    100% {
+        left: 200%;
+        /* Thời gian còn lại nút sẽ đứng im chờ chu kỳ tiếp theo */
     }
 }
 
 /* --- Tùy chọn: Làm nền nút cam nổi khối 3D nhẹ --- */
 .btn-action {
-    background-image: linear-gradient(to bottom, #fb923c, #f97316);
-    border: 1px solid #ea580c;
+    background-image: linear-gradient(to bottom, #3fc4ec, #22a6e4);
+    border: 1px solid #3c6ac0;
 }
+
 .btn-action:hover {
-    background-image: linear-gradient(to bottom, #fdba74, #ea580c);
+    background-image: linear-gradient(to bottom, #3fc4ec, #22a6e4);
 }
+
 /* --- CẬP NHẬT CSS CHO FOOTER 3 CỘT --- */
 footer {
     background-color: var(--dark);
     color: #e2e8f0;
-    padding: 50px 20px 20px 20px; /* Tăng padding trên lên một chút */
+    padding: 50px 20px 20px 20px;
+    /* Tăng padding trên lên một chút */
     margin-top: 40px;
     border-top: 4px solid var(--primary);
 }
@@ -704,7 +809,8 @@ footer {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Chia 3 cột bằng nhau */
+    grid-template-columns: repeat(3, 1fr);
+    /* Chia 3 cột bằng nhau */
     gap: 40px;
 }
 
@@ -763,7 +869,7 @@ footer {
     justify-content: center;
     width: 35px;
     height: 35px;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     color: white;
     border-radius: 50%;
     text-decoration: none;
@@ -797,7 +903,8 @@ footer {
 
 .quick-links a:hover {
     color: var(--primary);
-    padding-left: 5px; /* Hiệu ứng thụt lề khi di chuột */
+    padding-left: 5px;
+    /* Hiệu ứng thụt lề khi di chuột */
 }
 
 /* Style cho thanh Bản quyền dưới cùng */
@@ -805,7 +912,7 @@ footer {
     max-width: 1100px;
     margin: 40px auto 0 auto;
     padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
     font-size: 0.9rem;
     color: #94a3b8;
@@ -818,34 +925,40 @@ footer {
 /* Tương thích cho Mobile */
 @media (max-width: 768px) {
     .footer-container {
-        grid-template-columns: 1fr; /* Trở về 1 cột trên điện thoại */
+        grid-template-columns: 1fr;
+        /* Trở về 1 cột trên điện thoại */
         text-align: left;
     }
 }
+
 /* --- CSS CHO CHỮ CẠNH LOGO --- */
 .logo-text {
     font-size: 1.23rem;
     font-weight: 600;
-    color: var(--primary); /* Sử dụng màu cam chủ đạo của bạn */
-    margin-left: 12px;     /* Tạo khoảng cách 12px so với ảnh logo */
+    color: var(--primary);
+    /* Sử dụng màu cam chủ đạo của bạn */
+    margin-left: 12px;
+    /* Tạo khoảng cách 12px so với ảnh logo */
     letter-spacing: 0.5px;
-    white-space: nowrap;   /* Đảm bảo chữ không bị rớt dòng khi thu nhỏ web */
-    display: inline-block; /* Cần thiết để animation hoạt động mượt mà */
+    white-space: nowrap;
+    /* Đảm bảo chữ không bị rớt dòng khi thu nhỏ web */
+    display: inline-block;
+    /* Cần thiết để animation hoạt động mượt mà */
 
     /* --- TẠO HIỆU ỨNG 7 SẮC CẦU VỒNG --- */
     /* 1. Tạo dải màu gradient ngang gồm 7 màu + màu đỏ lặp lại ở cuối để chuyển tiếp mượt */
     background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red);
-    
+
     /* 2. Cắt dải màu nền theo hình dáng của chữ */
     -webkit-background-clip: text;
     background-clip: text;
-    
+
     /* 3. Làm trong suốt màu chữ gốc để lộ phần nền cầu vồng bên dưới */
     color: transparent;
-    
+
     /* 4. Kéo rộng dải nền ra 200% để có không gian di chuyển */
     background-size: 200% auto;
-    
+
     /* 5. Áp dụng chuyển động di chuyển nền */
     /* Thời gian 3s, chuyển động đều (linear), lặp vô tận (infinite) */
     animation: rainbow-move 3s linear infinite;
@@ -856,18 +969,22 @@ footer {
     from {
         background-position: 0% center;
     }
+
     to {
-        background-position: -200% center; /* Di chuyển nền sang trái để tạo hiệu ứng chạy */
+        background-position: -200% center;
+        /* Di chuyển nền sang trái để tạo hiệu ứng chạy */
     }
 }
+
 /* --- CSS CHO KHUNG CONFIG VÀ NÚT COPY --- */
 .config-wrapper {
     margin-top: 15px;
     border: 1px solid var(--border);
     border-radius: 8px;
-    overflow: hidden; /* Bo góc cho cả tiêu đề và nội dung */
+    overflow: hidden;
+    /* Bo góc cho cả tiêu đề và nội dung */
     background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .config-header {
@@ -891,7 +1008,8 @@ footer {
     font-size: 0.85rem;
     line-height: 1.5;
     color: #334155;
-    white-space: pre; /* Giữ nguyên xuống dòng */
+    white-space: pre;
+    /* Giữ nguyên xuống dòng */
     background-color: #fff;
 }
 
@@ -914,20 +1032,23 @@ footer {
 .copy-btn:hover {
     opacity: 0.9;
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Tùy chỉnh thanh cuộn cho khung config */
 .config-content::-webkit-scrollbar {
     width: 8px;
 }
+
 .config-content::-webkit-scrollbar-track {
     background: #f1f1f1;
 }
+
 .config-content::-webkit-scrollbar-thumb {
     background: #cbd5e1;
     border-radius: 4px;
 }
+
 .config-content::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
 }
@@ -952,33 +1073,40 @@ body.dark-theme .config-content {
 body.dark-theme .config-content::-webkit-scrollbar-track {
     background: #1e293b;
 }
+
 body.dark-theme .config-content::-webkit-scrollbar-thumb {
     background: #475569;
 }
+
 /* ================================================= */
 /* --- CẤU HÌNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) --- */
 /* ================================================= */
 @media (max-width: 768px) {
-    
+
     /* 1. Thu nhỏ logo và chữ 7 màu */
     .logo-icon {
-        height: 35px; /* Logo nhỏ lại chút cho gọn */
+        height: 35px;
+        /* Logo nhỏ lại chút cho gọn */
         width: 35px;
     }
-    
+
     .logo-text {
-        font-size: 0.9rem; /* Giảm cỡ chữ tên miền xuống */
+        font-size: 0.9rem;
+        /* Giảm cỡ chữ tên miền xuống */
         margin-left: 8px;
-        display: block; /* Cho xuống dòng nếu cần, hoặc để inline-block */
+        display: block;
+        /* Cho xuống dòng nếu cần, hoặc để inline-block */
     }
 
     /* 2. Thu nhỏ Tiêu đề trang khổng lồ */
     .page-header {
-        margin-top: 20px; /* Giảm khoảng cách trần */
+        margin-top: 20px;
+        /* Giảm khoảng cách trần */
     }
 
     .page-header h1 {
-        font-size: 1.8rem; /* Giảm từ 2.8rem xuống 1.8rem */
+        font-size: 1.8rem;
+        /* Giảm từ 2.8rem xuống 1.8rem */
         line-height: 1.3;
         padding: 0 10px;
     }
@@ -990,57 +1118,70 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     /* 3. Tinh chỉnh lại Menu nút bấm trên điện thoại */
     .nav-content {
         padding: 0 10px;
-        flex-wrap: wrap; /* Cho phép rớt dòng nếu thiếu chỗ */
+        flex-wrap: wrap;
+        /* Cho phép rớt dòng nếu thiếu chỗ */
     }
 
     .nav-actions {
-        gap: 5px; /* Giảm khoảng cách giữa các nút */
+        gap: 5px;
+        /* Giảm khoảng cách giữa các nút */
     }
 
-    
+
     /* Nút bấm nhỏ lại để xếp vừa hàng trên điện thoại */
     .btn-action {
-        padding: 5px 8px; /* Giảm độ dày nút */
-        font-size: 0.7rem; /* Giảm cỡ chữ nút */
-        margin-bottom: 2px; /* Thêm khoảng cách nếu bị rớt dòng */
+        padding: 5px 8px;
+        /* Giảm độ dày nút */
+        font-size: 0.7rem;
+        /* Giảm cỡ chữ nút */
+        margin-bottom: 2px;
+        /* Thêm khoảng cách nếu bị rớt dòng */
     }
-    
+
     .nav-actions {
-        gap: 3px; /* Giảm khoảng cách giữa các nút */
-        justify-content: center; /* Căn giữa các nút */
+        gap: 3px;
+        /* Giảm khoảng cách giữa các nút */
+        justify-content: center;
+        /* Căn giữa các nút */
     }
 }
+
 /* --- CSS CHO VIDEO GOOGLE DRIVE --- */
 
 .img-wrapper iframe {
-    width: 100%;             
-    aspect-ratio: 16 / 9;    /* Giữ tỷ lệ vàng, không bị đen 2 đầu */
-    border: none;            
-    border-radius: 12px;     /* Bo góc đồng bộ với Card */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Giữ tỷ lệ vàng, không bị đen 2 đầu */
+    border: none;
+    border-radius: 12px;
+    /* Bo góc đồng bộ với Card */
     display: block;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); 
-    background-color: #000;  /* Nền đen trong lúc chờ load video */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    /* Nền đen trong lúc chờ load video */
 }
+
 /* ================================================= */
 /* --- GIAO DIỆN DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) --- */
 /* ================================================= */
 @media (max-width: 768px) {
+
     /* 1. SỬA LỖI ĐÈ VẠCH: Bỏ chiều cao cố định để thanh Nav tự giãn nở */
     nav {
-        height: auto !important; 
+        height: auto !important;
     }
 
     /* Đổi bố cục thanh Nav thành cột (Logo ở trên, Nút ở dưới) */
     .nav-content {
         flex-direction: column;
-        align-items: flex-start; 
-        position: relative; 
+        align-items: flex-start;
+        position: relative;
         /* Tăng padding dưới lên 15px để các nút cách xa đường kẻ một chút */
-        padding: 12px 15px 15px 15px; 
+        padding: 12px 15px 15px 15px;
     }
 
     .logo-link {
-        margin-bottom: 15px; 
+        margin-bottom: 15px;
     }
 
     /* Căn giữa các nút chức năng */
@@ -1048,15 +1189,15 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center; 
-        gap: 8px; 
+        justify-content: center;
+        gap: 8px;
     }
 
     /* Bắt nút Sáng/Tối tách đội hình và ghim lên góc phải */
     .theme-switch {
         position: absolute;
-        top: 15px; 
-        right: 15px; 
+        top: 15px;
+        right: 15px;
         margin: 0 !important;
     }
 
@@ -1065,7 +1206,7 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         width: 35px;
         height: 35px;
     }
-    
+
     .logo-text {
         font-size: 1.1rem;
     }
@@ -1075,6 +1216,7 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         padding: 6px 12px;
     }
 }
+
 /* ================================================= */
 /* --- FIX VIDEO & LAYOUT CHO MOBILE (DÁN DƯỚI CÙNG) --- */
 /* ================================================= */
@@ -1083,15 +1225,66 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         display: flex !important;
         flex-direction: column !important;
     }
+
     .img-wrapper {
-        order: -1 !important; 
+        order: -1 !important;
     }
+
     .img-wrapper iframe {
         aspect-ratio: 16 / 9 !important;
         height: auto !important;
     }
+
     .video-link-btn {
-        width: 100%; /* Nút xem video to ra cho dễ bấm trên điện thoại */
+        width: 100%;
+        /* Nút xem video to ra cho dễ bấm trên điện thoại */
         justify-content: center;
+    }
+}
+/* ================================================= */
+/* --- BẢN CHUẨN CUỐI CÙNG: FIX ALL LỖI GIAO DIỆN --- */
+/* ================================================= */
+
+/* --- 1. KÉO FOOTER XUỐNG ĐÁY MÀN HÌNH (VẪN GIỮ MENU STICKY) --- */
+html {
+    height: 100%; /* Giúp trình duyệt tính toán đúng chiều cao */
+}
+
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important; /* Chiều cao tối thiểu = 100% màn hình */
+}
+
+.container {
+    /* ĐÂY LÀ CHÌA KHÓA: Ép phần nội dung phình to ra đẩy Footer xuống */
+    flex-grow: 1 !important; 
+    flex-shrink: 0 !important;
+}
+
+footer {
+    /* Ngăn Footer bị méo và ép sát lề dưới */
+    flex-shrink: 0 !important;
+    margin-top: 20px !important; 
+}
+
+/* --- 2. XÓA KHE HỞ VÀ BÓNG RÂM GIỮA 2 THANH MENU (TRÊN PC) --- */
+@media (min-width: 769px) {
+    nav {
+        box-shadow: none !important; /* Xóa bóng thanh trên */
+        border-bottom: none !important;
+    }
+
+    .sticky-menu-wrapper {
+        top: 69px !important; /* Kéo thanh dưới lên 1px để lấp đầy rãnh hở */
+        background-color: white !important; /* Đồng bộ nền trắng */
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important; /* Tạo bóng mới cho cả khối */
+        border-top: none !important;
+    }
+
+    /* Đồng bộ màu cho giao diện Tối (Dark Mode) */
+    body.dark-theme .sticky-menu-wrapper {
+        background-color: #303947 !important; 
+        box-shadow: 0 6px 15px rgba(0,0,0,0.5) !important; 
     }
 }

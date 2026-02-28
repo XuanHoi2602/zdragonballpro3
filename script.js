@@ -5,14 +5,14 @@ var captionText = document.getElementById("modalCaption");
 // Lấy tất cả ảnh bên trong khung img-wrapper
 var imgs = document.querySelectorAll(".img-wrapper img");
 
-imgs.forEach(function(img) {
-    img.onclick = function(){
+imgs.forEach(function (img) {
+    img.onclick = function () {
         modal.style.display = "block";
         modalImg.src = this.src;
-        
+
         // Lấy nội dung ghi chú bên dưới ảnh để đưa vào modal
         var caption = this.nextElementSibling;
-        if(caption && caption.classList.contains("img-caption")) {
+        if (caption && caption.classList.contains("img-caption")) {
             captionText.innerHTML = caption.innerHTML;
         } else {
             captionText.innerHTML = this.alt;
@@ -22,12 +22,12 @@ imgs.forEach(function(img) {
 
 // Tắt modal khi bấm nút X
 var span = document.getElementsByClassName("close-modal")[0];
-span.onclick = function() { 
+span.onclick = function () {
     modal.style.display = "none";
 }
 
 // Tắt modal khi bấm ra ngoài khoảng đen
-modal.onclick = function(e) {
+modal.onclick = function (e) {
     if (e.target !== modalImg) {
         modal.style.display = "none";
     }
@@ -57,33 +57,33 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 //     if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
 // }
 // --- SCRIPT HOA MAI RƠI ---
-function createHoaMai() {
-    const petal = document.createElement('div');
-    petal.classList.add('mai-petal');
-    
-    // Random kích thước cánh hoa từ 8px đến 16px
-    const size = Math.random() * 8 + 8; 
-    petal.style.width = `${size}px`;
-    petal.style.height = `${size}px`;
-    
-    // Random vị trí xuất hiện trên màn hình (từ 0 đến 100% chiều ngang)
-    petal.style.left = `${Math.random() * 100}vw`;
-    
-    // Random thời gian rơi (tốc độ rơi từ 4 giây đến 9 giây)
-    const fallDuration = Math.random() * 5 + 4; 
-    petal.style.animation = `fall ${fallDuration}s linear forwards`;
-    
-    // Thêm cánh hoa vào trang web
-    document.body.appendChild(petal);
-    
-    // Xóa cánh hoa khỏi HTML sau khi rơi xong để không làm nặng RAM VPS/máy tính
-    setTimeout(() => {
-        petal.remove();
-    }, fallDuration * 1000);
-}
+// function createHoaMai() {
+//     const petal = document.createElement('div');
+//     petal.classList.add('mai-petal');
 
-// Tạo ra một cánh hoa mới mỗi 300 mili-giây (Có thể tăng số 300 lên 500 nếu thấy hoa rơi quá dày)
-setInterval(createHoaMai, 300);
+//     // Random kích thước cánh hoa từ 8px đến 16px
+//     const size = Math.random() * 8 + 8;
+//     petal.style.width = `${size}px`;
+//     petal.style.height = `${size}px`;
+
+//     // Random vị trí xuất hiện trên màn hình (từ 0 đến 100% chiều ngang)
+//     petal.style.left = `${Math.random() * 100}vw`;
+
+//     // Random thời gian rơi (tốc độ rơi từ 4 giây đến 9 giây)
+//     const fallDuration = Math.random() * 5 + 4;
+//     petal.style.animation = `fall ${fallDuration}s linear forwards`;
+
+//     // Thêm cánh hoa vào trang web
+//     document.body.appendChild(petal);
+
+//     // Xóa cánh hoa khỏi HTML sau khi rơi xong để không làm nặng RAM VPS/máy tính
+//     setTimeout(() => {
+//         petal.remove();
+//     }, fallDuration * 1000);
+// }
+
+// // Tạo ra một cánh hoa mới mỗi 300 mili-giây (Có thể tăng số 300 lên 500 nếu thấy hoa rơi quá dày)
+// setInterval(createHoaMai, 300);
 // --- SCRIPT CHUYỂN ĐỔI SÁNG/TỐI (MẶC ĐỊNH TỐI) ---
 const toggleSwitch = document.getElementById('checkbox');
 const currentTheme = localStorage.getItem('theme');
@@ -104,52 +104,52 @@ if (currentTheme) {
 function toggleTheme() {
     if (toggleSwitch.checked) {
         document.body.className = 'dark-theme';
-        localStorage.setItem('theme', 'dark-theme'); 
+        localStorage.setItem('theme', 'dark-theme');
     } else {
         document.body.className = ''; // Xóa class dark-theme để về lại màu trắng
         localStorage.setItem('theme', 'light-theme');
     }
 }
 // --- SCRIPT CHUYỂN TAB (TÁCH PAGE) ---
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các nút menu và các thẻ nội dung (card)
     const navLinks = document.querySelectorAll('.in-page-nav a');
     const cards = document.querySelectorAll('.card');
 
     // Nếu không có menu nào thì dừng lại
-    if(navLinks.length === 0) return;
+    if (navLinks.length === 0) return;
 
     // Hàm thực hiện chuyển tab
     function openTab(tabId, clickedLink) {
         // 1. Ẩn tất cả các nội dung (card)
         cards.forEach(card => card.classList.remove('active'));
-        
+
         // 2. Bỏ highlight (màu cam) ở tất cả các nút menu
         navLinks.forEach(link => link.classList.remove('active-nav'));
-        
+
         // 3. Tìm thẻ nội dung có ID tương ứng và cho hiển thị lên
         const targetCard = document.getElementById(tabId);
-        if(targetCard) {
+        if (targetCard) {
             targetCard.classList.add('active');
         }
-        
+
         // 4. Highlight (tô màu cam) nút menu vừa được bấm
-        if(clickedLink) {
+        if (clickedLink) {
             clickedLink.classList.add('active-nav');
         }
     }
 
     // Gắn sự kiện "Click" cho từng nút menu
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault(); // Ngăn hành vi cuộn trang mặc định của thẻ <a>
-            
+
             // Lấy ID của tab (ví dụ href="#tab-giaodien" -> lấy "tab-giaodien")
-            const tabId = this.getAttribute('href').substring(1); 
-            
+            const tabId = this.getAttribute('href').substring(1);
+
             // Gọi hàm chuyển tab
             openTab(tabId, this);
-            
+
             // Tùy chọn: Cuộn nhẹ lên đầu trang sau khi chuyển tab (nếu màn hình nhỏ)
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
@@ -180,7 +180,7 @@ function xemVideoChiTiet(event, videoId) {
             targetVideoBlock.style.transition = "box-shadow 0.5s, transform 0.5s";
             targetVideoBlock.style.boxShadow = "0 0 25px var(--primary)";
             targetVideoBlock.style.transform = "scale(1.02)";
-            
+
             setTimeout(() => {
                 targetVideoBlock.style.boxShadow = "0 4px 6px -1px rgba(0,0,0,0.05)";
                 targetVideoBlock.style.transform = "scale(1)";
@@ -191,7 +191,7 @@ function xemVideoChiTiet(event, videoId) {
 // --- SCRIPT CHO POPUP THÔNG BÁO KHI VÀO WEB ---
 
 // 1. Tự động bật thông báo khi web tải xong
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     // Dùng sessionStorage: Chỉ hiện 1 lần trong suốt quá trình mở tab. F5 không bị hiện lại.
     if (!sessionStorage.getItem('daXemThongBao')) {
         document.getElementById('welcomeModal').style.display = 'block';
@@ -205,10 +205,10 @@ function closeWelcomeModal() {
 }
 
 // 3. Tự đóng TẤT CẢ popup (Mua VPS & Thông Báo) khi click ra khoảng đen bên ngoài
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     let vpsModal = document.getElementById("vpsModal");
     let welcomeModal = document.getElementById("welcomeModal");
-    
+
     if (event.target == vpsModal) {
         vpsModal.style.display = "none";
     }
@@ -221,7 +221,7 @@ window.addEventListener('click', function(event) {
 function copyConfig(btnElement) {
     // Lấy nội dung text trong thẻ pre
     const content = document.getElementById('bossConfig').innerText;
-    
+
     // Copy vào clipboard
     navigator.clipboard.writeText(content).then(() => {
         // Lưu lại nội dung gốc của nút
@@ -231,7 +231,7 @@ function copyConfig(btnElement) {
         // Đổi nút sang trạng thái "Đã copy"
         btnElement.innerHTML = '<i class="fa-solid fa-check"></i> Đã Copy!';
         btnElement.style.backgroundColor = '#22c55e'; // Màu xanh lá
-        
+
         // Sau 2 giây trả về trạng thái cũ
         setTimeout(() => {
             btnElement.innerHTML = originalHTML;
