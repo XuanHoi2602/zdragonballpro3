@@ -1241,50 +1241,81 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         justify-content: center;
     }
 }
+
 /* ================================================= */
 /* --- BẢN CHUẨN CUỐI CÙNG: FIX ALL LỖI GIAO DIỆN --- */
 /* ================================================= */
 
 /* --- 1. KÉO FOOTER XUỐNG ĐÁY MÀN HÌNH (VẪN GIỮ MENU STICKY) --- */
 html {
-    height: 100%; /* Giúp trình duyệt tính toán đúng chiều cao */
+    height: 100%;
+    /* Giúp trình duyệt tính toán đúng chiều cao */
 }
 
 body {
     display: flex !important;
     flex-direction: column !important;
-    min-height: 100vh !important; /* Chiều cao tối thiểu = 100% màn hình */
+    min-height: 100vh !important;
+    /* Chiều cao tối thiểu = 100% màn hình */
 }
 
 .container {
     /* ĐÂY LÀ CHÌA KHÓA: Ép phần nội dung phình to ra đẩy Footer xuống */
-    flex-grow: 1 !important; 
+    flex-grow: 1 !important;
     flex-shrink: 0 !important;
 }
 
 footer {
     /* Ngăn Footer bị méo và ép sát lề dưới */
     flex-shrink: 0 !important;
-    margin-top: 20px !important; 
+    margin-top: 20px !important;
 }
 
 /* --- 2. XÓA KHE HỞ VÀ BÓNG RÂM GIỮA 2 THANH MENU (TRÊN PC) --- */
 @media (min-width: 769px) {
     nav {
-        box-shadow: none !important; /* Xóa bóng thanh trên */
+        box-shadow: none !important;
+        /* Xóa bóng thanh trên */
         border-bottom: none !important;
     }
 
     .sticky-menu-wrapper {
-        top: 69px !important; /* Kéo thanh dưới lên 1px để lấp đầy rãnh hở */
-        background-color: white !important; /* Đồng bộ nền trắng */
-        box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important; /* Tạo bóng mới cho cả khối */
+        top: 69px !important;
+        /* Kéo thanh dưới lên 1px để lấp đầy rãnh hở */
+        background-color: white !important;
+        /* Đồng bộ nền trắng */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
+        /* Tạo bóng mới cho cả khối */
         border-top: none !important;
     }
 
     /* Đồng bộ màu cho giao diện Tối (Dark Mode) */
     body.dark-theme .sticky-menu-wrapper {
-        background-color: #303947 !important; 
-        box-shadow: 0 6px 15px rgba(0,0,0,0.5) !important; 
+        background-color: #303947 !important;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5) !important;
     }
+}
+
+/* Định dạng mặc định cho link email */
+.email-link {
+    color: #38bdf8;
+    text-decoration: none;
+    /* Bỏ gạch chân mặc định */
+    transition: text-decoration 0.3s ease;
+    /* Thêm hiệu ứng chuyển đổi mượt mà (tùy chọn) */
+}
+
+/* Hiệu ứng gạch chân khi di chuột vào (hover) */
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* Bỏ gạch chân mặc định của link */
+.quick-links ul li a {
+    text-decoration: none;
+}
+
+/* Hiệu ứng gạch chân khi chỉ chuột vào */
+.quick-links ul li a:hover {
+    text-decoration: underline;
 }
