@@ -1552,10 +1552,13 @@ footer {
     color: var(--primary);
 }
 
-/* Ẩn nút mũi tên trên điện thoại (vì điện thoại màn hình nhỏ, nút sẽ che mất ảnh) */
+/* Chỉnh sửa nút mũi tên trên điện thoại */
 @media (max-width: 768px) {
     .prev-modal, .next-modal {
         font-size: 25px;
         padding: 10px 15px;
+        
+        /* Thay vì nằm chính giữa (50%), ta đẩy nó xuống thấp hơn */
+        top: 65%; 
     }
 }
