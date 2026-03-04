@@ -13,7 +13,7 @@ imgs.forEach(function (img) {
         // TÌM CHÚ THÍCH (MỚI): Tìm khung img-wrapper bao ngoài cùng, sau đó tìm thẻ img-caption bên trong
         var wrapper = this.closest(".img-wrapper");
         var caption = wrapper ? wrapper.querySelector(".img-caption") : null;
-        
+
         if (caption) {
             captionText.innerHTML = caption.innerHTML;
         } else {
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (menuToggleBtn && mobileMenu) {
         menuToggleBtn.addEventListener('click', function () {
             mobileMenu.classList.toggle('show-mobile-nav');
-            
+
             // Đổi icon từ 3 gạch sang dấu X
             const icon = menuToggleBtn.querySelector('i');
             if (mobileMenu.classList.contains('show-mobile-nav')) {

@@ -1319,6 +1319,7 @@ footer {
 .quick-links ul li a:hover {
     text-decoration: underline;
 }
+
 /* ================================================= */
 /* --- NÚT MENU 3 GẠCH DÀNH CHO MOBILE --- */
 /* ================================================= */
@@ -1336,7 +1337,7 @@ footer {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.3s;
 }
 
@@ -1346,6 +1347,7 @@ footer {
 
 /* Cấu hình khi thu nhỏ thành màn hình điện thoại */
 @media (max-width: 768px) {
+
     /* Hiện nút 3 gạch */
     .mobile-menu-btn {
         display: block;
@@ -1356,48 +1358,62 @@ footer {
         padding: 10px 0 !important;
         position: sticky;
     }
+
     /* Gom nhóm menu lại thành dạng xổ xuống (Dropdown) */
     .in-page-nav {
-        display: none; 
+        display: none;
         /* Đã xóa flex-direction: column ở đây */
         position: absolute;
-        top: 100%; 
+        top: 100%;
         left: 0;
         width: 100%;
         background-color: rgba(241, 245, 249, 0.98);
         backdrop-filter: blur(10px);
-        
-        padding: 12px; 
-        gap: 8px !important; /* Khoảng cách giữa các cột và hàng */
-        
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+
+        padding: 12px;
+        gap: 8px !important;
+        /* Khoảng cách giữa các cột và hàng */
+
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         border-bottom: 1px solid var(--border);
-        max-height: 65vh; 
+        max-height: 65vh;
         overflow-y: auto;
         z-index: 99;
     }
 
     /* Hiệu ứng khi menu được mở ra bằng Javascript */
     .in-page-nav.show-mobile-nav {
-        display: grid !important; /* DÙNG GRID ĐỂ CHIA CỘT */
-        grid-template-columns: 1fr 1fr; /* CHIA LÀM 2 CỘT BẰNG NHAU */
+        display: grid !important;
+        /* DÙNG GRID ĐỂ CHIA CỘT */
+        grid-template-columns: 1fr 1fr;
+        /* CHIA LÀM 2 CỘT BẰNG NHAU */
         animation: fadeInDown 0.2s ease forwards;
     }
 
     @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     /* Định dạng lại các nút cho phù hợp với 2 cột */
     .in-page-nav a {
         width: 100%;
-        text-align: center; /* Đưa chữ ra giữa lại sẽ đẹp hơn khi chia cột */
-        padding: 10px 5px !important; /* Giảm lề ngang để chữ dài không bị rớt dòng */
-        font-size: 0.85rem; /* Thu nhỏ chữ một chút xíu */
-        border-radius: 6px !important; 
-        border: none !important; 
-        box-shadow: none !important; 
+        text-align: center;
+        /* Đưa chữ ra giữa lại sẽ đẹp hơn khi chia cột */
+        padding: 10px 5px !important;
+        /* Giảm lề ngang để chữ dài không bị rớt dòng */
+        font-size: 0.85rem;
+        /* Thu nhỏ chữ một chút xíu */
+        border-radius: 6px !important;
+        border: none !important;
+        box-shadow: none !important;
         /* Căn giữa chữ hoàn hảo */
         display: flex;
         align-items: center;
@@ -1410,10 +1426,12 @@ footer {
         border-bottom: 1px solid #475569;
     }
 }
+
 /* ================================================= */
 /* --- SỬA LỖI CHE MENU TRÊN ĐIỆN THOẠI --- */
 /* ================================================= */
 @media (max-width: 768px) {
+
     /* 1. Hủy bám dính của thanh Logo trên Mobile để cuộn trôi đi, tiết kiệm chỗ */
     nav {
         position: relative !important;
@@ -1421,14 +1439,17 @@ footer {
 
     /* 2. Cập nhật thanh Menu 3 gạch bám sát lên mép trên cùng (top: 0) của điện thoại */
     .sticky-menu-wrapper {
-        top: 0 !important; 
-        z-index: 100 !important; /* Tăng độ ưu tiên để luôn nổi lên trên cùng */
+        top: 0 !important;
+        z-index: 100 !important;
+        /* Tăng độ ưu tiên để luôn nổi lên trên cùng */
     }
 }
+
 /* ================================================= */
 /* --- GIỮ CẢ 2 THANH MENU BÁM DÍNH TRÊN MOBILE --- */
 /* ================================================= */
 @media (max-width: 768px) {
+
     /* 1. Đảm bảo thanh Logo trên cùng luôn bám dính ở sát trần */
     nav {
         position: sticky !important;
@@ -1439,7 +1460,8 @@ footer {
     /* 2. Hạ điểm dừng của thanh Danh mục xuống dưới thanh Logo */
     .sticky-menu-wrapper {
         position: sticky !important;
-        top: 105px !important; /* Đẩy xuống 105px để tránh bị Logo đè lên */
+        top: 105px !important;
+        /* Đẩy xuống 105px để tránh bị Logo đè lên */
         z-index: 99 !important;
     }
 }
@@ -1447,7 +1469,7 @@ footer {
 .img-group {
     display: grid;
     /* Ép cố định chia làm 2 cột bằng nhau */
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-bottom: 10px;
 }
@@ -1455,23 +1477,28 @@ footer {
 .img-group img {
     width: 100%;
     /* Ép chiều cao các ảnh bằng nhau để khung không bị thò thụt */
-    height: 100%; 
-    object-fit: cover; 
+    height: 100%;
+    object-fit: cover;
     border-radius: 6px;
     cursor: zoom-in;
     transition: 0.3s;
     /* Thêm viền nhẹ giúp các ảnh tách bạch nhau ra */
-    border: 1px solid var(--border); 
+    border: 1px solid var(--border);
 }
 
 .img-group img:hover {
     opacity: 0.85;
-    border-color: var(--primary); /* Đổi màu viền khi trỏ chuột vào */
+    border-color: var(--primary);
+    /* Đổi màu viền khi trỏ chuột vào */
 }
+
 /* Áp dụng cho ảnh cuối cùng nếu nó nằm ở vị trí số lẻ (3, 5, 7...) */
 .img-group img:nth-child(odd):last-child {
-    grid-column: span 2; /* Ép nó dãn dài ra chiếm trọn 2 cột */
-    max-height: 350px; /* Giới hạn chiều cao để không bị khổng lồ quá */
-    object-fit: cover; 
-    object-position: top; /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
+    grid-column: span 2;
+    /* Ép nó dãn dài ra chiếm trọn 2 cột */
+    max-height: 350px;
+    /* Giới hạn chiều cao để không bị khổng lồ quá */
+    object-fit: cover;
+    object-position: top;
+    /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
 }
