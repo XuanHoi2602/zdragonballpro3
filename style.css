@@ -1443,3 +1443,35 @@ footer {
         z-index: 99 !important;
     }
 }
+
+.img-group {
+    display: grid;
+    /* Ép cố định chia làm 2 cột bằng nhau */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.img-group img {
+    width: 100%;
+    /* Ép chiều cao các ảnh bằng nhau để khung không bị thò thụt */
+    height: 100%; 
+    object-fit: cover; 
+    border-radius: 6px;
+    cursor: zoom-in;
+    transition: 0.3s;
+    /* Thêm viền nhẹ giúp các ảnh tách bạch nhau ra */
+    border: 1px solid var(--border); 
+}
+
+.img-group img:hover {
+    opacity: 0.85;
+    border-color: var(--primary); /* Đổi màu viền khi trỏ chuột vào */
+}
+/* Áp dụng cho ảnh cuối cùng nếu nó nằm ở vị trí số lẻ (3, 5, 7...) */
+.img-group img:nth-child(odd):last-child {
+    grid-column: span 2; /* Ép nó dãn dài ra chiếm trọn 2 cột */
+    max-height: 350px; /* Giới hạn chiều cao để không bị khổng lồ quá */
+    object-fit: cover; 
+    object-position: top; /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
+}

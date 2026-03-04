@@ -10,9 +10,11 @@ imgs.forEach(function (img) {
         modal.style.display = "block";
         modalImg.src = this.src;
 
-        // Lấy nội dung ghi chú bên dưới ảnh để đưa vào modal
-        var caption = this.nextElementSibling;
-        if (caption && caption.classList.contains("img-caption")) {
+        // TÌM CHÚ THÍCH (MỚI): Tìm khung img-wrapper bao ngoài cùng, sau đó tìm thẻ img-caption bên trong
+        var wrapper = this.closest(".img-wrapper");
+        var caption = wrapper ? wrapper.querySelector(".img-caption") : null;
+        
+        if (caption) {
             captionText.innerHTML = caption.innerHTML;
         } else {
             captionText.innerHTML = this.alt;
