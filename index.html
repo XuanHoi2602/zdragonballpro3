@@ -1036,10 +1036,13 @@ Setting nm (liên hoàn):
 
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
+        
+        <a class="prev-modal" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next-modal" onclick="changeImage(1)">&#10095;</a>
+        
         <img class="modal-content" id="expandedImg">
         <div id="modalCaption"></div>
     </div>
-
     <script src="script.js"></script>
 </body>
 

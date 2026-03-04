@@ -2,38 +2,89 @@ var modal = document.getElementById("imageModal");
 var modalImg = document.getElementById("expandedImg");
 var captionText = document.getElementById("modalCaption");
 
-// Lấy tất cả ảnh bên trong khung img-wrapper
+// Biến để nhớ danh sách ảnh đang xem và vị trí hiện tại
+var currentImageList = [];
+var currentImageIndex = 0;
+
 var imgs = document.querySelectorAll(".img-wrapper img");
 
 imgs.forEach(function (img) {
     img.onclick = function () {
         modal.style.display = "block";
-        modalImg.src = this.src;
 
-        // TÌM CHÚ THÍCH (MỚI): Tìm khung img-wrapper bao ngoài cùng, sau đó tìm thẻ img-caption bên trong
+        // GOM NHÓM: Tìm tất cả các ảnh nằm chung 1 khung (img-wrapper) để tạo thành 1 album
         var wrapper = this.closest(".img-wrapper");
-        var caption = wrapper ? wrapper.querySelector(".img-caption") : null;
-
-        if (caption) {
-            captionText.innerHTML = caption.innerHTML;
+        if (wrapper) {
+            currentImageList = Array.from(wrapper.querySelectorAll("img"));
         } else {
-            captionText.innerHTML = this.alt;
+            currentImageList = [this]; 
         }
+
+        // Xác định vị trí của ảnh vừa bấm trong album đó
+        currentImageIndex = currentImageList.indexOf(this);
+        
+        // Gọi hàm hiển thị
+        showImage(currentImageIndex);
     }
 });
 
-// Tắt modal khi bấm nút X
-var span = document.getElementsByClassName("close-modal")[0];
-span.onclick = function () {
-    modal.style.display = "none";
+// Hàm hiển thị ảnh
+function showImage(index) {
+    // Nếu bấm Next ở ảnh cuối cùng -> Quay lại ảnh đầu tiên
+    if (index >= currentImageList.length) { currentImageIndex = 0; }
+    // Nếu bấm Prev ở ảnh đầu tiên -> Nhảy tới ảnh cuối cùng
+    if (index < 0) { currentImageIndex = currentImageList.length - 1; }
+
+    var targetImg = currentImageList[currentImageIndex];
+    modalImg.src = targetImg.src;
+
+    // Hiển thị chú thích kèm số trang (Ví dụ: Chú thích ảnh (2/5))
+    var wrapper = targetImg.closest(".img-wrapper");
+    var caption = wrapper ? wrapper.querySelector(".img-caption") : null;
+    
+    // Nếu album có nhiều hơn 1 ảnh thì hiển thị số trang
+    var pageInfo = currentImageList.length > 1 ? " (" + (currentImageIndex + 1) + "/" + currentImageList.length + ")" : "";
+
+    if (caption) {
+        captionText.innerHTML = caption.innerHTML + pageInfo;
+    } else {
+        captionText.innerHTML = targetImg.alt + pageInfo;
+    }
 }
 
-// Tắt modal khi bấm ra ngoài khoảng đen
-modal.onclick = function (e) {
-    if (e.target !== modalImg) {
+// Hàm được gọi khi bấm nút mũi tên trên màn hình
+function changeImage(n) {
+    currentImageIndex += n;
+    showImage(currentImageIndex);
+}
+
+// Tắt modal khi bấm nút X
+var span = document.getElementsByClassName("close-modal")[0];
+if(span) {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 }
+
+// Tắt modal khi bấm ra ngoài vùng đen (Lưu ý: Bấm trúng nút mũi tên thì không tắt)
+modal.onclick = function (e) {
+    if (e.target === modal || e.target.classList.contains('close-modal')) {
+        modal.style.display = "none";
+    }
+}
+
+// TÍNH NĂNG PRO: Sử dụng phím mũi tên Trái/Phải và phím ESC trên bàn phím
+document.addEventListener('keydown', function(event) {
+    if (modal.style.display === "block") {
+        if (event.key === "ArrowLeft") {
+            changeImage(-1);
+        } else if (event.key === "ArrowRight") {
+            changeImage(1);
+        } else if (event.key === "Escape") {
+            modal.style.display = "none";
+        }
+    }
+});
 
 // --- SCRIPT CHO POPUP MUA VPS ---
 function openVpsModal(event) {

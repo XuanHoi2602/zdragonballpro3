@@ -1502,3 +1502,60 @@ footer {
     object-position: top;
     /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
 }
+/* ================================================= */
+/* --- ÉP PHÓNG TO HẾT CỠ MỌI LOẠI ẢNH TRÊN PC --- */
+/* ================================================= */
+@media (min-width: 769px) {
+    .modal-content {
+        width: 100%;          /* Kéo giãn chiều rộng */
+        height: 96vh;         /* Kéo giãn chiều cao lên 96% màn hình */
+        max-width: 96vw;      /* Không cho vượt quá 96% chiều ngang */
+        object-fit: contain;  /* Tự động scale ảnh to hết cỡ đến khi chạm viền, giữ đúng tỷ lệ không bị méo */
+        background-color: transparent; 
+    }
+}
+/* ================================================= */
+/* --- NÚT ĐIỀU HƯỚNG TRÁI/PHẢI TRONG KHUNG ZOOM --- */
+/* ================================================= */
+.prev-modal, .next-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px 20px;
+    margin-top: -30px;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.3s ease;
+    border-radius: 0 5px 5px 0;
+    user-select: none;
+    -webkit-user-select: none;
+    text-decoration: none;
+    z-index: 10000;
+}
+
+/* Ép nút Next nằm sát mép phải */
+.next-modal {
+    right: 15px;
+    border-radius: 5px 0 0 5px;
+}
+
+/* Ép nút Prev nằm sát mép trái */
+.prev-modal {
+    left: 15px;
+}
+
+/* Hiệu ứng mờ nền khi di chuột vào nút */
+.prev-modal:hover, .next-modal:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--primary);
+}
+
+/* Ẩn nút mũi tên trên điện thoại (vì điện thoại màn hình nhỏ, nút sẽ che mất ảnh) */
+@media (max-width: 768px) {
+    .prev-modal, .next-modal {
+        font-size: 25px;
+        padding: 10px 15px;
+    }
+}
