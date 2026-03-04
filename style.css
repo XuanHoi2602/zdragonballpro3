@@ -1319,3 +1319,127 @@ footer {
 .quick-links ul li a:hover {
     text-decoration: underline;
 }
+/* ================================================= */
+/* --- NÚT MENU 3 GẠCH DÀNH CHO MOBILE --- */
+/* ================================================= */
+
+/* Mặc định trên máy tính: Ẩn nút 3 gạch */
+.mobile-menu-btn {
+    display: none;
+    width: 90%;
+    margin: 0 auto;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.mobile-menu-btn i {
+    margin-right: 8px;
+}
+
+/* Cấu hình khi thu nhỏ thành màn hình điện thoại */
+@media (max-width: 768px) {
+    /* Hiện nút 3 gạch */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* Tùy chỉnh vùng chứa sticky */
+    .sticky-menu-wrapper {
+        padding: 10px 0 !important;
+        position: sticky;
+    }
+    /* Gom nhóm menu lại thành dạng xổ xuống (Dropdown) */
+    .in-page-nav {
+        display: none; 
+        /* Đã xóa flex-direction: column ở đây */
+        position: absolute;
+        top: 100%; 
+        left: 0;
+        width: 100%;
+        background-color: rgba(241, 245, 249, 0.98);
+        backdrop-filter: blur(10px);
+        
+        padding: 12px; 
+        gap: 8px !important; /* Khoảng cách giữa các cột và hàng */
+        
+        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--border);
+        max-height: 65vh; 
+        overflow-y: auto;
+        z-index: 99;
+    }
+
+    /* Hiệu ứng khi menu được mở ra bằng Javascript */
+    .in-page-nav.show-mobile-nav {
+        display: grid !important; /* DÙNG GRID ĐỂ CHIA CỘT */
+        grid-template-columns: 1fr 1fr; /* CHIA LÀM 2 CỘT BẰNG NHAU */
+        animation: fadeInDown 0.2s ease forwards;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Định dạng lại các nút cho phù hợp với 2 cột */
+    .in-page-nav a {
+        width: 100%;
+        text-align: center; /* Đưa chữ ra giữa lại sẽ đẹp hơn khi chia cột */
+        padding: 10px 5px !important; /* Giảm lề ngang để chữ dài không bị rớt dòng */
+        font-size: 0.85rem; /* Thu nhỏ chữ một chút xíu */
+        border-radius: 6px !important; 
+        border: none !important; 
+        box-shadow: none !important; 
+        /* Căn giữa chữ hoàn hảo */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Chỉnh màu xổ xuống cho Dark Mode */
+    body.dark-theme .in-page-nav {
+        background-color: rgba(48, 57, 71, 0.98);
+        border-bottom: 1px solid #475569;
+    }
+}
+/* ================================================= */
+/* --- SỬA LỖI CHE MENU TRÊN ĐIỆN THOẠI --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* 1. Hủy bám dính của thanh Logo trên Mobile để cuộn trôi đi, tiết kiệm chỗ */
+    nav {
+        position: relative !important;
+    }
+
+    /* 2. Cập nhật thanh Menu 3 gạch bám sát lên mép trên cùng (top: 0) của điện thoại */
+    .sticky-menu-wrapper {
+        top: 0 !important; 
+        z-index: 100 !important; /* Tăng độ ưu tiên để luôn nổi lên trên cùng */
+    }
+}
+/* ================================================= */
+/* --- GIỮ CẢ 2 THANH MENU BÁM DÍNH TRÊN MOBILE --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* 1. Đảm bảo thanh Logo trên cùng luôn bám dính ở sát trần */
+    nav {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+    }
+
+    /* 2. Hạ điểm dừng của thanh Danh mục xuống dưới thanh Logo */
+    .sticky-menu-wrapper {
+        position: sticky !important;
+        top: 105px !important; /* Đẩy xuống 105px để tránh bị Logo đè lên */
+        z-index: 99 !important;
+    }
+}

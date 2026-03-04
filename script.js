@@ -241,3 +241,37 @@ function copyConfig(btnElement) {
         alert('Lỗi khi copy: ' + err);
     });
 }
+// --- SCRIPT CHO MENU 3 GẠCH TRÊN MOBILE ---
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    // Bật/tắt menu khi bấm nút 3 gạch
+    if (menuToggleBtn && mobileMenu) {
+        menuToggleBtn.addEventListener('click', function () {
+            mobileMenu.classList.toggle('show-mobile-nav');
+            
+            // Đổi icon từ 3 gạch sang dấu X
+            const icon = menuToggleBtn.querySelector('i');
+            if (mobileMenu.classList.contains('show-mobile-nav')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Tự động đóng menu khi bấm vào 1 mục bất kỳ
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('show-mobile-nav');
+                // Trả lại icon 3 gạch
+                const icon = menuToggleBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    }
+});
