@@ -90,7 +90,7 @@ nav {
 
 /* --- CSS CHO LOGO MỚI (HÌNH CHỮ NHẬT) --- */
 .logo-icon {
-    height: 100px;       /* Giữ chiều cao vừa vặn với thanh Menu */
+    height: 87px;       /* Giữ chiều cao vừa vặn với thanh Menu */
     width: auto;        /* Tự động kéo dài chiều ngang theo tỷ lệ ảnh */
     border-radius: 0;   /* Bỏ viền bo tròn cũ */
     border: none;       /* Xóa viền màu cam */
@@ -105,6 +105,10 @@ nav {
 /* Tắt hiệu ứng xóa nền trắng khi ở Dark Theme để logo không bị đen thui */
 body.dark-theme .logo-icon {
     mix-blend-mode: normal; 
+}
+/* Hiệu ứng phóng to nhẹ khi di chuột vào ( scale 1.05 có nghĩa là tăng 5% kích thước) */
+.logo-icon:hover {
+    transform: scale(1.05);
 }
 
 .logo-link {
