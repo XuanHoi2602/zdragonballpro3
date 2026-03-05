@@ -17,12 +17,12 @@ imgs.forEach(function (img) {
         if (wrapper) {
             currentImageList = Array.from(wrapper.querySelectorAll("img"));
         } else {
-            currentImageList = [this]; 
+            currentImageList = [this];
         }
 
         // Xác định vị trí của ảnh vừa bấm trong album đó
         currentImageIndex = currentImageList.indexOf(this);
-        
+
         // Gọi hàm hiển thị
         showImage(currentImageIndex);
     }
@@ -41,7 +41,7 @@ function showImage(index) {
     // Hiển thị chú thích kèm số trang (Ví dụ: Chú thích ảnh (2/5))
     var wrapper = targetImg.closest(".img-wrapper");
     var caption = wrapper ? wrapper.querySelector(".img-caption") : null;
-    
+
     // Nếu album có nhiều hơn 1 ảnh thì hiển thị số trang
     var pageInfo = currentImageList.length > 1 ? " (" + (currentImageIndex + 1) + "/" + currentImageList.length + ")" : "";
 
@@ -60,7 +60,7 @@ function changeImage(n) {
 
 // Tắt modal khi bấm nút X
 var span = document.getElementsByClassName("close-modal")[0];
-if(span) {
+if (span) {
     span.onclick = function () {
         modal.style.display = "none";
     }
@@ -74,7 +74,7 @@ modal.onclick = function (e) {
 }
 
 // TÍNH NĂNG PRO: Sử dụng phím mũi tên Trái/Phải và phím ESC trên bàn phím
-document.addEventListener('keydown', function(event) {
+document.addEventListener('keydown', function (event) {
     if (modal.style.display === "block") {
         if (event.key === "ArrowLeft") {
             changeImage(-1);

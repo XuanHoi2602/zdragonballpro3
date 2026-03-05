@@ -90,22 +90,23 @@ nav {
 
 /* --- CSS CHO LOGO MỚI (HÌNH CHỮ NHẬT) --- */
 .logo-icon {
-    height: 87px;       /* Giữ chiều cao vừa vặn với thanh Menu */
-    width: auto;        /* Tự động kéo dài chiều ngang theo tỷ lệ ảnh */
-    border-radius: 0;   /* Bỏ viền bo tròn cũ */
-    border: none;       /* Xóa viền màu cam */
+    height: 60px;
+    width: auto;
+    border-radius: 12px;
+    /* <-- Thay đổi ở đây: số càng lớn góc càng tròn (ví dụ 8px, 12px, 20px) */
+    border: none;
     object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
-    
-    /* Lệnh CSS xóa nền trắng (Chỉ đẹp trên nền Sáng, nền Tối bạn nên dùng ảnh đã tách nền bằng remove.bg) */
-    mix-blend-mode: multiply; 
+
+    mix-blend-mode: multiply;
 }
 
 /* Tắt hiệu ứng xóa nền trắng khi ở Dark Theme để logo không bị đen thui */
 body.dark-theme .logo-icon {
-    mix-blend-mode: normal; 
+    mix-blend-mode: normal;
 }
+
 /* Hiệu ứng phóng to nhẹ khi di chuột vào ( scale 1.05 có nghĩa là tăng 5% kích thước) */
 .logo-icon:hover {
     transform: scale(1.05);
@@ -1090,12 +1091,13 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
 /* ================================================= */
 @media (max-width: 768px) {
 
-    /* 1. Thu nhỏ logo và chữ 7 màu */
+
     /* Thu nhỏ kích thước logo dài trên điện thoại */
     .logo-icon {
         height: 50px !important;
-        width: auto !important; 
-        max-width: 250px; /* Ngăn logo không bị tràn màn hình */
+        width: auto !important;
+        max-width: 250px;
+        /* Ngăn logo không bị tràn màn hình */
     }
 
     .logo-text {
@@ -1510,22 +1512,29 @@ footer {
     object-position: top;
     /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
 }
+
 /* ================================================= */
 /* --- ÉP PHÓNG TO HẾT CỠ MỌI LOẠI ẢNH TRÊN PC --- */
 /* ================================================= */
 @media (min-width: 769px) {
     .modal-content {
-        width: 100%;          /* Kéo giãn chiều rộng */
-        height: 96vh;         /* Kéo giãn chiều cao lên 96% màn hình */
-        max-width: 96vw;      /* Không cho vượt quá 96% chiều ngang */
-        object-fit: contain;  /* Tự động scale ảnh to hết cỡ đến khi chạm viền, giữ đúng tỷ lệ không bị méo */
-        background-color: transparent; 
+        width: 100%;
+        /* Kéo giãn chiều rộng */
+        height: 96vh;
+        /* Kéo giãn chiều cao lên 96% màn hình */
+        max-width: 96vw;
+        /* Không cho vượt quá 96% chiều ngang */
+        object-fit: contain;
+        /* Tự động scale ảnh to hết cỡ đến khi chạm viền, giữ đúng tỷ lệ không bị méo */
+        background-color: transparent;
     }
 }
+
 /* ================================================= */
 /* --- NÚT ĐIỀU HƯỚNG TRÁI/PHẢI TRONG KHUNG ZOOM --- */
 /* ================================================= */
-.prev-modal, .next-modal {
+.prev-modal,
+.next-modal {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -1555,18 +1564,21 @@ footer {
 }
 
 /* Hiệu ứng mờ nền khi di chuột vào nút */
-.prev-modal:hover, .next-modal:hover {
+.prev-modal:hover,
+.next-modal:hover {
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--primary);
 }
 
 /* Chỉnh sửa nút mũi tên trên điện thoại */
 @media (max-width: 768px) {
-    .prev-modal, .next-modal {
+
+    .prev-modal,
+    .next-modal {
         font-size: 25px;
         padding: 10px 15px;
-        
+
         /* Thay vì nằm chính giữa (50%), ta đẩy nó xuống thấp hơn */
-        top: 65%; 
+        top: 65%;
     }
 }
