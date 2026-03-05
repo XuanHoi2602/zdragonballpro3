@@ -88,20 +88,23 @@ nav {
     color: #333;
 }
 
-/* --- CSS CHO LOGO HÌNH TRÒN --- */
+/* --- CSS CHO LOGO MỚI (HÌNH CHỮ NHẬT) --- */
 .logo-icon {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--primary);
+    height: 100px;       /* Giữ chiều cao vừa vặn với thanh Menu */
+    width: auto;        /* Tự động kéo dài chiều ngang theo tỷ lệ ảnh */
+    border-radius: 0;   /* Bỏ viền bo tròn cũ */
+    border: none;       /* Xóa viền màu cam */
+    object-fit: contain;
     cursor: pointer;
     transition: transform 0.3s ease;
+    
+    /* Lệnh CSS xóa nền trắng (Chỉ đẹp trên nền Sáng, nền Tối bạn nên dùng ảnh đã tách nền bằng remove.bg) */
+    mix-blend-mode: multiply; 
 }
 
-/* Hiệu ứng khi di chuột vào logo */
-.logo-icon:hover {
-    transform: scale(1.1);
+/* Tắt hiệu ứng xóa nền trắng khi ở Dark Theme để logo không bị đen thui */
+body.dark-theme .logo-icon {
+    mix-blend-mode: normal; 
 }
 
 .logo-link {
@@ -1084,10 +1087,11 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
 @media (max-width: 768px) {
 
     /* 1. Thu nhỏ logo và chữ 7 màu */
+    /* Thu nhỏ kích thước logo dài trên điện thoại */
     .logo-icon {
-        height: 35px;
-        /* Logo nhỏ lại chút cho gọn */
-        width: 35px;
+        height: 50px !important;
+        width: auto !important; 
+        max-width: 250px; /* Ngăn logo không bị tràn màn hình */
     }
 
     .logo-text {
@@ -1460,7 +1464,7 @@ footer {
     /* 2. Hạ điểm dừng của thanh Danh mục xuống dưới thanh Logo */
     .sticky-menu-wrapper {
         position: sticky !important;
-        top: 105px !important;
+        top: 125px !important;
         /* Đẩy xuống 105px để tránh bị Logo đè lên */
         z-index: 99 !important;
     }
