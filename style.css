@@ -1582,3 +1582,224 @@ footer {
         top: 65%;
     }
 }
+/* ================================================= */
+/* --- CSS CHO THANH TÌM KIẾM (AUTOCOMPLETE) --- */
+/* ================================================= */
+.search-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto 15px auto; 
+    padding: 0 20px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px 12px 40px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    background-color: white;
+    color: var(--dark);
+}
+
+.search-container input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(51, 206, 253, 0.4);
+}
+
+.search-icon {
+    position: absolute;
+    left: 35px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    right: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 8px;
+    list-style: none;
+    padding: 0;
+    max-height: 350px;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none; 
+}
+
+.search-suggestions li {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f5f9;
+    cursor: pointer;
+    transition: background 0.2s;
+    text-align: left;
+}
+
+.search-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.search-suggestions li:hover {
+    background-color: #f8fafc;
+}
+
+.search-suggestions li strong {
+    color: var(--primary);
+    font-size: 1rem;
+    display: block;
+}
+
+.search-suggestions li small {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Hỗ trợ Dark Mode */
+body.dark-theme .search-container input {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #cbd5e1;
+}
+body.dark-theme .search-suggestions {
+    background-color: #1e293b;
+    border-color: #475569;
+}
+body.dark-theme .search-suggestions li {
+    border-bottom-color: #334155;
+}
+body.dark-theme .search-suggestions li:hover {
+    background-color: #334155;
+}
+body.dark-theme .search-suggestions li small {
+    color: #94a3b8;
+}
+
+/* Ẩn thanh cuộn webkit cho gọn */
+.search-suggestions::-webkit-scrollbar {
+    width: 6px;
+}
+.search-suggestions::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    border-radius: 10px;
+}
+
+/* ================================================= */
+/* --- CĂN CHỈNH SEARCH VÀ NÚT MENU NẰM NGANG --- */
+/* ================================================= */
+.search-action-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px; /* Khoảng cách giữa ô tìm kiếm và nút */
+    max-width: 650px;
+    margin: 0 auto 15px auto;
+    padding: 0 20px;
+}
+
+/* Ép thanh tìm kiếm giãn tối đa khoảng trống */
+.search-action-row .search-container {
+    flex: 1; 
+    margin: 0; 
+    padding: 0;
+}
+
+/* Tùy chỉnh nút 3 gạch mới */
+.list-menu-btn {
+    display: flex !important; /* Ghi đè để hiện trên cả PC và Mobile */
+    align-items: center;
+    justify-content: center;
+    width: 46px !important; 
+    height: 46px; 
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%; /* Bo tròn giống thanh search */
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(51, 206, 253, 0.3);
+    margin: 0 !important;
+}
+
+.list-menu-btn:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary);
+}
+
+/* Đảm bảo khung gợi ý tìm kiếm không bị đè */
+.search-suggestions {
+    width: calc(100% - 40px); /* Chỉnh lại độ rộng một chút cho cân đối */
+}
+
+/* ================================================= */
+/* --- ĐỒNG BỘ HIỂN THỊ MENU XỔ XUỐNG CHO CẢ PC --- */
+/* ================================================= */
+/* Nếu bạn muốn menu biến thành dạng xổ xuống trên PC giống Mobile */
+.in-page-nav {
+    display: none; /* Ẩn mặc định, chờ bấm nút mới hiện */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(241, 245, 249, 0.98);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    gap: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+}
+
+.in-page-nav.show-mobile-nav {
+    display: grid !important; /* Đổi thành Grid để chia cột */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tự động chia cột đều nhau trên PC */
+    animation: fadeInDown 0.2s ease forwards;
+}
+/* ================================================= */
+/* --- FIX ĐỒNG BỘ MÀU DARK MODE CHO MENU XỔ XUỐNG --- */
+/* ================================================= */
+
+/* Đổi nền của nguyên khối menu xổ xuống thành màu tối */
+body.dark-theme .in-page-nav {
+    background-color: rgba(30, 41, 59, 0.98) !important; /* Màu xanh than tối, hơi mờ nhẹ (blur) */
+    border-color: #334155 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; /* Bóng đổ đậm hơn cho dark mode */
+}
+
+/* Đổi nền các nút bấm bên trong menu */
+body.dark-theme .in-page-nav a {
+    background-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+/* Hiệu ứng khi di chuột vào nút (hover) */
+body.dark-theme .in-page-nav a:hover {
+    background-color: #475569 !important;
+    color: white !important;
+}
+
+/* Giữ nguyên màu cam/xanh (primary) cho tab đang được chọn */
+body.dark-theme .in-page-nav a.active-nav {
+    background-color: var(--primary) !important;
+    color: white !important;
+}
+/* Đẩy chữ lùi sang phải nhiều hơn để né icon */
+.search-container input {
+    padding-left: 45px !important; 
+}
+
+/* Kéo icon kính lúp xích ra sát lề trái của khung tìm kiếm */
+.search-icon {
+    left: 18px !important; 
+}

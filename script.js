@@ -328,3 +328,109 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+// ================================================= //
+// --- SCRIPT CHO THANH TÌM KIẾM TÍNH NĂNG --- //
+// ================================================= //
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsBox = document.getElementById('searchSuggestions');
+    let searchIndex = [];
+
+    // 1. Quét toàn bộ HTML để lấy dữ liệu làm từ điển tìm kiếm
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        const tabId = card.id;
+        const tabTitleEl = card.querySelector('.section-title');
+        if (!tabTitleEl) return;
+        const tabName = tabTitleEl.innerText.trim();
+
+        const featureBlocks = card.querySelectorAll('.feature-block');
+        featureBlocks.forEach((block, index) => {
+            // Tự động cấp ID cho block nếu chưa có để cuộn tới
+            if (!block.id) {
+                block.id = `auto-feature-${tabId}-${index}`;
+            }
+
+            const headerEl = block.querySelector('.feature-header');
+            const contentEl = block.querySelector('.text-content');
+            
+            if (headerEl) {
+                searchIndex.push({
+                    id: block.id,
+                    tabId: tabId,
+                    tabName: tabName,
+                    title: headerEl.innerText.replace(/^\d+\.\s*/, '').trim(), // Bỏ số thứ tự 1. 2. ở đầu
+                    content: contentEl ? contentEl.innerText.toLowerCase() : ""
+                });
+            }
+        });
+    });
+
+    // 2. Lắng nghe sự kiện người dùng gõ phím
+    searchInput.addEventListener('input', function () {
+        const query = this.value.toLowerCase().trim();
+        suggestionsBox.innerHTML = '';
+
+        if (!query) {
+            suggestionsBox.style.display = 'none';
+            return;
+        }
+
+        // Lọc dữ liệu: Khớp với Tiêu đề, Tên Tab hoặc Nội dung bên trong
+        const matches = searchIndex.filter(item => 
+            item.title.toLowerCase().includes(query) || 
+            item.content.includes(query) || 
+            item.tabName.toLowerCase().includes(query)
+        ).slice(0, 7); // Chỉ hiển thị tối đa 7 kết quả gợi ý
+
+        // 3. Hiển thị gợi ý ra HTML
+        if (matches.length > 0) {
+            suggestionsBox.style.display = 'block';
+            matches.forEach(match => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>${match.title}</strong><small><i class="fa-solid fa-folder-open"></i> Tab: ${match.tabName}</small>`;
+                
+                // Sự kiện khi bấm vào 1 gợi ý
+                li.onclick = function () {
+                    suggestionsBox.style.display = 'none';
+                    searchInput.value = ''; // Reset thanh tìm kiếm
+
+                    // 3.1 Bấm nút giả lập để chuyển Tab
+                    const navLink = document.querySelector(`.in-page-nav a[href="#${match.tabId}"]`);
+                    if (navLink) navLink.click();
+
+                    // 3.2 Cuộn đến đúng vị trí và highlight
+                    setTimeout(() => {
+                        const targetBlock = document.getElementById(match.id);
+                        if (targetBlock) {
+                            targetBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            // Tạo hiệu ứng highlight sáng lên 2 giây
+                            targetBlock.style.transition = "box-shadow 0.5s, transform 0.5s";
+                            targetBlock.style.boxShadow = "0 0 25px var(--primary)";
+                            targetBlock.style.transform = "scale(1.02)";
+                            targetBlock.style.borderRadius = "8px";
+
+                            setTimeout(() => {
+                                targetBlock.style.boxShadow = "none";
+                                targetBlock.style.transform = "scale(1)";
+                            }, 2000);
+                        }
+                    }, 100); // Đợi tab mở xong 100ms
+                };
+                suggestionsBox.appendChild(li);
+            });
+        } else {
+            // Trường hợp không tìm thấy kết quả
+            suggestionsBox.style.display = 'block';
+            suggestionsBox.innerHTML = `<li style="color: var(--danger); text-align: center;"><i class="fa-solid fa-triangle-exclamation"></i> Không tìm thấy tính năng này</li>`;
+        }
+    });
+
+    // 4. Bấm ra ngoài khoảng trống thì tự đóng thanh gợi ý
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.search-container')) {
+            suggestionsBox.style.display = 'none';
+        }
+    });
+});

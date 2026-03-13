@@ -69,10 +69,17 @@
     </header>
 
     <div class="sticky-menu-wrapper">
-        <button id="menu-toggle-btn" class="mobile-menu-btn">
-            <i class="fa-solid fa-bars"></i> Danh mục tính năng
-        </button>
+        <div class="search-action-row">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="searchInput" placeholder="Tìm kiếm tính năng... (VD: úp đệ, bò mộng, kilis)" autocomplete="off">
+                <ul id="searchSuggestions" class="search-suggestions"></ul>
+            </div>
 
+            <button id="menu-toggle-btn" class="list-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
         <div class="in-page-nav" id="mobile-menu">
             <a href="#tab-giaodien">Giao Diện</a>
             <a href="#tab-train">Đánh Quái</a>
