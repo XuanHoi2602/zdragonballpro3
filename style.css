@@ -549,29 +549,6 @@ footer {
     }
 }
 
-/* --- HIỆU ỨNG HOA MAI RƠI --- */
-/* .mai-petal {
-    position: fixed;
-    top: -20px;
-    z-index: 99999;
-    pointer-events: none; 
-    background: radial-gradient(circle, #ffeb3b, #fbc02d); 
-    border-radius: 100% 0 100% 0; 
-    box-shadow: 0 0 5px rgba(255, 235, 59, 0.5);
-    opacity: 0.9;
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(-10vh) translateX(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(110vh) translateX(50px) rotate(720deg); 
-        opacity: 0.2;
-    }
-} */
-
 /* --- NÚT CHUYỂN ĐỔI SÁNG/TỐI --- */
 .theme-switch {
     display: inline-block;
@@ -1397,6 +1374,7 @@ footer {
         /* DÙNG GRID ĐỂ CHIA CỘT */
         grid-template-columns: 1fr 1fr;
         /* CHIA LÀM 2 CỘT BẰNG NHAU */
+        justify-items: center; /* <-- THÊM DÒNG NÀY ĐỂ CĂN GIỮA NÚT */
         animation: fadeInDown 0.2s ease forwards;
     }
 
@@ -1411,8 +1389,6 @@ footer {
             transform: translateY(0);
         }
     }
-
-    /* Định dạng lại các nút cho phù hợp với 2 cột */
     .in-page-nav a {
         width: 100%;
         text-align: center;
@@ -1428,6 +1404,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: 0 auto; 
     }
 
     /* Chỉnh màu xổ xuống cho Dark Mode */
@@ -1745,55 +1722,70 @@ body.dark-theme .search-suggestions li small {
 /* ================================================= */
 /* --- ĐỒNG BỘ HIỂN THỊ MENU XỔ XUỐNG CHO CẢ PC --- */
 /* ================================================= */
-/* Nếu bạn muốn menu biến thành dạng xổ xuống trên PC giống Mobile */
 .in-page-nav {
-    display: none; /* Ẩn mặc định, chờ bấm nút mới hiện */
+    display: none; 
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100%;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 850px !important; 
+
     background-color: rgba(241, 245, 249, 0.98);
     backdrop-filter: blur(10px);
-    padding: 15px;
-    gap: 10px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid var(--border);
+    padding: 20px !important;
+    gap: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    border: 1px solid var(--border) !important;
+    border-radius: 12px !important; 
     z-index: 99;
 }
 
 .in-page-nav.show-mobile-nav {
-    display: grid !important; /* Đổi thành Grid để chia cột */
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Tự động chia cột đều nhau trên PC */
+    /* Sử dụng Grid để chia cột đều đặn như trong hình */
+    display: grid !important; 
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    gap: 10px;
     animation: fadeInDown 0.2s ease forwards;
 }
+
+.in-page-nav a {
+    /* Ép nút thành hình chữ nhật bo góc nhẹ giống ảnh */
+    border-radius: 6px !important; 
+    width: 100% !important; /* Tràn đầy ô grid */
+    padding: 12px 10px !important; /* Nút cao và to hơn */
+    
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 !important;
+}
+
 /* ================================================= */
 /* --- FIX ĐỒNG BỘ MÀU DARK MODE CHO MENU XỔ XUỐNG --- */
 /* ================================================= */
-
-/* Đổi nền của nguyên khối menu xổ xuống thành màu tối */
 body.dark-theme .in-page-nav {
-    background-color: rgba(30, 41, 59, 0.98) !important; /* Màu xanh than tối, hơi mờ nhẹ (blur) */
+    background-color: rgba(30, 41, 59, 0.98) !important; 
     border-color: #334155 !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; /* Bóng đổ đậm hơn cho dark mode */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; 
 }
 
-/* Đổi nền các nút bấm bên trong menu */
 body.dark-theme .in-page-nav a {
     background-color: #334155 !important;
     color: #cbd5e1 !important;
 }
 
-/* Hiệu ứng khi di chuột vào nút (hover) */
 body.dark-theme .in-page-nav a:hover {
     background-color: #475569 !important;
     color: white !important;
 }
 
-/* Giữ nguyên màu cam/xanh (primary) cho tab đang được chọn */
 body.dark-theme .in-page-nav a.active-nav {
     background-color: var(--primary) !important;
     color: white !important;
 }
+
 /* Đẩy chữ lùi sang phải nhiều hơn để né icon */
 .search-container input {
     padding-left: 45px !important; 
