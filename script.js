@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const headerEl = block.querySelector('.feature-header');
             const contentEl = block.querySelector('.text-content');
-            
+
             if (headerEl) {
                 searchIndex.push({
                     id: block.id,
@@ -377,9 +377,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Lọc dữ liệu: Khớp với Tiêu đề, Tên Tab hoặc Nội dung bên trong
-        const matches = searchIndex.filter(item => 
-            item.title.toLowerCase().includes(query) || 
-            item.content.includes(query) || 
+        const matches = searchIndex.filter(item =>
+            item.title.toLowerCase().includes(query) ||
+            item.content.includes(query) ||
             item.tabName.toLowerCase().includes(query)
         ).slice(0, 7); // Chỉ hiển thị tối đa 7 kết quả gợi ý
 
@@ -389,7 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
             matches.forEach(match => {
                 const li = document.createElement('li');
                 li.innerHTML = `<strong>${match.title}</strong><small><i class="fa-solid fa-folder-open"></i> Tab: ${match.tabName}</small>`;
-                
+
                 // Sự kiện khi bấm vào 1 gợi ý
                 li.onclick = function () {
                     suggestionsBox.style.display = 'none';
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const targetBlock = document.getElementById(match.id);
                         if (targetBlock) {
                             targetBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            
+
                             // Tạo hiệu ứng highlight sáng lên 2 giây
                             targetBlock.style.transition = "box-shadow 0.5s, transform 0.5s";
                             targetBlock.style.boxShadow = "0 0 25px var(--primary)";

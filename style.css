@@ -22,8 +22,6 @@ body {
     background-color: #f1f5f9;
     color: #334155;
     line-height: 1.6;
-
-    /* --- THÊM 3 DÒNG NÀY VÀO --- */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -51,7 +49,6 @@ nav {
     align-items: center;
 }
 
-/* Làm mờ nền khi popup hiện lên */
 .vps-modal {
     display: none;
     position: fixed;
@@ -63,7 +60,6 @@ nav {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* Khung nội dung màu trắng */
 .vps-modal-content {
     background-color: #f9f9f9;
     margin: 15% auto;
@@ -74,7 +70,6 @@ nav {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Nút X để đóng */
 .vps-close-btn {
     color: #888;
     float: right;
@@ -88,12 +83,10 @@ nav {
     color: #333;
 }
 
-/* --- CSS CHO LOGO MỚI (HÌNH CHỮ NHẬT) --- */
 .logo-icon {
     height: 60px;
     width: auto;
     border-radius: 12px;
-    /* <-- Thay đổi ở đây: số càng lớn góc càng tròn (ví dụ 8px, 12px, 20px) */
     border: none;
     object-fit: contain;
     cursor: pointer;
@@ -102,7 +95,6 @@ nav {
     mix-blend-mode: multiply;
 }
 
-/* Tắt hiệu ứng xóa nền trắng khi ở Dark Theme để logo không bị đen thui */
 body.dark-theme .logo-icon {
     mix-blend-mode: normal;
 }
@@ -213,7 +205,6 @@ body.dark-theme .logo-icon {
     box-shadow: 0 4px 6px rgba(249, 115, 22, 0.1);
 }
 
-/* --- THÊM CLASS .active-nav CHO MENU ĐANG CHỌN (TÁCH PAGE) --- */
 .in-page-nav a.active-nav {
     color: white !important;
     background-color: var(--primary) !important;
@@ -221,16 +212,13 @@ body.dark-theme .logo-icon {
     box-shadow: 0 4px 6px rgba(249, 115, 22, 0.2) !important;
 }
 
-/* Container nội dung */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px 20px 20px;
     flex: 1;
-    /* Tự động giãn phần thân ra chiếm hết khoảng trống, đẩy footer xuống đáy */
 }
 
-/* --- SỬA LẠI CLASS .card (TÁCH PAGE) --- */
 .card {
     display: none;
     /* Ẩn mặc định tất cả các bảng nội dung */
@@ -350,7 +338,6 @@ body.dark-theme .logo-icon {
     font-weight: normal;
 }
 
-/* KHUNG ĐEN (MODAL) PHÓNG TO ẢNH */
 .modal {
     display: none;
     position: fixed;
@@ -417,15 +404,12 @@ body.dark-theme .logo-icon {
     cursor: pointer;
 }
 
-/* --- CSS MỚI CHO FOOTER CHIA 2 CỘT --- */
+
 footer {
     background-color: var(--dark);
     color: #e2e8f0;
     padding: 40px 20px;
-
-    /* --- SỬA DÒNG NÀY --- */
     margin-top: auto !important;
-
     border-top: 4px solid var(--primary);
     width: 100%;
 }
@@ -440,7 +424,6 @@ footer {
     gap: 30px;
 }
 
-/* Cột trái: Liên hệ */
 .footer-left h3 {
     font-size: 1.5rem;
     margin-top: 0;
@@ -467,7 +450,6 @@ footer {
     font-size: 1rem;
 }
 
-/* Cột phải: Bản quyền & Links */
 .footer-right {
     display: flex;
     flex-direction: column;
@@ -533,7 +515,6 @@ footer {
         max-height: 70vh;
     }
 
-    /* Căn giữa Footer trên Mobile */
     .footer-container {
         flex-direction: column;
         align-items: center;
@@ -549,7 +530,6 @@ footer {
     }
 }
 
-/* --- NÚT CHUYỂN ĐỔI SÁNG/TỐI --- */
 .theme-switch {
     display: inline-block;
     height: 32px;
@@ -617,7 +597,6 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-/* --- MÀU SẮC KHI Ở CHẾ ĐỘ TỐI (DARK MODE) --- */
 body.dark-theme {
     background-color: #19243d;
     color: #cbd5e1;
@@ -652,7 +631,6 @@ body.dark-theme .in-page-nav a:hover {
     border-color: var(--primary);
 }
 
-/* ĐỔI MÀU MENU ĐANG CHỌN KHI Ở CHẾ ĐỘ TỐI */
 body.dark-theme .in-page-nav a.active-nav {
     background-color: var(--primary) !important;
     color: white !important;
@@ -667,7 +645,6 @@ body.dark-theme .img-wrapper {
     border-color: #334155;
 }
 
-/* --- NÚT XEM VIDEO DƯỚI ẢNH --- */
 .video-link-btn {
     display: inline-flex;
     align-items: center;
@@ -696,7 +673,6 @@ body.dark-theme .img-wrapper {
     box-shadow: 0 4px 8px rgba(249, 115, 22, 0.2);
 }
 
-/* Hỗ trợ Dark Mode */
 body.dark-theme .video-link-btn {
     background-color: transparent;
     color: var(--primary);
@@ -707,23 +683,18 @@ body.dark-theme .video-link-btn:hover {
     color: white;
 }
 
-/* --- TÙY CHỈNH POPUP THÔNG BÁO ĐẦU TRANG --- */
+
 .welcome-modal-content {
     width: 450px;
     max-width: 95%;
 }
 
-/* Đảm bảo chữ trong thông báo đổi màu sáng khi bật Dark Mode */
 body.dark-theme .welcome-modal-content p,
 body.dark-theme .welcome-modal-content ul {
     color: #e2e8f0;
 }
 
-/* ================================================= */
-/* --- HIỆU ỨNG BÓNG LOÁNG LƯỚT QUA CHO CÁC NÚT --- */
-/* ================================================= */
 
-/* 1. Đặt thuộc tính để vệt sáng không bị lòi ra ngoài nút */
 .btn-action,
 .video-link-btn {
     position: relative;
@@ -742,8 +713,6 @@ body.dark-theme .welcome-modal-content ul {
     background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
     transform: skewX(-25deg);
     z-index: 1;
-
-    /* ĐÃ SỬA: Tăng chu kỳ lặp lại từ 3 giây lên 5 giây */
     animation: shine-effect 5s infinite;
 }
 
@@ -1229,11 +1198,6 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     }
 }
 
-/* ================================================= */
-/* --- BẢN CHUẨN CUỐI CÙNG: FIX ALL LỖI GIAO DIỆN --- */
-/* ================================================= */
-
-/* --- 1. KÉO FOOTER XUỐNG ĐÁY MÀN HÌNH (VẪN GIỮ MENU STICKY) --- */
 html {
     height: 100%;
     /* Giúp trình duyệt tính toán đúng chiều cao */
@@ -1374,7 +1338,8 @@ footer {
         /* DÙNG GRID ĐỂ CHIA CỘT */
         grid-template-columns: 1fr 1fr;
         /* CHIA LÀM 2 CỘT BẰNG NHAU */
-        justify-items: center; /* <-- THÊM DÒNG NÀY ĐỂ CĂN GIỮA NÚT */
+        justify-items: center;
+        /* <-- THÊM DÒNG NÀY ĐỂ CĂN GIỮA NÚT */
         animation: fadeInDown 0.2s ease forwards;
     }
 
@@ -1389,6 +1354,7 @@ footer {
             transform: translateY(0);
         }
     }
+
     .in-page-nav a {
         width: 100%;
         text-align: center;
@@ -1404,7 +1370,7 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
 
     /* Chỉnh màu xổ xuống cho Dark Mode */
@@ -1559,13 +1525,14 @@ footer {
         top: 65%;
     }
 }
+
 /* ================================================= */
 /* --- CSS CHO THANH TÌM KIẾM (AUTOCOMPLETE) --- */
 /* ================================================= */
 .search-container {
     position: relative;
     max-width: 600px;
-    margin: 0 auto 15px auto; 
+    margin: 0 auto 15px auto;
     padding: 0 20px;
 }
 
@@ -1577,7 +1544,7 @@ footer {
     font-size: 0.95rem;
     outline: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     background-color: white;
     color: var(--dark);
 }
@@ -1610,7 +1577,7 @@ footer {
     max-height: 350px;
     overflow-y: auto;
     z-index: 1000;
-    display: none; 
+    display: none;
 }
 
 .search-suggestions li {
@@ -1648,16 +1615,20 @@ body.dark-theme .search-container input {
     border-color: #475569;
     color: #cbd5e1;
 }
+
 body.dark-theme .search-suggestions {
     background-color: #1e293b;
     border-color: #475569;
 }
+
 body.dark-theme .search-suggestions li {
     border-bottom-color: #334155;
 }
+
 body.dark-theme .search-suggestions li:hover {
     background-color: #334155;
 }
+
 body.dark-theme .search-suggestions li small {
     color: #94a3b8;
 }
@@ -1666,6 +1637,7 @@ body.dark-theme .search-suggestions li small {
 .search-suggestions::-webkit-scrollbar {
     width: 6px;
 }
+
 .search-suggestions::-webkit-scrollbar-thumb {
     background-color: #cbd5e1;
     border-radius: 10px;
@@ -1678,7 +1650,8 @@ body.dark-theme .search-suggestions li small {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px; /* Khoảng cách giữa ô tìm kiếm và nút */
+    gap: 12px;
+    /* Khoảng cách giữa ô tìm kiếm và nút */
     max-width: 650px;
     margin: 0 auto 15px auto;
     padding: 0 20px;
@@ -1686,22 +1659,24 @@ body.dark-theme .search-suggestions li small {
 
 /* Ép thanh tìm kiếm giãn tối đa khoảng trống */
 .search-action-row .search-container {
-    flex: 1; 
-    margin: 0; 
+    flex: 1;
+    margin: 0;
     padding: 0;
 }
 
 /* Tùy chỉnh nút 3 gạch mới */
 .list-menu-btn {
-    display: flex !important; /* Ghi đè để hiện trên cả PC và Mobile */
+    display: flex !important;
+    /* Ghi đè để hiện trên cả PC và Mobile */
     align-items: center;
     justify-content: center;
-    width: 46px !important; 
-    height: 46px; 
+    width: 46px !important;
+    height: 46px;
     background-color: var(--primary);
     color: white;
     border: none;
-    border-radius: 50%; /* Bo tròn giống thanh search */
+    border-radius: 50%;
+    /* Bo tròn giống thanh search */
     cursor: pointer;
     font-size: 1.2rem;
     transition: all 0.3s ease;
@@ -1716,46 +1691,49 @@ body.dark-theme .search-suggestions li small {
 
 /* Đảm bảo khung gợi ý tìm kiếm không bị đè */
 .search-suggestions {
-    width: calc(100% - 40px); /* Chỉnh lại độ rộng một chút cho cân đối */
+    width: calc(100% - 40px);
+    /* Chỉnh lại độ rộng một chút cho cân đối */
 }
 
 /* ================================================= */
 /* --- ĐỒNG BỘ HIỂN THỊ MENU XỔ XUỐNG CHO CẢ PC --- */
 /* ================================================= */
 .in-page-nav {
-    display: none; 
+    display: none;
     position: absolute;
     top: 100%;
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 100% !important;
-    max-width: 850px !important; 
+    max-width: 850px !important;
 
     background-color: rgba(241, 245, 249, 0.98);
     backdrop-filter: blur(10px);
     padding: 20px !important;
     gap: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    
+
     border: 1px solid var(--border) !important;
-    border-radius: 12px !important; 
+    border-radius: 12px !important;
     z-index: 99;
 }
 
 .in-page-nav.show-mobile-nav {
     /* Sử dụng Grid để chia cột đều đặn như trong hình */
-    display: grid !important; 
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); 
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 10px;
     animation: fadeInDown 0.2s ease forwards;
 }
 
 .in-page-nav a {
     /* Ép nút thành hình chữ nhật bo góc nhẹ giống ảnh */
-    border-radius: 6px !important; 
-    width: 100% !important; /* Tràn đầy ô grid */
-    padding: 12px 10px !important; /* Nút cao và to hơn */
-    
+    border-radius: 6px !important;
+    width: 100% !important;
+    /* Tràn đầy ô grid */
+    padding: 12px 10px !important;
+    /* Nút cao và to hơn */
+
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -1766,9 +1744,9 @@ body.dark-theme .search-suggestions li small {
 /* --- FIX ĐỒNG BỘ MÀU DARK MODE CHO MENU XỔ XUỐNG --- */
 /* ================================================= */
 body.dark-theme .in-page-nav {
-    background-color: rgba(30, 41, 59, 0.98) !important; 
+    background-color: rgba(30, 41, 59, 0.98) !important;
     border-color: #334155 !important;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
 }
 
 body.dark-theme .in-page-nav a {
@@ -1788,10 +1766,10 @@ body.dark-theme .in-page-nav a.active-nav {
 
 /* Đẩy chữ lùi sang phải nhiều hơn để né icon */
 .search-container input {
-    padding-left: 45px !important; 
+    padding-left: 45px !important;
 }
 
 /* Kéo icon kính lúp xích ra sát lề trái của khung tìm kiếm */
 .search-icon {
-    left: 18px !important; 
+    left: 18px !important;
 }
