@@ -956,7 +956,7 @@ footer {
 .config-content {
     margin: 0;
     padding: 15px;
-    max-height: 250px;
+    max-height: 300px;
     overflow-y: auto;
     font-family: 'Consolas', 'Monaco', monospace;
     font-size: 0.85rem;
@@ -1149,7 +1149,6 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         gap: 8px;
     }
 
-    /* Bắt nút Sáng/Tối tách đội hình và ghim lên góc phải */
     .theme-switch {
         position: absolute;
         top: 15px;
@@ -1157,7 +1156,7 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         margin: 0 !important;
     }
 
-    /* Thu nhỏ kích thước mọi thứ một chút */
+
     .logo-icon {
         width: 35px;
         height: 35px;
@@ -1173,9 +1172,6 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     }
 }
 
-/* ================================================= */
-/* --- FIX VIDEO & LAYOUT CHO MOBILE (DÁN DƯỚI CÙNG) --- */
-/* ================================================= */
 @media (max-width: 768px) {
     .content-grid {
         display: flex !important;
@@ -1193,89 +1189,80 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
 
     .video-link-btn {
         width: 100%;
-        /* Nút xem video to ra cho dễ bấm trên điện thoại */
+    
         justify-content: center;
     }
 }
 
 html {
     height: 100%;
-    /* Giúp trình duyệt tính toán đúng chiều cao */
+
 }
 
 body {
     display: flex !important;
     flex-direction: column !important;
     min-height: 100vh !important;
-    /* Chiều cao tối thiểu = 100% màn hình */
+ 
 }
 
 .container {
-    /* ĐÂY LÀ CHÌA KHÓA: Ép phần nội dung phình to ra đẩy Footer xuống */
+  
     flex-grow: 1 !important;
     flex-shrink: 0 !important;
 }
 
 footer {
-    /* Ngăn Footer bị méo và ép sát lề dưới */
+   
     flex-shrink: 0 !important;
     margin-top: 20px !important;
 }
 
-/* --- 2. XÓA KHE HỞ VÀ BÓNG RÂM GIỮA 2 THANH MENU (TRÊN PC) --- */
 @media (min-width: 769px) {
     nav {
         box-shadow: none !important;
-        /* Xóa bóng thanh trên */
+ 
         border-bottom: none !important;
     }
 
     .sticky-menu-wrapper {
         top: 69px !important;
-        /* Kéo thanh dưới lên 1px để lấp đầy rãnh hở */
+
         background-color: white !important;
-        /* Đồng bộ nền trắng */
+
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08) !important;
-        /* Tạo bóng mới cho cả khối */
+
         border-top: none !important;
     }
 
-    /* Đồng bộ màu cho giao diện Tối (Dark Mode) */
+
     body.dark-theme .sticky-menu-wrapper {
         background-color: #303947 !important;
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5) !important;
     }
 }
 
-/* Định dạng mặc định cho link email */
+
 .email-link {
     color: #38bdf8;
     text-decoration: none;
-    /* Bỏ gạch chân mặc định */
+
     transition: text-decoration 0.3s ease;
-    /* Thêm hiệu ứng chuyển đổi mượt mà (tùy chọn) */
+
 }
 
-/* Hiệu ứng gạch chân khi di chuột vào (hover) */
 .email-link:hover {
     text-decoration: underline;
 }
 
-/* Bỏ gạch chân mặc định của link */
 .quick-links ul li a {
     text-decoration: none;
 }
 
-/* Hiệu ứng gạch chân khi chỉ chuột vào */
 .quick-links ul li a:hover {
     text-decoration: underline;
 }
 
-/* ================================================= */
-/* --- NÚT MENU 3 GẠCH DÀNH CHO MOBILE --- */
-/* ================================================= */
-
-/* Mặc định trên máy tính: Ẩn nút 3 gạch */
 .mobile-menu-btn {
     display: none;
     width: 90%;
@@ -1296,24 +1283,21 @@ footer {
     margin-right: 8px;
 }
 
-/* Cấu hình khi thu nhỏ thành màn hình điện thoại */
+
 @media (max-width: 768px) {
 
-    /* Hiện nút 3 gạch */
     .mobile-menu-btn {
         display: block;
     }
 
-    /* Tùy chỉnh vùng chứa sticky */
     .sticky-menu-wrapper {
         padding: 10px 0 !important;
         position: sticky;
     }
 
-    /* Gom nhóm menu lại thành dạng xổ xuống (Dropdown) */
     .in-page-nav {
         display: none;
-        /* Đã xóa flex-direction: column ở đây */
+
         position: absolute;
         top: 100%;
         left: 0;
@@ -1323,7 +1307,6 @@ footer {
 
         padding: 12px;
         gap: 8px !important;
-        /* Khoảng cách giữa các cột và hàng */
 
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         border-bottom: 1px solid var(--border);
@@ -1332,14 +1315,14 @@ footer {
         z-index: 99;
     }
 
-    /* Hiệu ứng khi menu được mở ra bằng Javascript */
+
     .in-page-nav.show-mobile-nav {
         display: grid !important;
-        /* DÙNG GRID ĐỂ CHIA CỘT */
+ 
         grid-template-columns: 1fr 1fr;
-        /* CHIA LÀM 2 CỘT BẰNG NHAU */
+
         justify-items: center;
-        /* <-- THÊM DÒNG NÀY ĐỂ CĂN GIỮA NÚT */
+
         animation: fadeInDown 0.2s ease forwards;
     }
 
@@ -1358,70 +1341,57 @@ footer {
     .in-page-nav a {
         width: 100%;
         text-align: center;
-        /* Đưa chữ ra giữa lại sẽ đẹp hơn khi chia cột */
+      
         padding: 10px 5px !important;
-        /* Giảm lề ngang để chữ dài không bị rớt dòng */
+    
         font-size: 0.85rem;
-        /* Thu nhỏ chữ một chút xíu */
+     
         border-radius: 6px !important;
         border: none !important;
         box-shadow: none !important;
-        /* Căn giữa chữ hoàn hảo */
+   
         display: flex;
         align-items: center;
         justify-content: center;
         margin: 0 auto;
     }
 
-    /* Chỉnh màu xổ xuống cho Dark Mode */
     body.dark-theme .in-page-nav {
         background-color: rgba(48, 57, 71, 0.98);
         border-bottom: 1px solid #475569;
     }
 }
 
-/* ================================================= */
-/* --- SỬA LỖI CHE MENU TRÊN ĐIỆN THOẠI --- */
-/* ================================================= */
 @media (max-width: 768px) {
 
-    /* 1. Hủy bám dính của thanh Logo trên Mobile để cuộn trôi đi, tiết kiệm chỗ */
+
     nav {
         position: relative !important;
     }
 
-    /* 2. Cập nhật thanh Menu 3 gạch bám sát lên mép trên cùng (top: 0) của điện thoại */
     .sticky-menu-wrapper {
         top: 0 !important;
         z-index: 100 !important;
-        /* Tăng độ ưu tiên để luôn nổi lên trên cùng */
+       
     }
 }
-
-/* ================================================= */
-/* --- GIỮ CẢ 2 THANH MENU BÁM DÍNH TRÊN MOBILE --- */
-/* ================================================= */
 @media (max-width: 768px) {
 
-    /* 1. Đảm bảo thanh Logo trên cùng luôn bám dính ở sát trần */
     nav {
         position: sticky !important;
         top: 0 !important;
         z-index: 100 !important;
     }
 
-    /* 2. Hạ điểm dừng của thanh Danh mục xuống dưới thanh Logo */
     .sticky-menu-wrapper {
         position: sticky !important;
         top: 125px !important;
-        /* Đẩy xuống 105px để tránh bị Logo đè lên */
         z-index: 99 !important;
     }
 }
 
 .img-group {
     display: grid;
-    /* Ép cố định chia làm 2 cột bằng nhau */
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     margin-bottom: 10px;
@@ -1429,53 +1399,38 @@ footer {
 
 .img-group img {
     width: 100%;
-    /* Ép chiều cao các ảnh bằng nhau để khung không bị thò thụt */
     height: 100%;
     object-fit: cover;
     border-radius: 6px;
     cursor: zoom-in;
     transition: 0.3s;
-    /* Thêm viền nhẹ giúp các ảnh tách bạch nhau ra */
+
     border: 1px solid var(--border);
 }
 
 .img-group img:hover {
     opacity: 0.85;
     border-color: var(--primary);
-    /* Đổi màu viền khi trỏ chuột vào */
 }
 
-/* Áp dụng cho ảnh cuối cùng nếu nó nằm ở vị trí số lẻ (3, 5, 7...) */
 .img-group img:nth-child(odd):last-child {
     grid-column: span 2;
-    /* Ép nó dãn dài ra chiếm trọn 2 cột */
     max-height: 350px;
-    /* Giới hạn chiều cao để không bị khổng lồ quá */
     object-fit: cover;
     object-position: top;
-    /* Ưu tiên hiển thị phần trên cùng của tool nếu bị cắt */
+
 }
 
-/* ================================================= */
-/* --- ÉP PHÓNG TO HẾT CỠ MỌI LOẠI ẢNH TRÊN PC --- */
-/* ================================================= */
 @media (min-width: 769px) {
     .modal-content {
         width: 100%;
-        /* Kéo giãn chiều rộng */
         height: 96vh;
-        /* Kéo giãn chiều cao lên 96% màn hình */
         max-width: 96vw;
-        /* Không cho vượt quá 96% chiều ngang */
         object-fit: contain;
-        /* Tự động scale ảnh to hết cỡ đến khi chạm viền, giữ đúng tỷ lệ không bị méo */
         background-color: transparent;
     }
 }
 
-/* ================================================= */
-/* --- NÚT ĐIỀU HƯỚNG TRÁI/PHẢI TRONG KHUNG ZOOM --- */
-/* ================================================= */
 .prev-modal,
 .next-modal {
     cursor: pointer;
@@ -1495,25 +1450,24 @@ footer {
     z-index: 10000;
 }
 
-/* Ép nút Next nằm sát mép phải */
+
 .next-modal {
     right: 15px;
     border-radius: 5px 0 0 5px;
 }
 
-/* Ép nút Prev nằm sát mép trái */
 .prev-modal {
     left: 15px;
 }
 
-/* Hiệu ứng mờ nền khi di chuột vào nút */
+
 .prev-modal:hover,
 .next-modal:hover {
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--primary);
 }
 
-/* Chỉnh sửa nút mũi tên trên điện thoại */
+
 @media (max-width: 768px) {
 
     .prev-modal,
@@ -1521,14 +1475,12 @@ footer {
         font-size: 25px;
         padding: 10px 15px;
 
-        /* Thay vì nằm chính giữa (50%), ta đẩy nó xuống thấp hơn */
+ 
         top: 65%;
     }
 }
 
-/* ================================================= */
-/* --- CSS CHO THANH TÌM KIẾM (AUTOCOMPLETE) --- */
-/* ================================================= */
+
 .search-container {
     position: relative;
     max-width: 600px;
@@ -1609,7 +1561,7 @@ footer {
     display: block;
 }
 
-/* Hỗ trợ Dark Mode */
+
 body.dark-theme .search-container input {
     background-color: #1e293b;
     border-color: #475569;
@@ -1633,7 +1585,7 @@ body.dark-theme .search-suggestions li small {
     color: #94a3b8;
 }
 
-/* Ẩn thanh cuộn webkit cho gọn */
+
 .search-suggestions::-webkit-scrollbar {
     width: 6px;
 }
@@ -1643,31 +1595,28 @@ body.dark-theme .search-suggestions li small {
     border-radius: 10px;
 }
 
-/* ================================================= */
-/* --- CĂN CHỈNH SEARCH VÀ NÚT MENU NẰM NGANG --- */
-/* ================================================= */
+
 .search-action-row {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    /* Khoảng cách giữa ô tìm kiếm và nút */
+
     max-width: 650px;
     margin: 0 auto 15px auto;
     padding: 0 20px;
 }
 
-/* Ép thanh tìm kiếm giãn tối đa khoảng trống */
+
 .search-action-row .search-container {
     flex: 1;
     margin: 0;
     padding: 0;
 }
 
-/* Tùy chỉnh nút 3 gạch mới */
 .list-menu-btn {
     display: flex !important;
-    /* Ghi đè để hiện trên cả PC và Mobile */
+
     align-items: center;
     justify-content: center;
     width: 46px !important;
@@ -1676,7 +1625,7 @@ body.dark-theme .search-suggestions li small {
     color: white;
     border: none;
     border-radius: 50%;
-    /* Bo tròn giống thanh search */
+
     cursor: pointer;
     font-size: 1.2rem;
     transition: all 0.3s ease;
@@ -1689,15 +1638,12 @@ body.dark-theme .search-suggestions li small {
     background-color: var(--secondary);
 }
 
-/* Đảm bảo khung gợi ý tìm kiếm không bị đè */
+
 .search-suggestions {
     width: calc(100% - 40px);
-    /* Chỉnh lại độ rộng một chút cho cân đối */
+
 }
 
-/* ================================================= */
-/* --- ĐỒNG BỘ HIỂN THỊ MENU XỔ XUỐNG CHO CẢ PC --- */
-/* ================================================= */
 .in-page-nav {
     display: none;
     position: absolute;
@@ -1719,7 +1665,7 @@ body.dark-theme .search-suggestions li small {
 }
 
 .in-page-nav.show-mobile-nav {
-    /* Sử dụng Grid để chia cột đều đặn như trong hình */
+
     display: grid !important;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 10px;
@@ -1727,12 +1673,12 @@ body.dark-theme .search-suggestions li small {
 }
 
 .in-page-nav a {
-    /* Ép nút thành hình chữ nhật bo góc nhẹ giống ảnh */
+
     border-radius: 6px !important;
     width: 100% !important;
-    /* Tràn đầy ô grid */
+
     padding: 12px 10px !important;
-    /* Nút cao và to hơn */
+
 
     display: flex !important;
     justify-content: center !important;
@@ -1740,9 +1686,6 @@ body.dark-theme .search-suggestions li small {
     margin: 0 !important;
 }
 
-/* ================================================= */
-/* --- FIX ĐỒNG BỘ MÀU DARK MODE CHO MENU XỔ XUỐNG --- */
-/* ================================================= */
 body.dark-theme .in-page-nav {
     background-color: rgba(30, 41, 59, 0.98) !important;
     border-color: #334155 !important;
@@ -1764,12 +1707,11 @@ body.dark-theme .in-page-nav a.active-nav {
     color: white !important;
 }
 
-/* Đẩy chữ lùi sang phải nhiều hơn để né icon */
 .search-container input {
     padding-left: 45px !important;
 }
 
-/* Kéo icon kính lúp xích ra sát lề trái của khung tìm kiếm */
+
 .search-icon {
     left: 18px !important;
 }
