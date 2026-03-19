@@ -2060,3 +2060,69 @@ body.dark-theme .in-page-nav a:hover i {
         margin-top: 15px !important;
     }
 }
+/* ================================================= */
+/* --- FIX TOÀN DIỆN MENU & TOP BAR TRÊN MOBILE --- */
+/* ================================================= */
+@media (max-width: 768px) {
+    /* 1. Thanh MXH trên cùng: Ẩn chữ, biến thành nút Icon tròn cho cực gọn và sang */
+    .nav-actions {
+        gap: 12px !important;
+        padding-right: 5px !important;
+    }
+    .nav-actions .btn-action {
+        font-size: 0 !important; /* Ẩn chữ để tiết kiệm diện tích */
+        padding: 0 !important;
+        width: 35px !important;
+        height: 35px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important; /* Biến thành nút tròn */
+    }
+    .nav-actions .btn-action i {
+        font-size: 1.2rem !important; /* Phóng to Icon lên cho dễ bấm */
+        margin: 0 !important;
+    }
+
+    /* 2. Fix Dropdown Menu: Canh lề và tạo khung nút rõ ràng */
+    .in-page-nav {
+        left: 0 !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 15px 10px !important;
+        border-radius: 0 0 15px 15px !important; /* Bo tròn mượt mà ở 2 góc dưới */
+    }
+
+    /* Ép Lưới 2 cột đều tăm tắp */
+    .in-page-nav.show-mobile-nav {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+    }
+
+    /* Định dạng từng ô Menu: Thêm nền tối, viền vàng và canh TRÁI */
+    .in-page-nav a,
+    body.dark-theme .in-page-nav a {
+        background-color: rgba(30, 41, 59, 0.7) !important; /* Nền xám mờ cho từng nút */
+        border: 1px solid rgba(250, 204, 21, 0.2) !important; /* Viền vàng Saiyan nhạt */
+        justify-content: flex-start !important; /* Ép toàn bộ icon và chữ canh TRÁI */
+        padding: 12px 10px !important;
+        border-radius: 8px !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* Cố định chiều rộng của Icon để hàng chữ bên cạnh thẳng tắp từ trên xuống */
+    .in-page-nav a i {
+        margin-right: 10px !important;
+        width: 22px !important; 
+        text-align: center !important;
+    }
+
+    /* Tab đang chọn (Màu Cam) */
+    .in-page-nav a.active-nav,
+    body.dark-theme .in-page-nav a.active-nav {
+        background-color: var(--secondary) !important;
+        border-color: var(--secondary) !important;
+        color: white !important;
+    }
+}
