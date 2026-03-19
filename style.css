@@ -530,18 +530,6 @@ footer {
     }
 }
 
-.theme-switch {
-    display: inline-block;
-    height: 32px;
-    position: relative;
-    width: 60px;
-    margin-left: 10px;
-}
-
-.theme-switch input {
-    display: none;
-}
-
 .slider {
     background-color: #ccc;
     bottom: 0;
@@ -1117,12 +1105,8 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
     /* Nền đen trong lúc chờ load video */
 }
 
-/* ================================================= */
-/* --- GIAO DIỆN DÀNH RIÊNG CHO ĐIỆN THOẠI (MOBILE) --- */
-/* ================================================= */
 @media (max-width: 768px) {
 
-    /* 1. SỬA LỖI ĐÈ VẠCH: Bỏ chiều cao cố định để thanh Nav tự giãn nở */
     nav {
         height: auto !important;
     }
@@ -1132,7 +1116,6 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         flex-direction: column;
         align-items: flex-start;
         position: relative;
-        /* Tăng padding dưới lên 15px để các nút cách xa đường kẻ một chút */
         padding: 12px 15px 15px 15px;
     }
 
@@ -1148,14 +1131,6 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
         justify-content: center;
         gap: 8px;
     }
-
-    .theme-switch {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        margin: 0 !important;
-    }
-
 
     .logo-icon {
         width: 35px;
@@ -1189,7 +1164,7 @@ body.dark-theme .config-content::-webkit-scrollbar-thumb {
 
     .video-link-btn {
         width: 100%;
-    
+
         justify-content: center;
     }
 }
@@ -1203,17 +1178,17 @@ body {
     display: flex !important;
     flex-direction: column !important;
     min-height: 100vh !important;
- 
+
 }
 
 .container {
-  
+
     flex-grow: 1 !important;
     flex-shrink: 0 !important;
 }
 
 footer {
-   
+
     flex-shrink: 0 !important;
     margin-top: 20px !important;
 }
@@ -1221,7 +1196,7 @@ footer {
 @media (min-width: 769px) {
     nav {
         box-shadow: none !important;
- 
+
         border-bottom: none !important;
     }
 
@@ -1318,7 +1293,7 @@ footer {
 
     .in-page-nav.show-mobile-nav {
         display: grid !important;
- 
+
         grid-template-columns: 1fr 1fr;
 
         justify-items: center;
@@ -1341,15 +1316,15 @@ footer {
     .in-page-nav a {
         width: 100%;
         text-align: center;
-      
+
         padding: 10px 5px !important;
-    
+
         font-size: 0.85rem;
-     
+
         border-radius: 6px !important;
         border: none !important;
         box-shadow: none !important;
-   
+
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1372,9 +1347,10 @@ footer {
     .sticky-menu-wrapper {
         top: 0 !important;
         z-index: 100 !important;
-       
+
     }
 }
+
 @media (max-width: 768px) {
 
     nav {
@@ -1475,7 +1451,7 @@ footer {
         font-size: 25px;
         padding: 10px 15px;
 
- 
+
         top: 65%;
     }
 }
@@ -1714,4 +1690,245 @@ body.dark-theme .in-page-nav a.active-nav {
 
 .search-icon {
     left: 18px !important;
+}
+
+
+/* 1. Áp dụng cho Menu danh mục (Giao Diện, Đánh Quái, Úp Đệ...) */
+.in-page-nav a:hover {
+    background-color: #33cefd !important;
+    /* Màu nền xanh nhạt chuẩn */
+    color: #ffffff !important;
+    transform: translateX(5px);
+    transition: all 0.3s ease !important;
+    border-radius: 6px;
+}
+
+/* Kèm theo màu xanh cho tab đang được chọn (Active) */
+.in-page-nav a.active {
+    background-color: #2cb2db !important;
+    /* Xanh đậm hơn 1 chút cho tab đang xem */
+    color: white !important;
+    border-left: 4px solid #fff;
+}
+
+/* ================================================= */
+/* --- 3 NÚT MXH BÊN TRÊN (TRONG SUỐT -> XANH NHẠT) -- */
+/* ================================================= */
+
+/* 1. Trạng thái bình thường: Trong suốt */
+.nav-actions .btn-action {
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    color: var(--dark) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Màu chữ chế độ Tối */
+body.dark-theme .nav-actions .btn-action {
+    color: #cbd5e1 !important;
+}
+
+/* Ẩn vệt sáng */
+.nav-actions .btn-action::before {
+    display: none !important;
+}
+
+/* 2. Trạng thái Hover: Nền XANH NHẠT, chữ trắng, phát sáng */
+.nav-actions .btn-action:hover,
+body.dark-theme .nav-actions .btn-action:hover {
+    background-color: var(--primary) !important;
+    /* Lấy màu xanh nhạt chủ đạo của web */
+    border-color: var(--primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.05) !important;
+    box-shadow: 0 4px 15px rgba(51, 206, 253, 0.5) !important;
+    /* Phát sáng hào quang xanh nhạt */
+    border-radius: 6px;
+}
+
+/* ================================================= */
+/* --- ĐỒNG BỘ HIỆU ỨNG TÀNG HÌNH CHO MENU XỔ XUỐNG --- */
+/* ================================================= */
+
+/* 1. Trạng thái bình thường: Xóa nền xám, làm trong suốt tiệp với menu */
+.in-page-nav a,
+body.dark-theme .in-page-nav a {
+    background-color: transparent !important;
+    border: 1px solid transparent !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Đảm bảo chữ màu xám sáng cho dễ đọc trên nền tối */
+body.dark-theme .in-page-nav a {
+    color: #cbd5e1 !important;
+}
+
+/* 2. Trạng thái Hover: Phát sáng Xanh Nhạt, nảy nhẹ lên giống hệt 3 nút MXH */
+.in-page-nav a:hover,
+body.dark-theme .in-page-nav a:hover {
+    background-color: var(--primary) !important;
+    /* Màu xanh nhạt chủ đạo */
+    color: #ffffff !important;
+    transform: translateY(-2px) scale(1.03) !important;
+    /* Nảy nhẹ và to ra 3% */
+    box-shadow: 0 4px 15px rgba(51, 206, 253, 0.4) !important;
+    /* Tỏa hào quang */
+    border-radius: 6px !important;
+}
+
+/* 3. Trạng thái Tab đang chọn (Active): Giữ màu xanh sáng để đánh dấu */
+.in-page-nav a.active-nav,
+body.dark-theme .in-page-nav a.active-nav {
+    background-color: #2cb2db !important;
+    /* Xanh đậm hơn 1 chút xíu */
+    color: white !important;
+    transform: none !important;
+    /* Đứng im không nảy */
+    box-shadow: 0 2px 10px rgba(51, 206, 253, 0.3) !important;
+}
+
+/* ================================================= */
+/* --- CẤU HÌNH ICON CHO MENU XỔ XUỐNG (DROPDOWN) --- */
+/* ================================================= */
+
+/* 1. Canh chỉnh vị trí icon và khoảng cách với chữ */
+.in-page-nav a i {
+    margin-right: 12px;
+    /* Tạo khoảng cách giữa icon và chữ */
+    font-size: 1.05rem;
+    /* Chỉnh icon to bằng chữ 1 chút */
+    width: 20px;
+    /* Cố định độ rộng icon để chữ nằm thẳng hàng */
+    text-align: center;
+    /* Căn giữa icon trong ô cố định đó */
+
+    /* 2. Tạo màu Xanh Cyan phát sáng mặc định cho icon cho ngầu */
+    color: #33cefd;
+    /* Màu xanh cyan sáng */
+    text-shadow: 0 0 5px rgba(51, 206, 253, 0.7);
+    /* Hiệu ứng phát sáng hào quang xanh */
+
+    transition: all 0.2s ease;
+    /* Làm mượt hiệu ứng đổi màu khi hover */
+}
+
+/* 3. Hiệu ứng Hover: Khi rê chuột vào, cả chữ và icon đổi sang màu trắng */
+.in-page-nav a:hover i,
+body.dark-theme .in-page-nav a:hover i {
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    /* Phát sáng trắng */
+    transform: scale(1.1);
+    /* Phóng to icon 1 chút khi hover */
+}
+
+/* 4. Trạng thái Tab đang chọn (Active): Giữ icon màu trắng */
+.in-page-nav a.active-nav i,
+body.dark-theme .in-page-nav a.active-nav i {
+    color: #ffffff !important;
+    text-shadow: none;
+}
+
+@media (max-width: 768px) {
+
+    /* 1. Ép thanh Nav chứa Logo và Nút nằm ngang (Row) */
+    .nav-content {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 10px 10px !important;
+        /* Chỉnh lại lề cho gọn */
+    }
+
+    /* Bỏ lề dưới thừa của logo */
+    .logo-link {
+        margin-bottom: 0 !important;
+    }
+
+    /* Thu nhỏ logo lại một chút xíu để nhường chỗ cho 3 nút */
+    .logo-icon {
+        height: 35px !important;
+        width: auto !important;
+    }
+
+    /* 2. Ép 3 nút mạng xã hội sát vào nhau ở bên phải */
+    .nav-actions {
+        width: auto !important;
+        justify-content: flex-end !important;
+        gap: 5px !important;
+        /* Rút gọn khoảng cách giữa các nút */
+    }
+
+    /* Thu hẹp viền nút và giảm cỡ chữ để vừa khít màn hình nhỏ */
+    .nav-actions .btn-action {
+        font-size: 0.65rem !important;
+        /* Chữ nhỏ lại để không rớt dòng */
+        padding: 5px 6px !important;
+    }
+
+    .nav-actions .btn-action i {
+        margin-right: 3px !important;
+        /* Thu hẹp khoảng cách giữa icon và chữ */
+    }
+}
+
+/* ================================================= */
+/* --- FIX KHOẢNG TRỐNG VÀ DÀN HÀNG NGANG MOBILE --- */
+/* ================================================= */
+@media (max-width: 768px) {
+
+    /* 1. Chốt cứng chiều cao thanh Nav trên cùng cho mỏng gọn */
+    nav {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 100 !important;
+        height: 60px !important;
+        /* Chiều cao cố định 60px */
+    }
+
+    /* 2. Dàn hàng ngang Logo và 3 nút MXH */
+    .nav-content {
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 10px !important;
+        height: 100%;
+    }
+
+    /* Căn chỉnh Logo */
+    .logo-link {
+        margin-bottom: 0 !important;
+    }
+
+    .logo-icon {
+        height: 35px !important;
+        width: auto !important;
+    }
+
+    /* Căn chỉnh 3 nút MXH (Thu nhỏ chữ & padding để không bị rớt dòng) */
+    .nav-actions {
+        width: auto !important;
+        justify-content: flex-end !important;
+        gap: 4px !important;
+    }
+
+    .nav-actions .btn-action {
+        font-size: 0.65rem !important;
+        padding: 6px 6px !important;
+    }
+
+    .nav-actions .btn-action i {
+        margin-right: 3px !important;
+        font-size: 0.8rem !important;
+    }
+
+    .sticky-menu-wrapper {
+        position: sticky !important;
+        top: 60px !important;
+        /* Dính đúng vào mép dưới của nav (60px) */
+        z-index: 99 !important;
+    }
 }

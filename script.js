@@ -99,7 +99,7 @@ function closeVpsModal() {
 
 // --- SCRIPT CHẶN COPY VÀ F12 ---
 // Chặn chuột phải
-document.addEventListener('contextmenu', event => event.preventDefault());
+//document.addEventListener('contextmenu', event => event.preventDefault());
 
 // // Chặn F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
 // document.onkeydown = function(e) {
@@ -137,32 +137,7 @@ document.addEventListener('contextmenu', event => event.preventDefault());
 
 // // Tạo ra một cánh hoa mới mỗi 300 mili-giây (Có thể tăng số 300 lên 500 nếu thấy hoa rơi quá dày)
 // setInterval(createHoaMai, 300);
-// --- SCRIPT CHUYỂN ĐỔI SÁNG/TỐI (MẶC ĐỊNH TỐI) ---
-const toggleSwitch = document.getElementById('checkbox');
-const currentTheme = localStorage.getItem('theme');
 
-// Kiểm tra xem người dùng đã từng chọn giao diện chưa
-if (currentTheme) {
-    // Nếu có chọn rồi (Lần thứ 2 vào web) thì áp dụng theo lựa chọn cũ
-    document.body.className = currentTheme === 'light-theme' ? '' : 'dark-theme';
-    toggleSwitch.checked = currentTheme === 'dark-theme';
-} else {
-    // Nếu là LẦN ĐẦU TIÊN vào web -> Ép mặc định là Dark Mode
-    document.body.className = 'dark-theme';
-    toggleSwitch.checked = true;
-    localStorage.setItem('theme', 'dark-theme');
-}
-
-// Hàm kích hoạt khi bấm nút công tắc
-function toggleTheme() {
-    if (toggleSwitch.checked) {
-        document.body.className = 'dark-theme';
-        localStorage.setItem('theme', 'dark-theme');
-    } else {
-        document.body.className = ''; // Xóa class dark-theme để về lại màu trắng
-        localStorage.setItem('theme', 'light-theme');
-    }
-}
 // --- SCRIPT CHUYỂN TAB (TÁCH PAGE) ---
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các nút menu và các thẻ nội dung (card)
