@@ -1,9 +1,9 @@
 :root {
-    --primary: #33cefd;
-    --secondary: #4fa6d8;
-    --dark: #1e293b;
+    --primary: #facc15; 
+    --secondary: #f97316; 
+    --dark: #0f172a; 
     --light: #f8fafc;
-    --border: #e2e8f0;
+    --border: #475569;
     --danger: #dc2626;
 }
 
@@ -1219,7 +1219,7 @@ footer {
 
 
 .email-link {
-    color: #38bdf8;
+    color: #facc15;
     text-decoration: none;
 
     transition: text-decoration 0.3s ease;
@@ -1695,7 +1695,7 @@ body.dark-theme .in-page-nav a.active-nav {
 
 /* 1. Áp dụng cho Menu danh mục (Giao Diện, Đánh Quái, Úp Đệ...) */
 .in-page-nav a:hover {
-    background-color: #33cefd !important;
+    background-color: #facc15 !important;
     /* Màu nền xanh nhạt chuẩn */
     color: #ffffff !important;
     transform: translateX(5px);
@@ -1705,7 +1705,7 @@ body.dark-theme .in-page-nav a.active-nav {
 
 /* Kèm theo màu xanh cho tab đang được chọn (Active) */
 .in-page-nav a.active {
-    background-color: #2cb2db !important;
+    background-color: #facc15 !important;
     /* Xanh đậm hơn 1 chút cho tab đang xem */
     color: white !important;
     border-left: 4px solid #fff;
@@ -1790,9 +1790,6 @@ body.dark-theme .in-page-nav a.active-nav {
     box-shadow: 0 2px 10px rgba(51, 206, 253, 0.3) !important;
 }
 
-/* ================================================= */
-/* --- CẤU HÌNH ICON CHO MENU XỔ XUỐNG (DROPDOWN) --- */
-/* ================================================= */
 
 /* 1. Canh chỉnh vị trí icon và khoảng cách với chữ */
 .in-page-nav a i {
@@ -1930,5 +1927,136 @@ body.dark-theme .in-page-nav a.active-nav i {
         top: 60px !important;
         /* Dính đúng vào mép dưới của nav (60px) */
         z-index: 99 !important;
+    }
+}
+
+/* Nền web: Màu vũ trụ tối kèm hiệu ứng tinh vân */
+body.dark-theme {
+    background-color: #0b0f19 !important; 
+    background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b0f19 80%) !important; 
+    color: #e2e8f0;
+}
+
+/* Thanh Menu trên cùng: Đen nhám + Viền vàng phát sáng */
+body.dark-theme nav {
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    border-bottom: 1px solid rgba(250, 204, 21, 0.5) !important;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.2) !important;
+}
+
+/* Các khối nội dung (Card): Đóng khung hào quang Super Saiyan */
+body.dark-theme .card {
+    background-color: rgba(30, 41, 59, 0.6) !important;
+    border: 1px solid rgba(250, 204, 21, 0.3) !important; 
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.15) !important; 
+    backdrop-filter: blur(5px);
+}
+
+/* Tiêu đề từng mục: Màu Cam võ phục Goku + Gạch chân vàng */
+body.dark-theme .section-title {
+    color: var(--secondary) !important; 
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
+    border-bottom: 2px solid var(--primary) !important; 
+}
+
+/* Khung Code (Pre): Tối màu hơn để làm nổi bật chữ */
+body.dark-theme .config-content {
+    background-color: #020617 !important;
+    border: 1px solid #1e293b !important;
+    color: #38bdf8 !important; /* Chữ code màu xanh ngọc rồng */
+}
+/* ================================================= */
+/* --- FIX LỖI VỆT ĐEN CỦA THANH TÌM KIẾM --- */
+/* ================================================= */
+body.dark-theme .sticky-menu-wrapper {
+    background-color: rgba(11, 15, 25, 0.7) !important; /* Nền vũ trụ trong suốt 70% */
+    backdrop-filter: blur(10px) !important; /* Hiệu ứng kính mờ cực đẹp */
+    border-bottom: 1px solid rgba(250, 204, 21, 0.3) !important; /* Viền dưới màu vàng Super Saiyan nhẹ */
+    border-top: none !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important; /* Đổ bóng cho nổi bật */
+}
+/* ================================================= */
+/* --- VÉT SẠCH MÀU XANH CŨ - ĐỒNG BỘ 100% NGỌC RỒNG --- */
+/* ================================================= */
+
+/* 1. Sửa lỗi nền vũ trụ bị hụt/đứt đoạn khi cuộn trang web dài */
+body.dark-theme {
+    background-attachment: fixed !important; /* Đóng đinh hình nền đứng im khi cuộn chuột */
+    background-size: cover !important; /* Ép hình nền trải kín 100% màn hình */
+    background-repeat: no-repeat !important;
+}
+
+/* 2. Đổi màu nút Menu đang chọn (VD: Đánh Quái) từ Xanh sang Cam Goku */
+.in-page-nav a.active-nav,
+body.dark-theme .in-page-nav a.active-nav {
+    background-color: var(--secondary) !important; /* Nền màu Cam */
+    border-color: var(--secondary) !important;
+    color: white !important;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4) !important; /* Hào quang cam */
+}
+
+/* 3. Đổi màu hào quang khi rê chuột vào Menu từ Xanh sang Vàng Saiyan */
+.in-page-nav a:hover,
+body.dark-theme .in-page-nav a:hover {
+    background-color: var(--primary) !important; /* Nền Vàng Saiyan */
+    color: #0f172a !important; /* Chữ chuyển sang màu đen/tối để dễ đọc trên nền vàng */
+    box-shadow: 0 4px 15px rgba(250, 204, 21, 0.5) !important;
+}
+
+/* 4. Đổi luôn màu các Icon nhỏ (Máy tính, Nắm đấm...) sang Vàng Saiyan */
+.in-page-nav a i {
+    color: var(--primary) !important;
+    text-shadow: 0 0 5px rgba(250, 204, 21, 0.6) !important;
+}
+
+/* Khi rê chuột vào thì icon cũng chuyển thành màu đen cho tệp với chữ */
+.in-page-nav a:hover i,
+body.dark-theme .in-page-nav a:hover i {
+    color: #0f172a !important;
+    text-shadow: none !important;
+}
+/* ================================================= */
+/* --- FIX LỖI TRÀN VIỀN & ĐỊNH DẠNG MỤC SỰ KIỆN --- */
+/* ================================================= */
+
+/* 1. Ngăn khung Copy (Code) chữ quá dài làm phình to màn hình */
+.config-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.config-content {
+    white-space: pre-wrap !important; /* Bắt buộc chữ quá dài phải tự xuống dòng */
+    overflow-wrap: break-word !important; 
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* Khóa lỗi cuộn ngang */
+}
+
+/* 2. Đảm bảo toàn bộ khung nội dung không bị lố viền */
+.card {
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+}
+
+/* 3. Sắp xếp lại: Chữ Hướng Dẫn nằm TRÊN, Ảnh nằm DƯỚI (Dành riêng cho Điện Thoại) */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px !important; /* Thu gọn lề 2 bên cho điện thoại thoáng hơn */
+    }
+    
+    .content-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .text-content {
+        order: 1 !important; /* Kéo nội dung chữ và khung Copy lên đầu */
+    }
+    
+    .img-wrapper {
+        order: 2 !important; /* Đẩy dàn ảnh xuống phía dưới chữ */
+        margin-top: 15px !important;
     }
 }
