@@ -2126,3 +2126,69 @@ body.dark-theme .in-page-nav a:hover i {
         color: white !important;
     }
 }
+/* ================================================= */
+/* --- ĐỒNG BỘ POPUP THÔNG BÁO THEO THEME NGỌC RỒNG --- */
+/* ================================================= */
+
+/* 1. Đổi nền Popup thành vũ trụ, viền Vàng phát sáng */
+body.dark-theme .vps-modal-content {
+    background-color: rgba(15, 23, 42, 0.95) !important; /* Nền xanh đen vũ trụ */
+    border: 2px solid rgba(250, 204, 21, 0.6) !important; /* Viền vàng Super Saiyan */
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.25) !important; /* Tỏa hào quang vàng */
+    backdrop-filter: blur(8px) !important;
+    color: #e2e8f0 !important;
+    border-radius: 12px !important;
+}
+
+/* 2. Tiêu đề "Thông Báo Mới": Chữ Cam Goku, gạch chân vàng */
+body.dark-theme .welcome-modal-content h2 {
+    color: var(--secondary) !important; /* Chữ màu Cam Goku */
+    text-shadow: 0 0 10px rgba(249, 115, 22, 0.5) !important;
+    border-bottom: 2px dashed rgba(250, 204, 21, 0.4) !important; 
+    padding-bottom: 12px !important;
+}
+
+/* 3. Chữ nội dung và đổi màu dấu chấm tròn sang Vàng */
+body.dark-theme .welcome-modal-content p,
+body.dark-theme .welcome-modal-content ul {
+    color: #cbd5e1 !important; /* Chữ xám sáng dễ đọc */
+}
+body.dark-theme .welcome-modal-content ul li {
+    margin-bottom: 10px !important;
+}
+body.dark-theme .welcome-modal-content ul li::marker {
+    color: var(--primary) !important; /* Chấm đầu dòng màu Vàng */
+}
+
+/* 4. Nút "Đã Hiểu": Xóa gradient xanh cũ, đổi sang Cam Goku, hover vàng chói */
+body.dark-theme .welcome-modal-content .btn-action {
+    background-image: none !important; /* QUAN TRỌNG: Tắt cái dải màu xanh cũ đi */
+    background-color: var(--secondary) !important; /* Đổ màu Cam Goku */
+    border: 1px solid var(--primary) !important; 
+    color: white !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4) !important;
+}
+
+body.dark-theme .welcome-modal-content .btn-action:hover {
+    background-image: none !important; /* Tắt gradient xanh lúc di chuột */
+    background-color: var(--primary) !important; /* Hover sang vàng Super Saiyan */
+    border-color: white !important;
+    color: #0f172a !important; /* Chữ đen cho nổi */
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.6) !important;
+}
+
+/* 5. Nút X đóng bảng thông báo */
+body.dark-theme .vps-close-btn {
+    color: var(--primary) !important;
+    opacity: 0.8 !important;
+    transition: 0.3s ease !important;
+}
+body.dark-theme .vps-close-btn:hover {
+    color: white !important;
+    opacity: 1 !important;
+    transform: scale(1.2) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
+}
