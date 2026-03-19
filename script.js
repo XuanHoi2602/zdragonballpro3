@@ -168,9 +168,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Gắn sự kiện "Click" cho từng nút menu
+    // Gắn sự kiện "Click" cho từng nút menu
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault(); // Ngăn hành vi cuộn trang mặc định của thẻ <a>
+            e.preventDefault(); // Ngăn hành vi nhảy trang giật cục
 
             // Lấy ID của tab (ví dụ href="#tab-giaodien" -> lấy "tab-giaodien")
             const tabId = this.getAttribute('href').substring(1);
@@ -178,8 +179,25 @@ document.addEventListener("DOMContentLoaded", function () {
             // Gọi hàm chuyển tab
             openTab(tabId, this);
 
-            // Tùy chọn: Cuộn nhẹ lên đầu trang sau khi chuyển tab (nếu màn hình nhỏ)
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // --- BẮT BUỘC LUÔN CUỘN VỀ ĐẦU TAB VỪA MỞ ---
+            const container = document.querySelector('.container'); // Khung chứa nội dung
+            const stickyMenu = document.querySelector('.sticky-menu-wrapper'); // Thanh tìm kiếm
+            const nav = document.querySelector('nav'); // Thanh menu logo
+
+            if (container && stickyMenu) {
+                // Lấy chiều cao của 2 thanh đang dính trên trần để không bị che khuất chữ
+                const navHeight = nav ? nav.offsetHeight : 0;
+                const stickyMenuHeight = stickyMenu.offsetHeight;
+                
+                // Tính toán vị trí chính xác của đầu khung nội dung
+                const containerTop = container.getBoundingClientRect().top + window.scrollY;
+                
+                // Trượt mượt mà về đầu nội dung, trừ đi phần bị 2 thanh che khuất + thêm 15px cho thoáng
+                window.scrollTo({
+                    top: containerTop - navHeight - stickyMenuHeight - 15, 
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
