@@ -2237,3 +2237,19 @@ body.dark-theme .vps-close-btn:hover {
     transform: scale(1.2) !important;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
 }
+.btn-telegram {
+    display: inline-block;
+    background-color: #dec224; /* Màu xanh chuẩn của Telegram */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.btn-telegram:hover {
+    background-color: #d1881b; /* Màu đậm hơn khi di chuột qua */
+    color: #ffffff;
+}
