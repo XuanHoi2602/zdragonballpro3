@@ -1,7 +1,7 @@
 :root {
-    --primary: #facc15; 
-    --secondary: #f97316; 
-    --dark: #0f172a; 
+    --primary: #facc15;
+    --secondary: #f97316;
+    --dark: #0f172a;
     --light: #f8fafc;
     --border: #475569;
     --danger: #dc2626;
@@ -1932,8 +1932,8 @@ body.dark-theme .in-page-nav a.active-nav i {
 
 /* Nền web: Màu vũ trụ tối kèm hiệu ứng tinh vân */
 body.dark-theme {
-    background-color: #0b0f19 !important; 
-    background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b0f19 80%) !important; 
+    background-color: #0b0f19 !important;
+    background-image: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0b0f19 80%) !important;
     color: #e2e8f0;
 }
 
@@ -1947,59 +1947,72 @@ body.dark-theme nav {
 /* Các khối nội dung (Card): Đóng khung hào quang Super Saiyan */
 body.dark-theme .card {
     background-color: rgba(30, 41, 59, 0.6) !important;
-    border: 1px solid rgba(250, 204, 21, 0.3) !important; 
-    box-shadow: 0 0 25px rgba(250, 204, 21, 0.15) !important; 
+    border: 1px solid rgba(250, 204, 21, 0.3) !important;
+    box-shadow: 0 0 25px rgba(250, 204, 21, 0.15) !important;
     backdrop-filter: blur(5px);
 }
 
 /* Tiêu đề từng mục: Màu Cam võ phục Goku + Gạch chân vàng */
 body.dark-theme .section-title {
-    color: var(--secondary) !important; 
+    color: var(--secondary) !important;
     text-shadow: 0 0 10px rgba(249, 115, 22, 0.4);
-    border-bottom: 2px solid var(--primary) !important; 
+    border-bottom: 2px solid var(--primary) !important;
 }
 
 /* Khung Code (Pre): Tối màu hơn để làm nổi bật chữ */
 body.dark-theme .config-content {
     background-color: #020617 !important;
     border: 1px solid #1e293b !important;
-    color: #38bdf8 !important; /* Chữ code màu xanh ngọc rồng */
+    color: #38bdf8 !important;
+    /* Chữ code màu xanh ngọc rồng */
 }
+
 /* ================================================= */
 /* --- FIX LỖI VỆT ĐEN CỦA THANH TÌM KIẾM --- */
 /* ================================================= */
 body.dark-theme .sticky-menu-wrapper {
-    background-color: rgba(11, 15, 25, 0.7) !important; /* Nền vũ trụ trong suốt 70% */
-    backdrop-filter: blur(10px) !important; /* Hiệu ứng kính mờ cực đẹp */
-    border-bottom: 1px solid rgba(250, 204, 21, 0.3) !important; /* Viền dưới màu vàng Super Saiyan nhẹ */
+    background-color: rgba(11, 15, 25, 0.7) !important;
+    /* Nền vũ trụ trong suốt 70% */
+    backdrop-filter: blur(10px) !important;
+    /* Hiệu ứng kính mờ cực đẹp */
+    border-bottom: 1px solid rgba(250, 204, 21, 0.3) !important;
+    /* Viền dưới màu vàng Super Saiyan nhẹ */
     border-top: none !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important; /* Đổ bóng cho nổi bật */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5) !important;
+    /* Đổ bóng cho nổi bật */
 }
+
 /* ================================================= */
 /* --- VÉT SẠCH MÀU XANH CŨ - ĐỒNG BỘ 100% NGỌC RỒNG --- */
 /* ================================================= */
 
 /* 1. Sửa lỗi nền vũ trụ bị hụt/đứt đoạn khi cuộn trang web dài */
 body.dark-theme {
-    background-attachment: fixed !important; /* Đóng đinh hình nền đứng im khi cuộn chuột */
-    background-size: cover !important; /* Ép hình nền trải kín 100% màn hình */
+    background-attachment: fixed !important;
+    /* Đóng đinh hình nền đứng im khi cuộn chuột */
+    background-size: cover !important;
+    /* Ép hình nền trải kín 100% màn hình */
     background-repeat: no-repeat !important;
 }
 
 /* 2. Đổi màu nút Menu đang chọn (VD: Đánh Quái) từ Xanh sang Cam Goku */
 .in-page-nav a.active-nav,
 body.dark-theme .in-page-nav a.active-nav {
-    background-color: var(--secondary) !important; /* Nền màu Cam */
+    background-color: var(--secondary) !important;
+    /* Nền màu Cam */
     border-color: var(--secondary) !important;
     color: white !important;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4) !important; /* Hào quang cam */
+    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4) !important;
+    /* Hào quang cam */
 }
 
 /* 3. Đổi màu hào quang khi rê chuột vào Menu từ Xanh sang Vàng Saiyan */
 .in-page-nav a:hover,
 body.dark-theme .in-page-nav a:hover {
-    background-color: var(--primary) !important; /* Nền Vàng Saiyan */
-    color: #0f172a !important; /* Chữ chuyển sang màu đen/tối để dễ đọc trên nền vàng */
+    background-color: var(--primary) !important;
+    /* Nền Vàng Saiyan */
+    color: #0f172a !important;
+    /* Chữ chuyển sang màu đen/tối để dễ đọc trên nền vàng */
     box-shadow: 0 4px 15px rgba(250, 204, 21, 0.5) !important;
 }
 
@@ -2015,6 +2028,7 @@ body.dark-theme .in-page-nav a:hover i {
     color: #0f172a !important;
     text-shadow: none !important;
 }
+
 /* ================================================= */
 /* --- FIX LỖI TRÀN VIỀN & ĐỊNH DẠNG MỤC SỰ KIỆN --- */
 /* ================================================= */
@@ -2027,10 +2041,12 @@ body.dark-theme .in-page-nav a:hover i {
 }
 
 .config-content {
-    white-space: pre-wrap !important; /* Bắt buộc chữ quá dài phải tự xuống dòng */
-    overflow-wrap: break-word !important; 
+    white-space: pre-wrap !important;
+    /* Bắt buộc chữ quá dài phải tự xuống dòng */
+    overflow-wrap: break-word !important;
     max-width: 100% !important;
-    overflow-x: hidden !important; /* Khóa lỗi cuộn ngang */
+    overflow-x: hidden !important;
+    /* Khóa lỗi cuộn ngang */
 }
 
 /* 2. Đảm bảo toàn bộ khung nội dung không bị lố viền */
@@ -2043,44 +2059,54 @@ body.dark-theme .in-page-nav a:hover i {
 /* 3. Sắp xếp lại: Chữ Hướng Dẫn nằm TRÊN, Ảnh nằm DƯỚI (Dành riêng cho Điện Thoại) */
 @media (max-width: 768px) {
     .card {
-        padding: 15px !important; /* Thu gọn lề 2 bên cho điện thoại thoáng hơn */
+        padding: 15px !important;
+        /* Thu gọn lề 2 bên cho điện thoại thoáng hơn */
     }
-    
+
     .content-grid {
         display: flex !important;
         flex-direction: column !important;
     }
-    
+
     .text-content {
-        order: 1 !important; /* Kéo nội dung chữ và khung Copy lên đầu */
+        order: 1 !important;
+        /* Kéo nội dung chữ và khung Copy lên đầu */
     }
-    
+
     .img-wrapper {
-        order: 2 !important; /* Đẩy dàn ảnh xuống phía dưới chữ */
+        order: 2 !important;
+        /* Đẩy dàn ảnh xuống phía dưới chữ */
         margin-top: 15px !important;
     }
 }
+
 /* ================================================= */
 /* --- FIX TOÀN DIỆN MENU & TOP BAR TRÊN MOBILE --- */
 /* ================================================= */
 @media (max-width: 768px) {
+
     /* 1. Thanh MXH trên cùng: Ẩn chữ, biến thành nút Icon tròn cho cực gọn và sang */
     .nav-actions {
         gap: 12px !important;
         padding-right: 5px !important;
     }
+
     .nav-actions .btn-action {
-        font-size: 0 !important; /* Ẩn chữ để tiết kiệm diện tích */
+        font-size: 0 !important;
+        /* Ẩn chữ để tiết kiệm diện tích */
         padding: 0 !important;
         width: 35px !important;
         height: 35px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        border-radius: 50% !important; /* Biến thành nút tròn */
+        border-radius: 50% !important;
+        /* Biến thành nút tròn */
     }
+
     .nav-actions .btn-action i {
-        font-size: 1.2rem !important; /* Phóng to Icon lên cho dễ bấm */
+        font-size: 1.2rem !important;
+        /* Phóng to Icon lên cho dễ bấm */
         margin: 0 !important;
     }
 
@@ -2091,7 +2117,8 @@ body.dark-theme .in-page-nav a:hover i {
         width: 100% !important;
         max-width: 100% !important;
         padding: 15px 10px !important;
-        border-radius: 0 0 15px 15px !important; /* Bo tròn mượt mà ở 2 góc dưới */
+        border-radius: 0 0 15px 15px !important;
+        /* Bo tròn mượt mà ở 2 góc dưới */
     }
 
     /* Ép Lưới 2 cột đều tăm tắp */
@@ -2103,9 +2130,12 @@ body.dark-theme .in-page-nav a:hover i {
     /* Định dạng từng ô Menu: Thêm nền tối, viền vàng và canh TRÁI */
     .in-page-nav a,
     body.dark-theme .in-page-nav a {
-        background-color: rgba(30, 41, 59, 0.7) !important; /* Nền xám mờ cho từng nút */
-        border: 1px solid rgba(250, 204, 21, 0.2) !important; /* Viền vàng Saiyan nhạt */
-        justify-content: flex-start !important; /* Ép toàn bộ icon và chữ canh TRÁI */
+        background-color: rgba(30, 41, 59, 0.7) !important;
+        /* Nền xám mờ cho từng nút */
+        border: 1px solid rgba(250, 204, 21, 0.2) !important;
+        /* Viền vàng Saiyan nhạt */
+        justify-content: flex-start !important;
+        /* Ép toàn bộ icon và chữ canh TRÁI */
         padding: 12px 10px !important;
         border-radius: 8px !important;
         font-size: 0.85rem !important;
@@ -2114,7 +2144,7 @@ body.dark-theme .in-page-nav a:hover i {
     /* Cố định chiều rộng của Icon để hàng chữ bên cạnh thẳng tắp từ trên xuống */
     .in-page-nav a i {
         margin-right: 10px !important;
-        width: 22px !important; 
+        width: 22px !important;
         text-align: center !important;
     }
 
@@ -2126,15 +2156,19 @@ body.dark-theme .in-page-nav a:hover i {
         color: white !important;
     }
 }
+
 /* ================================================= */
 /* --- ĐỒNG BỘ POPUP THÔNG BÁO THEO THEME NGỌC RỒNG --- */
 /* ================================================= */
 
 /* 1. Đổi nền Popup thành vũ trụ, viền Vàng phát sáng */
 body.dark-theme .vps-modal-content {
-    background-color: rgba(15, 23, 42, 0.95) !important; /* Nền xanh đen vũ trụ */
-    border: 2px solid rgba(250, 204, 21, 0.6) !important; /* Viền vàng Super Saiyan */
-    box-shadow: 0 0 30px rgba(250, 204, 21, 0.25) !important; /* Tỏa hào quang vàng */
+    background-color: rgba(15, 23, 42, 0.95) !important;
+    /* Nền xanh đen vũ trụ */
+    border: 2px solid rgba(250, 204, 21, 0.6) !important;
+    /* Viền vàng Super Saiyan */
+    box-shadow: 0 0 30px rgba(250, 204, 21, 0.25) !important;
+    /* Tỏa hào quang vàng */
     backdrop-filter: blur(8px) !important;
     color: #e2e8f0 !important;
     border-radius: 12px !important;
@@ -2142,29 +2176,36 @@ body.dark-theme .vps-modal-content {
 
 /* 2. Tiêu đề "Thông Báo Mới": Chữ Cam Goku, gạch chân vàng */
 body.dark-theme .welcome-modal-content h2 {
-    color: var(--secondary) !important; /* Chữ màu Cam Goku */
+    color: var(--secondary) !important;
+    /* Chữ màu Cam Goku */
     text-shadow: 0 0 10px rgba(249, 115, 22, 0.5) !important;
-    border-bottom: 2px dashed rgba(250, 204, 21, 0.4) !important; 
+    border-bottom: 2px dashed rgba(250, 204, 21, 0.4) !important;
     padding-bottom: 12px !important;
 }
 
 /* 3. Chữ nội dung và đổi màu dấu chấm tròn sang Vàng */
 body.dark-theme .welcome-modal-content p,
 body.dark-theme .welcome-modal-content ul {
-    color: #cbd5e1 !important; /* Chữ xám sáng dễ đọc */
+    color: #cbd5e1 !important;
+    /* Chữ xám sáng dễ đọc */
 }
+
 body.dark-theme .welcome-modal-content ul li {
     margin-bottom: 10px !important;
 }
+
 body.dark-theme .welcome-modal-content ul li::marker {
-    color: var(--primary) !important; /* Chấm đầu dòng màu Vàng */
+    color: var(--primary) !important;
+    /* Chấm đầu dòng màu Vàng */
 }
 
 /* 4. Nút "Đã Hiểu": Xóa gradient xanh cũ, đổi sang Cam Goku, hover vàng chói */
 body.dark-theme .welcome-modal-content .btn-action {
-    background-image: none !important; /* QUAN TRỌNG: Tắt cái dải màu xanh cũ đi */
-    background-color: var(--secondary) !important; /* Đổ màu Cam Goku */
-    border: 1px solid var(--primary) !important; 
+    background-image: none !important;
+    /* QUAN TRỌNG: Tắt cái dải màu xanh cũ đi */
+    background-color: var(--secondary) !important;
+    /* Đổ màu Cam Goku */
+    border: 1px solid var(--primary) !important;
     color: white !important;
     font-weight: bold !important;
     text-transform: uppercase !important;
@@ -2173,10 +2214,13 @@ body.dark-theme .welcome-modal-content .btn-action {
 }
 
 body.dark-theme .welcome-modal-content .btn-action:hover {
-    background-image: none !important; /* Tắt gradient xanh lúc di chuột */
-    background-color: var(--primary) !important; /* Hover sang vàng Super Saiyan */
+    background-image: none !important;
+    /* Tắt gradient xanh lúc di chuột */
+    background-color: var(--primary) !important;
+    /* Hover sang vàng Super Saiyan */
     border-color: white !important;
-    color: #0f172a !important; /* Chữ đen cho nổi */
+    color: #0f172a !important;
+    /* Chữ đen cho nổi */
     box-shadow: 0 0 20px rgba(250, 204, 21, 0.6) !important;
 }
 
@@ -2186,6 +2230,7 @@ body.dark-theme .vps-close-btn {
     opacity: 0.8 !important;
     transition: 0.3s ease !important;
 }
+
 body.dark-theme .vps-close-btn:hover {
     color: white !important;
     opacity: 1 !important;

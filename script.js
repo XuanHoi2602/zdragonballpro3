@@ -188,13 +188,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Lấy chiều cao của 2 thanh đang dính trên trần để không bị che khuất chữ
                 const navHeight = nav ? nav.offsetHeight : 0;
                 const stickyMenuHeight = stickyMenu.offsetHeight;
-                
+
                 // Tính toán vị trí chính xác của đầu khung nội dung
                 const containerTop = container.getBoundingClientRect().top + window.scrollY;
-                
+
                 // Trượt mượt mà về đầu nội dung, trừ đi phần bị 2 thanh che khuất + thêm 15px cho thoáng
                 window.scrollTo({
-                    top: containerTop - navHeight - stickyMenuHeight - 15, 
+                    top: containerTop - navHeight - stickyMenuHeight - 15,
                     behavior: 'smooth'
                 });
             }

@@ -89,10 +89,145 @@
             <a href="#tab-config"><i class="fa-solid fa-sliders"></i> Quản Lý Config</a>
             <a href="#tab-setting"><i class="fa-solid fa-file-video"></i> Video Setting</a>
             <a href="#tab-sukien"><i class="fa-solid fa-gift"></i> Sự Kiện</a>
+            <a href="#tab-thongbao"><i class="fa-solid fa-bell"></i> Thông báo</a>
         </div>
     </div>
 
     <div class="container">
+        <div id="tab-thongbao" class="card">
+            <h2 class="section-title">Thông báo các cập nhật của game</h2>
+
+            <div class="feature-block">
+                <div class="feature-header">1. Liên kết Telegram với tài khoản NRO</div>
+
+                <div class="content-grid">
+                    <div class="text-content">
+                        <p>Để nhận thông báo và bảo vệ tài khoản, hãy liên kết với bot chính thức của Teamobi:</p>
+                        <a href="https://t.me/TeamobiAccountBot" target="_blank" class="btn-telegram">
+                            <i class="fab fa-telegram-plane"></i> Bot của Teamobi
+                        </a>
+                        <p><strong>Danh sách các lệnh hỗ trợ từ Bot Telegram:</strong></p>
+                        <ul>
+                            <li>
+                                <strong>Liên kết tài khoản với Telegram:</strong><br>
+                                <code
+                                    style="color: #ff9900;">BIND &lt;game&gt; &lt;tài khoản&gt; &lt;mật khẩu&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Hủy liên kết tài khoản:</strong><br>
+                                <code style="color: #ff9900;">UNBIND &lt;game&gt; &lt;tài khoản&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Khóa bảo vệ tài khoản:</strong><br>
+                                <code style="color: #ff9900;">LOCK &lt;game&gt; &lt;tài khoản&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Mở khóa tài khoản:</strong><br>
+                                <code style="color: #ff9900;">UNLOCK &lt;game&gt; &lt;tài khoản&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Lấy mã QR kích hoạt 2FA (App Authen):</strong><br>
+                                <code style="color: #ff9900;">GETQR &lt;game&gt; &lt;tài khoản&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Kích hoạt 2FA với mã OTP:</strong><br>
+                                <code style="color: #ff9900;">ACT2FA &lt;game&gt; &lt;tài khoản&gt; &lt;otp&gt;</code>
+                            </li>
+                            <li>
+                                <strong>Đặt chế độ đăng nhập:</strong><br>
+                                <code style="color: #ff9900;">SET &lt;game&gt; &lt;tài khoản&gt; &lt;mode&gt;</code><br>
+                                <em>(Trong đó mode: 0 là MẬT KHẨU | 1 là 2FA | 2 là TELEGRAM)</em>
+                            </li>
+                        </ul>
+                        <p style="margin-top: 10px; font-style: italic;">
+                            * <strong>Lưu ý:</strong> Ở phần &lt;game&gt;, bạn hãy nhập <strong>NJ</strong> (Ninja
+                            School), <strong>NR</strong> (Ngọc Rồng), hoặc <strong>HS</strong> (Hiệp Sĩ).
+                        </p>
+                        <p style="margin-top: 15px;"><strong>Sau khi liên kết thành công, trên Telegram sẽ xuất hiện hộp
+                                thoại bao gồm các nút chức năng:</strong></p>
+                        <ul style="line-height: 1.6;">
+                            <li>
+                                <strong>Khóa tài khoản:</strong> Trong trường hợp bị keylog hoặc bị scam acc, bạn có thể
+                                sử dụng nút này để khoá tài khoản khẩn cấp.
+                            </li>
+                            <li>
+                                <strong>Khóa IP:</strong> Khi đăng nhập ở một IP mới, bạn sẽ nhận được thông báo xác
+                                nhận gửi về Telegram. <em>(Lưu ý: Nếu vẫn đăng nhập ở IP cũ đã xác nhận thì sẽ không
+                                    hiện thông báo nữa).</em>
+                            </li>
+                            <li>
+                                <strong>Mở khóa:</strong> Dùng để mở khoá tài khoản sau khi bạn đã xử lý xong sự cố.
+                            </li>
+                            <li>
+                                <strong>Lấy QR (App Auth):</strong> Sử dụng để quét mã nếu bạn muốn dùng Mã Auth (ứng
+                                dụng như Google Authenticator) để đăng nhập.
+                            </li>
+                            <li>
+                                <strong>Lấy CODE đăng nhập:</strong> Hệ thống sẽ tạo một đoạn code dùng để thay thế mật
+                                khẩu gốc của bạn khi đăng nhập.
+                            </li>
+                            <li>
+                                <strong>Dùng Mật khẩu:</strong> Cài đặt lại chế độ sử dụng mật khẩu gốc của game để đăng
+                                nhập.
+                            </li>
+                            <li>
+                                <strong>Dùng App Auth:</strong> Cài đặt chế độ yêu cầu mã từ App Auth để thay cho mật
+                                khẩu đăng nhập.
+                            </li>
+                            <li>
+                                <strong>Dùng Telegram:</strong> Cài đặt chế độ lấy code gửi trực tiếp về Telegram để
+                                đăng nhập.
+                            </li>
+                        </ul>
+
+
+
+                    </div>
+
+                    <div class="img-wrapper">
+                        <div class="img-group">
+                            <img src="images/50.png" alt="Ảnh 50">
+                            <img src="images/51.png" alt="Ảnh 51">
+                            <img src="images/52.png" alt="Ảnh 52">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-header">2. Cách bảo mật liên kết tele khi sài trên vps</div>
+                <div class="text-content">
+                    <p style="color: #ff9900; font-size: 1.1rem;"><strong><i class="fa-solid fa-shield-halved"></i> Cách
+                            tăng bảo mật tài khoản khi treo trên VPS (hoặc mọi IP khác):</strong></p>
+                    <ol style="line-height: 1.7; padding-left: 20px;">
+                        <li>
+                            <strong>Liên kết tài khoản:</strong> Đầu tiên, hãy liên kết tài khoản game của bạn với bot
+                            Telegram.
+                        </li>
+                        <li>
+                            <strong>Thiết lập Khoá IP:</strong> Ấn vào nút <strong>Khoá IP</strong> trên hộp thoại
+                            Telegram.
+                            <em>(Tính năng này sẽ chỉ cho phép 1 IP được đăng nhập thẳng vào game. Các IP khác khi đăng
+                                nhập sẽ đều bị chặn lại và gửi thông báo xác nhận về Telegram của bạn).</em>
+                        </li>
+                        <li>
+                            <strong>Chọn phương thức đăng nhập:</strong> Tiếp theo, ấn vào nút <strong>Dùng Mật
+                                Khẩu</strong> để hệ thống giữ nguyên việc sử dụng mật khẩu gốc của bạn khi login.
+                        </li>
+                        <li>
+                            <strong>Xác nhận đăng nhập trên VPS:</strong> Vậy là xong! Việc còn lại là bạn mở game và
+                            đăng nhập trên VPS. Khi đăng nhập, hệ thống sẽ báo xác nhận về Telegram. Hãy nhanh tay ấn
+                            <strong>Đồng ý</strong> nếu kiểm tra đúng là IP VPS của bạn nhé.
+                        </li>
+                        <strong><i class="fa-solid fa-triangle-exclamation"></i> LƯU Ý QUAN TRỌNG:</strong><br>
+    Chức năng này sẽ hoạt động tự động khi bạn xài trên VPS. Sau mỗi lần server bảo trì, tool sẽ tự đăng nhập lại và gửi thông báo về Telegram rằng đã đăng nhập thành công trên IP đã xác nhận. <br><br>
+    Tuy nhiên, nếu bạn muốn đăng nhập trên một IP khác (ví dụ chuyển từ VPS về máy tính cá nhân hoặc điện thoại), bạn <strong>bắt buộc phải bấm xác nhận lại IP mới</strong> trên Telegram. Quá trình ngược lại (từ máy tính cá nhân lên lại VPS) cũng yêu cầu xác nhận tương tự. Anh em lưu ý nhé!
+                    </ol>
+                </div>
+            </div>
+        </div>
+
         <div id="tab-sukien" class="card">
             <h2 class="section-title">Hướng dẫn sự kiện</h2>
             <div class="feature-block">
@@ -104,9 +239,9 @@
                         <div class="config-wrapper">
                             <div class="config-header">
                                 <span>Setup</span>
-                                <button class="copy-btn" onclick="copyConfig(this)">
+                                <!--<button class="copy-btn" onclick="copyConfig(this)">
                                     <i class="fa-regular fa-copy"></i> Sao chép
-                                </button>
+                                </button>-->
                             </div>
                             <pre id="sukienConfig" class="config-content">Name Boss: Ốc tiêu
 *Còn không biết dán ở đâu nữa thì cũng chịu đấy :>>
@@ -142,6 +277,9 @@ Xayda:
                 </div>
 
                 <div class="feature-header">2. Ra sự kiện tiếp sẽ update</div>
+                <div class="text-content">
+                    <p>Sẽ cập nhật thông tin chi tiết sau....</p>
+                </div>
 
 
             </div>
@@ -877,9 +1015,9 @@ Xayda:
                         <div class="config-wrapper">
                             <div class="config-header">
                                 <span>Setup</span>
-                                <button class="copy-btn" onclick="copyConfig(this)">
+                                <!--<button class="copy-btn" onclick="copyConfig(this)">
                                     <i class="fa-regular fa-copy"></i> Sao chép
-                                </button>
+                                </button>-->
                             </div>
                             <pre id="bossConfig" class="config-content">Name Boss: Dán ở phần Focus Boss
 Kuku
@@ -983,9 +1121,9 @@ Map + Khu: Dán ở phần Tìm Boss
                         <div class="config-wrapper">
                             <div class="config-header">
                                 <span>Setup</span>
-                                <button class="copy-btn" onclick="copyConfig(this)">
+                                <!--<button class="copy-btn" onclick="copyConfig(this)">
                                     <i class="fa-regular fa-copy"></i> Sao chép
-                                </button>
+                                </button>-->
                             </div>
                             <pre id="bossConfig" class="config-content">
 Copy các thứ tự số dán vào ô gắn chiêu
