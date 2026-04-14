@@ -135,10 +135,6 @@ function closeVpsModal() {
 //     }, fallDuration * 1000);
 // }
 
-// // Tạo ra một cánh hoa mới mỗi 300 mili-giây (Có thể tăng số 300 lên 500 nếu thấy hoa rơi quá dày)
-// setInterval(createHoaMai, 300);
-
-// --- SCRIPT CHUYỂN TAB (TÁCH PAGE) ---
 document.addEventListener("DOMContentLoaded", function () {
     // Lấy tất cả các nút menu và các thẻ nội dung (card)
     const navLinks = document.querySelectorAll('.in-page-nav a');

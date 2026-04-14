@@ -18,6 +18,8 @@
                 <img src="logo_web.png" alt="Trang chủ ZDragonBallPro3" class="logo-icon">
             </a>
             <div class="nav-actions">
+                <a href="https://portal.vpsgame.net/" target="_blank" class="btn-action"><i class="fa-solid fa-bag-shopping"></i></i> Vps</a>
+                        <a href="https://proxy.vpsgame.net/" target="_blank" class="btn-action"><i class="fa-solid fa-bag-shopping"></i></i> Proxy</a>
                 <a href="https://zalo.me/g/hahaae860" target="_blank" class="btn-action"><i
                         class="fa-solid fa-comment-dots"></i> Box Zalo</a>
                 <a href="https://www.youtube.com/@ZangVPS" target="_blank" class="btn-action"><i
@@ -38,6 +40,7 @@
 
                 <p style="margin-top: 10px;">🔥 <strong>Ấn Cập nhật để sử dụng các chức năng mới nhất:</strong></p>
                 <ul style="padding-left: 20px; margin-top: 5px; margin-bottom: 15px;">
+                    <li>Update Web Bán Proxy tự động.</li>
                     <li>Update mục Thông Báo - Nơi nhận thông tin về Game và Vps</li>
                     <li>Update mục Sự Kiện - Nơi chơi sk nhẹ nhàng nhất.</li>
                     <li>Bổ sung Chức năng úp đệ train giáp luyện tập.</li>
@@ -112,73 +115,26 @@
                             <li>
                                 <strong>Liên kết tài khoản với Telegram:</strong><br>
                                 <code
-                                    style="color: #ff9900;">BIND &lt;game&gt; &lt;tài khoản&gt; &lt;mật khẩu&gt;</code>
+                                    style="color: #ff9900;">BIND &lt;game&gt; &lt;tài khoản&gt;</code>
                             </li>
                             <li>
                                 <strong>Hủy liên kết tài khoản:</strong><br>
                                 <code style="color: #ff9900;">UNBIND &lt;game&gt; &lt;tài khoản&gt;</code>
                             </li>
                             <li>
-                                <strong>Khóa bảo vệ tài khoản:</strong><br>
-                                <code style="color: #ff9900;">LOCK &lt;game&gt; &lt;tài khoản&gt;</code>
+                                <strong>Danh sách tài khoản đã liên kết:</strong><br>
+                                <code style="color: #ff9900;">LIST</code>
                             </li>
                             <li>
-                                <strong>Mở khóa tài khoản:</strong><br>
-                                <code style="color: #ff9900;">UNLOCK &lt;game&gt; &lt;tài khoản&gt;</code>
+                                <strong>Menu thao tác:</strong><br>
+                                <code style="color: #ff9900;">MENU &lt;game&gt; &lt;tài khoản&gt;</code>
                             </li>
-                            <li>
-                                <strong>Lấy mã QR kích hoạt 2FA (App Authen):</strong><br>
-                                <code style="color: #ff9900;">GETQR &lt;game&gt; &lt;tài khoản&gt;</code>
-                            </li>
-                            <li>
-                                <strong>Kích hoạt 2FA với mã OTP:</strong><br>
-                                <code style="color: #ff9900;">ACT2FA &lt;game&gt; &lt;tài khoản&gt; &lt;otp&gt;</code>
-                            </li>
-                            <li>
-                                <strong>Đặt chế độ đăng nhập:</strong><br>
-                                <code style="color: #ff9900;">SET &lt;game&gt; &lt;tài khoản&gt; &lt;mode&gt;</code><br>
-                                <em>(Trong đó mode: 0 là MẬT KHẨU | 1 là 2FA | 2 là TELEGRAM)</em>
-                            </li>
+                            
                         </ul>
                         <p style="margin-top: 10px; font-style: italic;">
                             * <strong>Lưu ý:</strong> Ở phần &lt;game&gt;, bạn hãy nhập <strong>NJ</strong> (Ninja
                             School), <strong>NR</strong> (Ngọc Rồng), hoặc <strong>HS</strong> (Hiệp Sĩ).
                         </p>
-                        <p style="margin-top: 15px;"><strong>Sau khi liên kết thành công, trên Telegram sẽ xuất hiện hộp
-                                thoại bao gồm các nút chức năng:</strong></p>
-                        <ul style="line-height: 1.6;">
-                            <li>
-                                <strong>Khóa tài khoản:</strong> Trong trường hợp bị keylog hoặc bị scam acc, bạn có thể
-                                sử dụng nút này để khoá tài khoản khẩn cấp.
-                            </li>
-                            <li>
-                                <strong>Khóa IP:</strong> Khi đăng nhập ở một IP mới, bạn sẽ nhận được thông báo xác
-                                nhận gửi về Telegram. <em>(Lưu ý: Nếu vẫn đăng nhập ở IP cũ đã xác nhận thì sẽ không
-                                    hiện thông báo nữa).</em>
-                            </li>
-                            <li>
-                                <strong>Mở khóa:</strong> Dùng để mở khoá tài khoản sau khi bạn đã xử lý xong sự cố.
-                            </li>
-                            <li>
-                                <strong>Lấy QR (App Auth):</strong> Sử dụng để quét mã nếu bạn muốn dùng Mã Auth (ứng
-                                dụng như Google Authenticator) để đăng nhập.
-                            </li>
-                            <li>
-                                <strong>Lấy CODE đăng nhập:</strong> Hệ thống sẽ tạo một đoạn code dùng để thay thế mật
-                                khẩu gốc của bạn khi đăng nhập.
-                            </li>
-                            <li>
-                                <strong>Dùng Mật khẩu:</strong> Cài đặt lại chế độ sử dụng mật khẩu gốc của game để đăng
-                                nhập.
-                            </li>
-                            <li>
-                                <strong>Dùng App Auth:</strong> Cài đặt chế độ yêu cầu mã từ App Auth để thay cho mật
-                                khẩu đăng nhập.
-                            </li>
-                            <li>
-                                <strong>Dùng Telegram:</strong> Cài đặt chế độ lấy code gửi trực tiếp về Telegram để
-                                đăng nhập.
-                            </li>
                         </ul>
 
 
@@ -189,7 +145,6 @@
                         <div class="img-group">
                             <img src="images/50.png" alt="Ảnh 50">
                             <img src="images/51.png" alt="Ảnh 51">
-                            <img src="images/52.png" alt="Ảnh 52">
                             <img src="images/53.png" alt="Ảnh 53">
                             <img src="images/54.png" alt="Ảnh 54">
 
@@ -1185,8 +1140,8 @@ Setting nm (liên hoàn):
                         </a>
                     </li>
                     <li>
-                        <a href="https://zalo.me/0867496730" target="_blank">
-                            <i class="fa-solid fa-angle-right"></i> Zalo Cá Nhân
+                        <a href="https://proxy.vpsgame.net/" target="_blank">
+                            <i class="fa-solid fa-angle-right"></i> Mua Proxy
                         </a>
                     </li>
                     <li>
