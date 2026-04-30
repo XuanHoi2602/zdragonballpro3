@@ -1291,16 +1291,6 @@ footer {
     }
 
 
-    .in-page-nav.show-mobile-nav {
-        display: grid !important;
-
-        grid-template-columns: 1fr 1fr;
-
-        justify-items: center;
-
-        animation: fadeInDown 0.2s ease forwards;
-    }
-
     @keyframes fadeInDown {
         from {
             opacity: 0;
@@ -1457,168 +1447,7 @@ footer {
 }
 
 
-.search-container {
-    position: relative;
-    max-width: 600px;
-    margin: 0 auto 15px auto;
-    padding: 0 20px;
-}
 
-.search-container input {
-    width: 100%;
-    padding: 12px 15px 12px 40px;
-    border: 1px solid var(--border);
-    border-radius: 50px;
-    font-size: 0.95rem;
-    outline: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    background-color: white;
-    color: var(--dark);
-}
-
-.search-container input:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 10px rgba(51, 206, 253, 0.4);
-}
-
-.search-icon {
-    position: absolute;
-    left: 35px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94a3b8;
-}
-
-.search-suggestions {
-    position: absolute;
-    top: 100%;
-    left: 20px;
-    right: 20px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    margin-top: 8px;
-    list-style: none;
-    padding: 0;
-    max-height: 350px;
-    overflow-y: auto;
-    z-index: 1000;
-    display: none;
-}
-
-.search-suggestions li {
-    padding: 12px 15px;
-    border-bottom: 1px solid #f1f5f9;
-    cursor: pointer;
-    transition: background 0.2s;
-    text-align: left;
-}
-
-.search-suggestions li:last-child {
-    border-bottom: none;
-}
-
-.search-suggestions li:hover {
-    background-color: #f8fafc;
-}
-
-.search-suggestions li strong {
-    color: var(--primary);
-    font-size: 1rem;
-    display: block;
-}
-
-.search-suggestions li small {
-    color: #64748b;
-    font-size: 0.85rem;
-    margin-top: 4px;
-    display: block;
-}
-
-
-body.dark-theme .search-container input {
-    background-color: #1e293b;
-    border-color: #475569;
-    color: #cbd5e1;
-}
-
-body.dark-theme .search-suggestions {
-    background-color: #1e293b;
-    border-color: #475569;
-}
-
-body.dark-theme .search-suggestions li {
-    border-bottom-color: #334155;
-}
-
-body.dark-theme .search-suggestions li:hover {
-    background-color: #334155;
-}
-
-body.dark-theme .search-suggestions li small {
-    color: #94a3b8;
-}
-
-
-.search-suggestions::-webkit-scrollbar {
-    width: 6px;
-}
-
-.search-suggestions::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
-    border-radius: 10px;
-}
-
-
-.search-action-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    max-width: 650px;
-    margin: 0 auto 15px auto;
-    padding: 0 20px;
-}
-
-
-.search-action-row .search-container {
-    flex: 1;
-    margin: 0;
-    padding: 0;
-}
-
-.list-menu-btn {
-    display: flex !important;
-
-    align-items: center;
-    justify-content: center;
-    width: 46px !important;
-    height: 46px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 50%;
-
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(51, 206, 253, 0.3);
-    margin: 0 !important;
-}
-
-.list-menu-btn:hover {
-    transform: scale(1.05);
-    background-color: var(--secondary);
-}
-
-
-.search-suggestions {
-    width: calc(100% - 40px);
-
-}
 
 .in-page-nav {
     display: none;
@@ -1640,13 +1469,6 @@ body.dark-theme .search-suggestions li small {
     z-index: 99;
 }
 
-.in-page-nav.show-mobile-nav {
-
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 10px;
-    animation: fadeInDown 0.2s ease forwards;
-}
 
 .in-page-nav a {
 
@@ -1683,14 +1505,6 @@ body.dark-theme .in-page-nav a.active-nav {
     color: white !important;
 }
 
-.search-container input {
-    padding-left: 45px !important;
-}
-
-
-.search-icon {
-    left: 18px !important;
-}
 
 
 /* 1. Áp dụng cho Menu danh mục (Giao Diện, Đánh Quái, Úp Đệ...) */
@@ -2121,11 +1935,6 @@ body.dark-theme .in-page-nav a:hover i {
         /* Bo tròn mượt mà ở 2 góc dưới */
     }
 
-    /* Ép Lưới 2 cột đều tăm tắp */
-    .in-page-nav.show-mobile-nav {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
-    }
 
     /* Định dạng từng ô Menu: Thêm nền tối, viền vàng và canh TRÁI */
     .in-page-nav a,
@@ -2237,9 +2046,11 @@ body.dark-theme .vps-close-btn:hover {
     transform: scale(1.2) !important;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8) !important;
 }
+
 .btn-telegram {
     display: inline-block;
-    background-color: #dec224; /* Màu xanh chuẩn của Telegram */
+    background-color: #dec224;
+    /* Màu xanh chuẩn của Telegram */
     color: #ffffff;
     padding: 10px 20px;
     text-decoration: none;
@@ -2250,6 +2061,873 @@ body.dark-theme .vps-close-btn:hover {
 }
 
 .btn-telegram:hover {
-    background-color: #d1881b; /* Màu đậm hơn khi di chuột qua */
+    background-color: #d1881b;
+    /* Màu đậm hơn khi di chuột qua */
     color: #ffffff;
+}
+
+/* ================================================= */
+/* --- BỐ CỤC CHÍNH FULL MÀN HÌNH (TRÀN VIỀN) --- */
+/* ================================================= */
+.main-layout {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    /* Mở khóa giới hạn chiều rộng */
+    margin: 0;
+    padding: 0;
+    align-items: flex-start;
+}
+
+/* --- CỘT TRÁI: SIDEBAR SÁT MÉP --- */
+.sidebar {
+    width: 260px;
+    background-color: #171b29;
+    /* Màu nền tối chuẩn Admin Panel */
+    min-height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px;
+    padding: 20px 0;
+    margin-left: 0 !important;
+    /* Ép sát mép trái 100% */
+    border-radius: 0 !important;
+    /* Bỏ bo góc để tạo khối phẳng */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    /* Bóng đổ sang bên phải để tách biệt nội dung */
+    z-index: 90;
+}
+
+/* Khung Tiêu Đề "Chức năng Tool" */
+.sidebar-header {
+    padding: 0 20px 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 15px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Ép menu thành dạng dọc thẳng hàng */
+.sidebar .in-page-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 15px !important;
+    gap: 5px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    position: relative !important;
+    transform: none !important;
+    left: 0 !important;
+    width: 100% !important;
+}
+
+/* Định dạng từng nút chức năng trong Sidebar */
+.sidebar .in-page-nav a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    padding: 12px 15px !important;
+    color: #94a3b8 !important;
+    /* Màu chữ xám nhạt */
+    background: transparent !important;
+    border-radius: 8px !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Căn chỉnh Icon của Sidebar */
+.sidebar .in-page-nav a i {
+    margin-right: 12px !important;
+    width: 22px !important;
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: var(--primary) !important;
+}
+
+/* Trạng thái Hover & Tab đang được chọn (Active) */
+.sidebar .in-page-nav a:hover,
+.sidebar .in-page-nav a.active-nav {
+    background-color: var(--primary) !important;
+    color: #171b29 !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 4px 10px rgba(250, 204, 21, 0.3) !important;
+}
+
+.sidebar .in-page-nav a:hover i,
+.sidebar .in-page-nav a.active-nav i {
+    color: #171b29 !important;
+    text-shadow: none !important;
+}
+
+/* --- CỘT PHẢI: NỘI DUNG CHÍNH KÉO DÃN --- */
+.main-content {
+    flex: 1;
+    /* Tự động kéo dãn lấp đầy khoảng trống còn lại */
+    width: calc(100% - 260px);
+    padding: 30px;
+    /* Đệm cách lề cho nội dung bên trong */
+}
+
+/* Ẩn bớt nền thanh tìm kiếm thừa */
+.sticky-menu-wrapper {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding-top: 0 !important;
+    position: relative !important;
+    top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+
+/* ================================================= */
+/* --- MỞ KHÓA GIỚI HẠN CỦA CÁC THÀNH PHẦN CŨ --- */
+/* ================================================= */
+
+/* Phá vỡ giới hạn độ rộng của thẻ container chứa nội dung */
+.container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+/* Kéo dãn thanh Header (Nav) trên cùng */
+.nav-content {
+    max-width: 100% !important;
+    padding: 0 30px !important;
+}
+
+/* Kéo dãn luôn phần Footer ở dưới cùng */
+.footer-container,
+.footer-bottom {
+    max-width: 100% !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+
+/* Ẩn nút 3 gạch trên giao diện máy tính */
+@media (min-width: 993px) {
+    #menu-toggle-btn {
+        display: none !important;
+    }
+}
+
+/* --- RESPONSIVE CHO ĐIỆN THOẠI (MOBILE) --- */
+@media (max-width: 992px) {
+    .main-layout {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 60px;
+        height: calc(100vh - 60px);
+        margin-left: 0;
+        border-radius: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 15px;
+        /* Giảm padding trên điện thoại */
+    }
+}
+
+
+
+/* ================================================= */
+/* --- 2. TĂNG KÍCH THƯỚC CHỮ TOÀN TRANG --- */
+/* ================================================= */
+
+/* Tăng chữ cho Menu Sidebar bên trái */
+.sidebar .in-page-nav a {
+    font-size: 1.15rem !important;
+    /* Cỡ chữ to hơn (cũ là 0.95rem) */
+    padding: 16px 20px !important;
+    /* Nút bấm rộng và cao hơn */
+}
+
+/* Tăng kích thước Icon trong Menu Sidebar */
+.sidebar .in-page-nav a i {
+    font-size: 1.3rem !important;
+    width: 28px !important;
+}
+
+/* Tăng font chữ chung của nội dung bài viết bên phải */
+.text-content p,
+.text-content ul,
+.text-content li,
+.text-content ol {
+    font-size: 1.15rem !important;
+    /* Chữ nội dung to và rõ hơn */
+    line-height: 1.8 !important;
+    /* Khoảng cách giữa các dòng thưa ra cho dễ đọc */
+}
+
+/* Tăng kích thước Tiêu đề lớn (Ví dụ: GIAO DIỆN QUẢN LÝ TÀI KHOẢN) */
+.section-title {
+    font-size: 2.2rem !important;
+    /* Cũ là 1.8rem */
+    margin-bottom: 30px !important;
+}
+
+/* Tăng kích thước Tiêu đề phụ (Ví dụ: 1. Bảng Điều Khiển...) */
+.feature-header {
+    font-size: 1.4rem !important;
+    /* Cũ là 1.2rem */
+    padding: 12px 20px !important;
+}
+
+/* Tăng kích thước chữ ở đoạn Hướng Dẫn đầu trang */
+.page-header h1 {
+    font-size: 3.2rem !important;
+}
+
+.page-header p {
+    font-size: 1.3rem !important;
+}
+
+/* ================================================= */
+/* --- CĂN CHỈNH NÚT 3 GẠCH TRÊN THANH NAV (MOBILE) --- */
+/* ================================================= */
+
+/* Mặc định ẩn nút 3 gạch trên máy tính (Laptop/PC) */
+.mobile-menu-toggle {
+    display: none !important;
+}
+
+/* CHỈ ÁP DỤNG TRÊN ĐIỆN THOẠI / IPAD */
+@media (max-width: 992px) {
+
+    /* Hiện nút 3 gạch và bỏ viền */
+    .mobile-menu-toggle {
+        display: block !important;
+        background: transparent !important;
+        border: none !important;
+        font-size: 1.6rem !important;
+        /* Kích thước icon 3 gạch */
+        color: var(--dark) !important;
+        margin-right: 15px !important;
+        /* Khoảng cách từ nút đến logo */
+        cursor: pointer;
+        padding: 0 !important;
+    }
+
+    /* Chữ màu trắng nếu đang bật Dark Theme */
+    body.dark-theme .mobile-menu-toggle {
+        color: #fff !important;
+    }
+
+    /* Ép thanh Nav sắp xếp theo chiều ngang */
+    .nav-content {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        /* Cho nút và logo sát mép trái */
+    }
+
+    /* Tự động đẩy cụm nút bấm (Vps, Proxy...) sang sát mép phải */
+    .nav-actions {
+        margin-left: auto !important;
+    }
+
+    /* --- NÂNG CẤP MENU SIDEBAR (TRƯỢT) TRÊN MOBILE --- */
+    .sidebar {
+        top: 0 !important;
+        /* Kéo kịch trần nhà */
+        height: 100vh !important;
+        /* Phủ kín 100% chiều dọc màn hình */
+        z-index: 9999 !important;
+        /* Đè lên tất cả, kể cả thanh Nav */
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.5) !important;
+        /* Đổ bóng mạnh hơn cho nổi bật */
+    }
+}
+
+/* ================================================= */
+/* --- FIX LỖI ẨN MENU TRONG SIDEBAR TRÊN MOBILE --- */
+/* ================================================= */
+.sidebar .in-page-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    position: static !important;
+    /* Phá bỏ lệnh bay lơ lửng (absolute) cũ */
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    /* Xóa hiệu ứng lệch tâm cũ */
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    max-height: none !important;
+    padding: 0 15px 20px 15px !important;
+    margin: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    height: auto !important;
+    width: 100% !important;
+    overflow-y: auto !important;
+    /* Cho phép cuộn nếu menu quá dài */
+}
+
+/* Đảm bảo từng nút nằm ngay ngắn sát lề trái */
+.sidebar .in-page-nav a {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin: 0 0 5px 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* ================================================= */
+/* --- NÚT X ĐÓNG MENU SIDEBAR TRÊN MOBILE --- */
+/* ================================================= */
+
+/* Ép Tiêu đề và nút X nằm ngang hàng nhau */
+.sidebar-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Định dạng nút X */
+.close-sidebar {
+    background: transparent !important;
+    border: none !important;
+    color: #94a3b8 !important;
+    /* Màu xám nhạt */
+    font-size: 1.6rem !important;
+    cursor: pointer;
+    padding: 0 5px !important;
+    transition: all 0.3s ease !important;
+    display: none !important;
+    /* Mặc định ẩn trên máy tính */
+}
+
+/* Hiệu ứng khi rê chuột vào nút X */
+.close-sidebar:hover {
+    color: var(--danger) !important;
+    /* Đổi sang màu đỏ khi hover */
+    transform: scale(1.1) !important;
+}
+
+/* CHỈ HIỂN THỊ NÚT X TRÊN ĐIỆN THOẠI */
+@media (max-width: 992px) {
+    .close-sidebar {
+        display: block !important;
+    }
+}
+/* --- CỘT TRÁI: SIDEBAR ADMIN PANEL --- */
+.sidebar {
+    width: 250px; /* Thu nhỏ sidebar lại một chút cho cân đối */
+    background-color: #111827; /* Màu nền tối xanh đen giống ảnh */
+    min-height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px;
+    padding: 0; /* Xóa padding tổng để header sát viền trên */
+    margin-left: 0;
+    border-radius: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 90;
+    border-right: 1px solid #1f2937; /* Đường viền phải mờ */
+}
+
+/* Phần Header: Icon User + Tài khoản */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: none; /* Bỏ border cũ */
+    margin-bottom: 0;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Icon User bo tròn màu xanh tím */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #8b5cf6, #3b82f6); /* Gradient tím xanh */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.user-profile h2 {
+    font-size: 1.15rem;
+    color: #c4b5fd; /* Màu tím nhạt */
+    text-transform: none; /* Không viết hoa toàn bộ */
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Đường phân cách tím */
+.sidebar-divider {
+    border: none;
+    height: 1px;
+    background-color: #4c1d95; /* Màu tím đậm */
+    margin: 0;
+}
+
+/* Định dạng Menu dọc Sidebar */
+.sidebar .in-page-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 20px 15px;
+    background: transparent;
+}
+
+/* Chữ "QUẢN LÝ" */
+.menu-label {
+    font-size: 0.8rem;
+    color: #6b7280;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.sidebar .in-page-nav a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px; /* Giảm padding một chút để danh sách gọn hơn */
+    color: #9ca3af; /* Chữ xám nhạt */
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1rem; /* Giảm font-size lại cho gọn gàng */
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    margin-bottom: 4px;
+}
+
+.sidebar .in-page-nav a i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #9ca3af; /* Icon màu xám đồng bộ với chữ */
+    transition: all 0.2s ease;
+}
+
+/* Trạng thái Hover & Tab đang được chọn (Active) - Đổi sang Xanh Đen */
+.sidebar .in-page-nav a:hover,
+.sidebar .in-page-nav a.active-nav {
+    background-color: #1e293b; /* Nền xanh đen nhạt khi hover */
+    color: #f3f4f6; /* Chữ trắng sáng */
+    transform: translateX(4px); /* Trượt nhẹ */
+    box-shadow: none; /* Bỏ bóng đổ vàng cũ */
+}
+
+/* Màu icon khi hover */
+.sidebar .in-page-nav a:hover i,
+.sidebar .in-page-nav a.active-nav i {
+    color: #f3f4f6; /* Icon trắng sáng */
+    text-shadow: none;
+}
+
+/* Nút X đóng menu trên Mobile */
+.close-sidebar {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0 5px;
+    transition: all 0.3s ease;
+    display: none;
+}
+
+.close-sidebar:hover {
+    color: #f87171; /* Đỏ nhạt */
+    transform: scale(1.1);
+}
+
+/* Điều chỉnh lại Cột Phải cho phù hợp với độ rộng Sidebar mới */
+.main-content {
+    flex: 1;
+    width: calc(100% - 250px);
+    padding: 30px;
+}
+/* ================================================= */
+/* --- CSS CHO MENU XỔ XUỐNG (DROPDOWN / ACCORDION) --- */
+/* ================================================= */
+
+/* --- 1. NÚT CHA (CHỨC NĂNG TOOL) --- */
+.dropdown-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px;
+    background: transparent;
+    border: 1px solid transparent; /* Chuẩn bị sẵn viền cho lúc active */
+    color: #9ca3af;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    font-family: inherit;
+}
+
+.dropdown-btn-content {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-btn-content i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+/* Mũi tên xoay */
+.toggle-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+}
+
+/* TRẠNG THÁI ACTIVE CỦA NÚT CHA (Viền trái xanh, nền đen) */
+.dropdown-btn.active {
+    background-color: #172033; /* Nền tối đậm */
+    border: 1px solid #1f2937; /* Viền mờ bao quanh */
+    border-left: 4px solid #3b82f6; /* Dải màu xanh lam sát mép trái */
+    color: #ffffff;
+}
+
+.dropdown-btn.active .dropdown-btn-content i {
+    color: #ffffff; /* Sáng icon khi active */
+}
+
+.dropdown-btn.active .toggle-icon {
+    transform: rotate(180deg); /* Lật ngược mũi tên lên */
+}
+
+/* ================================================= */
+/* --- FIX LỖI ẨN/HIỆN MENU XỔ XUỐNG --- */
+/* ================================================= */
+
+/* --- VÙNG CHỨA CÁC NÚT CON --- */
+.dropdown-container {
+    display: none !important; /* Mặc định ẨN hoàn toàn các nút con */
+    flex-direction: column;
+    padding-left: 5px; 
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+/* Chỉ HIỂN THỊ khi vùng chứa được thêm class "show" */
+.dropdown-container.show {
+    display: flex !important; 
+}
+
+/* --- ĐỊNH DẠNG CÁC NÚT CON BÊN TRONG --- */
+.sidebar .dropdown-container .child-item {
+    display: flex !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 12px 15px 12px 25px !important; /* Thụt lề chữ vào trong sâu hơn nút cha */
+    font-size: 0.95rem !important;
+    position: relative !important; 
+    border-radius: 8px !important;
+    margin-bottom: 2px !important;
+    background: transparent !important; /* Xóa nền thừa */
+    color: #9ca3af !important; /* Chữ xám nhạt */
+}
+
+/* Căn chỉnh Icon của nút con */
+.sidebar .dropdown-container .child-item i {
+    margin-right: 15px !important;
+    width: 20px !important;
+    text-align: center !important;
+    font-size: 1.1rem !important;
+    color: #9ca3af !important; 
+}
+
+/* TRẠNG THÁI ACTIVE CỦA NÚT CON */
+.sidebar .dropdown-container .child-item:hover,
+.sidebar .dropdown-container .child-item.active-nav {
+    background-color: #1e2b45 !important; /* Nền xanh lam tối giống ảnh */
+    color: #ffffff !important;
+}
+
+.sidebar .dropdown-container .child-item:hover i,
+.sidebar .dropdown-container .child-item.active-nav i {
+    color: #ffffff !important; /* Icon sáng lên theo chữ */
+}
+
+/* Chấm tròn báo hiệu đang chọn (Nằm sát mép phải) */
+.active-dot {
+    display: none !important; /* Ẩn mặc định */
+    width: 6px !important;
+    height: 6px !important;
+    background-color: #60a5fa !important; /* Màu xanh lơ */
+    border-radius: 50% !important;
+    position: absolute !important;
+    right: 15px !important;
+}
+
+.sidebar .dropdown-container .child-item.active-nav .active-dot {
+    display: block !important; /* Chỉ hiện chấm ở thẻ đang chọn */
+}
+
+/* --- 3. ĐỊNH DẠNG CÁC NÚT CON --- */
+.sidebar .in-page-nav .child-item {
+    padding: 12px 15px 12px 25px; /* Thụt lề chữ vào trong sâu hơn nút cha */
+    font-size: 0.95rem;
+    position: relative; /* Dùng để neo chấm tròn bên phải */
+    border-radius: 8px;
+    margin-bottom: 2px;
+}
+
+/* TRẠNG THÁI ACTIVE CỦA NÚT CON */
+.sidebar .in-page-nav .child-item:hover,
+.sidebar .in-page-nav .child-item.active-nav {
+    background-color: #1e2b45; /* Nền xanh lam tối giống ảnh */
+    color: #ffffff;
+    transform: none; /* Xóa hiệu ứng trượt cũ để giao diện tĩnh, sang trọng hơn */
+    box-shadow: none;
+}
+
+/* Chấm tròn báo hiệu đang chọn (Nằm sát mép phải) */
+.active-dot {
+    display: none; /* Ẩn mặc định */
+    width: 6px;
+    height: 6px;
+    background-color: #60a5fa; /* Màu xanh lơ */
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar .in-page-nav .child-item.active-nav .active-dot {
+    display: block; /* Chỉ hiện chấm ở thẻ đang chọn */
+}
+/* ================================================= */
+/* --- FIX LỖI MENU BỊ ĐÓNG KHUNG TRÊN ĐIỆN THOẠI --- */
+/* ================================================= */
+@media (max-width: 992px) {
+    /* Gỡ bỏ viền vàng và nền xám dư thừa do code cũ để lại */
+    .sidebar .in-page-nav a,
+    body.dark-theme .sidebar .in-page-nav a,
+    .in-page-nav a,
+    body.dark-theme .in-page-nav a {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        margin-bottom: 2px !important;
+        /* Trả lại khoảng cách thụt lề vào trong cho các mục con */
+        padding: 12px 15px 12px 25px !important; 
+        border-radius: 8px !important;
+    }
+
+    /* Phục hồi màu nền xanh lam tối khi người dùng bấm chọn (Active) */
+    .sidebar .in-page-nav a.active-nav,
+    .sidebar .in-page-nav a:hover,
+    body.dark-theme .sidebar .in-page-nav a.active-nav,
+    body.dark-theme .sidebar .in-page-nav a:hover {
+        background-color: #1e2b45 !important; /* Xanh lam tối đồng bộ với nút cha */
+        color: #ffffff !important;
+        border: none !important;
+    }
+}
+/* ================================================= */
+/* --- FIX LỖI KHOẢNG TRỐNG GIAO DIỆN MOBILE --- */
+/* ================================================= */
+
+@media (max-width: 992px) {
+    /* Đảm bảo Sidebar chiếm đủ 100% chiều rộng khi mở */
+    .sidebar.active {
+        width: 100% !important; /* Thay vì cố định kích thước, cho bung 100% */
+        max-width: 300px; /* Hoặc giới hạn ở 300px tùy bạn */
+    }
+
+    /* Đảm bảo thanh Nav (chứa logo và các nút) luôn giãn đủ 100% */
+    nav {
+        width: 100% !important;
+    }
+
+    .nav-content {
+        width: 100% !important;
+        padding-right: 15px !important;
+    }
+
+    /* Đảm bảo phần nội dung chính không bị đẩy lệch */
+    .main-content {
+        width: 100% !important;
+        padding: 15px !important; 
+        box-sizing: border-box !important;
+    }
+
+    /* Đảm bảo các khung Card bên trong không bị tràn ra ngoài màn hình */
+    .card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important; 
+    }
+}
+/* ================================================= */
+/* --- FIX TRIỆT ĐỂ LỖI SIDEBAR BỊ CỤT ĐÁY (MOBILE) --- */
+/* ================================================= */
+@media (max-width: 992px) {
+    /* Ép Sidebar phủ kín 100% chiều cao màn hình từ trên xuống dưới */
+    .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important; /* Dính chặt đáy màn hình */
+        height: 100% !important; 
+        min-height: 100vh !important; /* Full 100% màn hình điện thoại */
+        background-color: #111827 !important; /* Ép màu nền phủ kín */
+        overflow-y: auto !important; /* Cho phép vuốt cuộn thanh menu */
+        z-index: 99999 !important; /* Nổi lên trên cùng */
+    }
+
+    /* Đảm bảo khi bấm nút 3 gạch, menu vẫn trượt ra mượt mà */
+    .sidebar.active {
+        left: 0 !important;
+    }
+
+    /* Ngăn các menu con tự tạo thanh cuộn gây kẹt thao tác vuốt */
+    .sidebar .in-page-nav {
+        height: max-content !important; 
+        overflow-y: visible !important;
+        padding-bottom: 80px !important; /* Tạo khoảng trống ở đáy để ngón tay dễ vuốt */
+    }
+}
+/* ================================================= */
+/* --- CSS CHO NÚT ĐỘC LẬP & FORM GÓP Ý --- */
+/* ================================================= */
+
+/* 1. Nút Menu "Góp ý / Báo lỗi" đứng độc lập */
+.sidebar .in-page-nav .standalone-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 15px;
+    color: #9ca3af;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px; /* Tách biệt ra khỏi cái dropdown phía trên */
+}
+
+.sidebar .in-page-nav .standalone-item i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.sidebar .in-page-nav .standalone-item:hover,
+.sidebar .in-page-nav .standalone-item.active-nav {
+    background-color: #1e293b;
+    color: #ffffff;
+}
+
+/* 2. Giao diện Form nhập liệu */
+.form-container {
+    background: rgba(30, 41, 59, 0.4);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid #475569;
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(250, 204, 21, 0.3);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Nút Submit */
+.btn-submit-fb {
+    background-color: var(--primary);
+    color: #0f172a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-submit-fb:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* Nút Tải JSON */
+.btn-download-fb {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-download-fb:hover {
+    background-color: #2563eb;
 }

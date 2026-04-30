@@ -283,143 +283,64 @@ function copyConfig(btnElement) {
         alert('Lỗi khi copy: ' + err);
     });
 }
-// --- SCRIPT CHO MENU 3 GẠCH TRÊN MOBILE ---
+// ================================================= //
+// --- SCRIPT XỬ LÝ MENU XỔ XUỐNG & GỬI REPORT ---
+// ================================================= //
 document.addEventListener("DOMContentLoaded", function () {
-    const menuToggleBtn = document.getElementById('menu-toggle-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuLinks = mobileMenu.querySelectorAll('a');
+    
+    // 1. Xử lý thu nhỏ / mở rộng tab "Chức năng Tool"
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownContainer = document.querySelector('.dropdown-container');
 
-    // Bật/tắt menu khi bấm nút 3 gạch
-    if (menuToggleBtn && mobileMenu) {
-        menuToggleBtn.addEventListener('click', function () {
-            mobileMenu.classList.toggle('show-mobile-nav');
-
-            // Đổi icon từ 3 gạch sang dấu X
-            const icon = menuToggleBtn.querySelector('i');
-            if (mobileMenu.classList.contains('show-mobile-nav')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            }
+    if (dropdownBtn && dropdownContainer) {
+        dropdownBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            this.classList.toggle('active');
+            dropdownContainer.classList.toggle('show');
         });
+    }
 
-        // Tự động đóng menu khi bấm vào 1 mục bất kỳ
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('show-mobile-nav');
-                // Trả lại icon 3 gạch
-                const icon = menuToggleBtn.querySelector('i');
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
+    // 2. Xử lý gửi Form Report lên Hosting (save_feedback.php)
+    const feedbackForm = document.getElementById('feedbackForm');
+    const fbSuccessMsg = document.getElementById('fbSuccessMsg');
+
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function (e) {
+            e.preventDefault(); 
+
+            const name = document.getElementById('fbName').value.trim() || 'Ẩn danh';
+            const type = document.getElementById('fbType').value;
+            const content = document.getElementById('fbContent').value.trim();
+            const timestamp = new Date().toLocaleString('vi-VN');
+
+            const feedbackData = {
+                id: Date.now(),
+                thoi_gian: timestamp,
+                nguoi_gui: name,
+                loai_phan_hoi: type,
+                noi_dung: content
+            };
+
+            fetch('save_feedback.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(feedbackData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    fbSuccessMsg.innerText = "🚀 Đã gửi report thành công!";
+                    fbSuccessMsg.style.display = 'block';
+                    feedbackForm.reset();
+                    setTimeout(() => { fbSuccessMsg.style.display = 'none'; }, 4000);
+                } else {
+                    alert("Lỗi: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+                alert("Không thể kết nối đến máy chủ PHP!");
             });
         });
     }
-});
-// ================================================= //
-// --- SCRIPT CHO THANH TÌM KIẾM TÍNH NĂNG --- //
-// ================================================= //
-document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById('searchInput');
-    const suggestionsBox = document.getElementById('searchSuggestions');
-    let searchIndex = [];
-
-    // 1. Quét toàn bộ HTML để lấy dữ liệu làm từ điển tìm kiếm
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        const tabId = card.id;
-        const tabTitleEl = card.querySelector('.section-title');
-        if (!tabTitleEl) return;
-        const tabName = tabTitleEl.innerText.trim();
-
-        const featureBlocks = card.querySelectorAll('.feature-block');
-        featureBlocks.forEach((block, index) => {
-            // Tự động cấp ID cho block nếu chưa có để cuộn tới
-            if (!block.id) {
-                block.id = `auto-feature-${tabId}-${index}`;
-            }
-
-            const headerEl = block.querySelector('.feature-header');
-            const contentEl = block.querySelector('.text-content');
-
-            if (headerEl) {
-                searchIndex.push({
-                    id: block.id,
-                    tabId: tabId,
-                    tabName: tabName,
-                    title: headerEl.innerText.replace(/^\d+\.\s*/, '').trim(), // Bỏ số thứ tự 1. 2. ở đầu
-                    content: contentEl ? contentEl.innerText.toLowerCase() : ""
-                });
-            }
-        });
-    });
-
-    // 2. Lắng nghe sự kiện người dùng gõ phím
-    searchInput.addEventListener('input', function () {
-        const query = this.value.toLowerCase().trim();
-        suggestionsBox.innerHTML = '';
-
-        if (!query) {
-            suggestionsBox.style.display = 'none';
-            return;
-        }
-
-        // Lọc dữ liệu: Khớp với Tiêu đề, Tên Tab hoặc Nội dung bên trong
-        const matches = searchIndex.filter(item =>
-            item.title.toLowerCase().includes(query) ||
-            item.content.includes(query) ||
-            item.tabName.toLowerCase().includes(query)
-        ).slice(0, 7); // Chỉ hiển thị tối đa 7 kết quả gợi ý
-
-        // 3. Hiển thị gợi ý ra HTML
-        if (matches.length > 0) {
-            suggestionsBox.style.display = 'block';
-            matches.forEach(match => {
-                const li = document.createElement('li');
-                li.innerHTML = `<strong>${match.title}</strong><small><i class="fa-solid fa-folder-open"></i> Tab: ${match.tabName}</small>`;
-
-                // Sự kiện khi bấm vào 1 gợi ý
-                li.onclick = function () {
-                    suggestionsBox.style.display = 'none';
-                    searchInput.value = ''; // Reset thanh tìm kiếm
-
-                    // 3.1 Bấm nút giả lập để chuyển Tab
-                    const navLink = document.querySelector(`.in-page-nav a[href="#${match.tabId}"]`);
-                    if (navLink) navLink.click();
-
-                    // 3.2 Cuộn đến đúng vị trí và highlight
-                    setTimeout(() => {
-                        const targetBlock = document.getElementById(match.id);
-                        if (targetBlock) {
-                            targetBlock.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-                            // Tạo hiệu ứng highlight sáng lên 2 giây
-                            targetBlock.style.transition = "box-shadow 0.5s, transform 0.5s";
-                            targetBlock.style.boxShadow = "0 0 25px var(--primary)";
-                            targetBlock.style.transform = "scale(1.02)";
-                            targetBlock.style.borderRadius = "8px";
-
-                            setTimeout(() => {
-                                targetBlock.style.boxShadow = "none";
-                                targetBlock.style.transform = "scale(1)";
-                            }, 2000);
-                        }
-                    }, 100); // Đợi tab mở xong 100ms
-                };
-                suggestionsBox.appendChild(li);
-            });
-        } else {
-            // Trường hợp không tìm thấy kết quả
-            suggestionsBox.style.display = 'block';
-            suggestionsBox.innerHTML = `<li style="color: var(--danger); text-align: center;"><i class="fa-solid fa-triangle-exclamation"></i> Không tìm thấy tính năng này</li>`;
-        }
-    });
-
-    // 4. Bấm ra ngoài khoảng trống thì tự đóng thanh gợi ý
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.search-container')) {
-            suggestionsBox.style.display = 'none';
-        }
-    });
 });
